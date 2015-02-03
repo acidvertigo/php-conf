@@ -21,10 +21,10 @@ class Registry implements \ArrayAccess
     private static $instance = null;
 
     /** @var string $key **/
-    private static $instance = null;
+    private static $key = null;
     
     /** @var object $value **/
-    private static $instance = null;
+    private static $value = null;
     
     /**
      * Gets an istance of the Registry class
