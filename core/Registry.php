@@ -53,9 +53,9 @@ class Registry implements \ArrayAccess
     {
         if (isset($this->registry[$key])) {
             throw new Exception("There is already an entry for key: ".$key);
-        }
-
-        $this->registry[$key] = $value;
+        } else {
+            $this->registry[$key] = $value;    
+        }       
     }
 
     /**
@@ -68,9 +68,9 @@ class Registry implements \ArrayAccess
     {
         if (!isset($this->registry[$key])) {
             throw new Exception("There is no entry for key: ".$key);
+        } else {
+            return $this->registry[$key];
         }
-
-        return $this->registry[$key];
     }
 
     public function offsetExists($key)
