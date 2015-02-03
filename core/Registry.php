@@ -52,10 +52,10 @@ class Registry implements \ArrayAccess
     public function set($key, $value)
     {
         if (isset($this->registry[$key])) {
-            throw new Exception("There is already an entry for key: ".$key);
-        } else {
-            $this->registry[$key] = $value;    
-        }       
+            throw new \Exception("There is already an entry for key: ".$key);
+        }
+
+        $this->registry[$key] = $value;
     }
 
     /**
@@ -67,10 +67,10 @@ class Registry implements \ArrayAccess
     public function get($key)
     {
         if (!isset($this->registry[$key])) {
-            throw new Exception("There is no entry for key: ".$key);
-        } else {
-            return $this->registry[$key];
+            throw new \Exception("There is no entry for key: ".$key);
         }
+
+        return $this->registry[$key];
     }
 
     public function offsetExists($key)

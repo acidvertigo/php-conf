@@ -38,7 +38,7 @@ class Database
             try {
                 // Load the database connection parameters from the Registry
                 $db = $registry->get('config')['database'];
-                
+
                 // Starts connection
                 self::$conn = new \PDO("mysql:host=".$db['HOST'].";dbname=".$db['NAME'], $db['USERNAME'], $db['PASSWORD']);
             } catch (\PDOException $e) {
