@@ -47,7 +47,6 @@ class Configloader implements \ArrayAccess
         if (!$this->data) {
             throw new \Exception("Configuration file not found: ".$path);
         }
-
     }
 
     public function offsetExists($key)
