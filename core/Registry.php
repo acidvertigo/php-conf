@@ -23,7 +23,7 @@ class Registry implements \ArrayAccess
     /** @var string $key **/
     private static $instance = null;
     
-    /** @var string|array $value **/
+    /** @var object $value **/
     private static $instance = null;
     
     /**
