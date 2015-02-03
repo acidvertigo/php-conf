@@ -34,7 +34,7 @@ class Configloader implements \ArrayAccess
 {
 
     /** @var array $data * */
-    public $data = array();
+    private $data = array();
 
     /**
      * Parses a INI file as an array
