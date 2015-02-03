@@ -61,7 +61,7 @@ class Registry implements \ArrayAccess
     /**
      * Retrieves elements from registry array
      * @param string $key
-     * @return type
+     * @return string
      * @throws Exception when no $key found
      */
     public function get($key)
