@@ -17,7 +17,7 @@ class Registry implements \ArrayAccess
     /** @var array Registry configuration array **/
     private $registry = array();
 
-    /** @var void Class instance **/
+    /** @var Registry|null Class instance **/
     private static $instance = null;
 
     /** @var string $key **/
