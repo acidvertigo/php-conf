@@ -39,7 +39,6 @@ class Configloader implements \ArrayAccess
     /**
      * Parses a INI file as an array
      * @param  string $path
-     * @return array
      * @throws ParseException If there is an error parsing the INI file
      */
     public function __construct($path)
@@ -49,7 +48,6 @@ class Configloader implements \ArrayAccess
             throw new \Exception("Configuration file not found: ".$path);
         }
 
-        return $this->data;
     }
 
     public function offsetExists($key)
