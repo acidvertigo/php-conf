@@ -29,7 +29,7 @@ class Database
     /**
      * Connects to the database
      * @param \acd\Registry $registry
-     * @return Database
+     * @return null|object
      */
     public static function connect(Registry $registry)
     {
