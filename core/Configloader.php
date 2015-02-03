@@ -38,7 +38,7 @@ class Configloader implements \ArrayAccess
 
     /**
      * Parses a INI file as an array
-     * @param  object $path
+     * @param  string $path
      * @throws ParseException If there is an error parsing the INI file
      */
     public function __construct($path)
