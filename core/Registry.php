@@ -28,7 +28,7 @@ class Registry implements \ArrayAccess
     
     /**
      * Gets an istance of the Registry class
-     * @return object
+     * @return Registry|null
      */
     public static function getInstance()
     {
