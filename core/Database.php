@@ -16,7 +16,7 @@ namespace acd;
 class Database 
 {
 
-    /** @var Database|null **/
+    /** @var object|null **/
     private static $conn = null;
     
     /** @var array $db **/
