@@ -16,13 +16,21 @@ namespace acd;
 class Database 
 {
 
+    /** @var Database|null **/
     private static $conn = null;
+    
+    /** @var array $db **/
     private $db = array();
 
     private function __construct() {}
     
     private function __clone() {}
 
+    /**
+     * Connects to the database
+     * @param \acd\Registry $registry
+     * @return Database
+     */
     public static function connect(Registry $registry)
     {
         // One connection through whole application
@@ -38,6 +46,9 @@ class Database
         return self::$conn;
     }
 
+    /**
+     * Close database connection
+     */
     public static function disconnect()
     {
         self::$conn = null;
