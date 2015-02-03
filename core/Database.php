@@ -36,8 +36,10 @@ class Database
         // One connection through whole application
         if (null == self::$conn) {
             try {
-                // Then load the database connection parameters, ...
+                // Load the database connection parameters from the Registry
                 $db = $registry->get('config')['database'];
+                
+                // Starts connection
                 self::$conn = new \PDO("mysql:host=".$db['HOST'].";dbname=".$db['NAME'], $db['USERNAME'], $db['PASSWORD']);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
