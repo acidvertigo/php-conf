@@ -1,7 +1,5 @@
-<phpunit bootstrap="index.php">
-  <testsuites>
+ <testsuites>
     <testsuite name="acd">
       <directory>core/tests</directory>
     </testsuite>
   </testsuites>
-</phpunit>
