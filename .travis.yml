@@ -8,4 +8,4 @@ php:
 before_script:
   - composer self-update
  
-script: phpunit --coverage-html tests
+script: phpunit
