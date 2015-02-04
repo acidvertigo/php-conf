@@ -7,4 +7,5 @@ php:
   
 before_script:
   - composer self-update
-  - phpunit /core/tests/
+ 
+script: phpunit
