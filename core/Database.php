@@ -57,5 +57,9 @@ class Database
     {
         self::$conn = null;
     }
+    
+    public static function reset() {
+        self::$conn = null;
+    }
 
 }

@@ -74,6 +74,10 @@ class Registry implements \ArrayAccess
 
         return $this->registry[$key];
     }
+    
+    public static function reset() {
+        self::$instance = null;
+    }
 
     public function offsetExists($key)
     {
