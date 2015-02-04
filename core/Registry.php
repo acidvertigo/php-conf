@@ -43,6 +43,8 @@ class Registry implements \ArrayAccess
 
     private function __clone() {}
 
+    private function __wakeup() {}
+    
     /**
      * Adds element to registry array
      * @param string $key
