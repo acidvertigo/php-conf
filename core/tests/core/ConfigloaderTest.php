@@ -11,7 +11,9 @@
  *
  * @author Luca
  */
+
 require_once 'core/Configloader.php';
+
 
 class ConfigloaderTest extends PHPUnit_Framework_TestCase
 {

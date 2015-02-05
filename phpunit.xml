@@ -4,4 +4,3 @@
       <directory>core/tests</directory>
     </testsuite>
   </testsuites>
-</phpunit>
