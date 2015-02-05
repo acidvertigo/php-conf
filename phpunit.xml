@@ -1,7 +1,5 @@
-
-  <testsuites>
-    <testsuite name="acd">
-      <directory>core/tests</directory>
-    </testsuite>
-  </testsuites>
-
+<testsuites>
+  <testsuite name="acd">
+    <directory>core/tests</directory>
+  </testsuite>
+</testsuites>
