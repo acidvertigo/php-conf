@@ -28,11 +28,18 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         //and make it accessible
         $property = $reflection_class->getProperty('data');
         $property->setAccessible(true);
+        
+        $file = 'include/config.ini';
+        $this->assertFileExists($file);
 
         //We need to create an empty object to pass to
         //ReflectionProperty's getValue method
-        $config = new \acd\Configloader('include/config.ini');
+        $config = new \acd\Configloader($file);
+        
         $this->assertInternalType('array', $property->getValue($config));
+
+        $this->assertArrayHasKey('database', $property->getValue($config));
+        $this->assertArrayHasKey('test', $property->getValue($config));
     }
 
 }
