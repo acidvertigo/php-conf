@@ -44,7 +44,7 @@ class Configloader implements \ArrayAccess
     public function __construct($path)
     {
         $this->data = @parse_ini_file($path, true);
-            var_dump($this->data);
+
         if (!$this->data) {
             throw new \Exception("Configuration file not found: ".$path);
         }
