@@ -15,7 +15,7 @@
 require_once 'core/Configloader.php';
 
 
-class ConfigloaderTest extends PHPUnit_Framework_TestCase
+class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testConstructor()
