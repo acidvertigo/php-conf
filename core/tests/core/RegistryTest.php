@@ -11,7 +11,7 @@
  *
  * @author Luca
  */
-require_once '../Registry.php';
+require_once 'core/Registry.php';
 
 class RegistryTest extends PHPUnit_Framework_TestCase
 {

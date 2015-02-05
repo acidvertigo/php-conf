@@ -1,8 +1,8 @@
 <?php
 // Import core libraries.
-require_once('core/Registry.php');
-require('core/Configloader.php');
-require_once('core/Database.php');
+require 'core/Configloader.php';
+require 'core/Database.php';
+require_once 'core/Registry.php';
 
 try {
 

@@ -11,7 +11,7 @@
  *
  * @author Luca
  */
-require_once '../core/Configloader.php';
+require_once 'core/Configloader.php';
 
 class ConfigloaderTest extends PHPUnit_Framework_TestCase
 {
@@ -29,7 +29,7 @@ class ConfigloaderTest extends PHPUnit_Framework_TestCase
 
         //We need to create an empty object to pass to
         //ReflectionProperty's getValue method
-        $config = new \acd\Configloader('../../include/config.ini');
+        $config = new \acd\Configloader('include/config.ini');
         $this->assertInternalType('array', $property->getValue($config));
     }
 
