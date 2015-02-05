@@ -23,7 +23,20 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($firstCall, $secondCall);
     }
     
-    public function testNoConstructor()
+    public function testget()
+    {
+        $registry = \acd\Registry::getInstance();
+        $registry->set('test', array(1,2,3));
+        
+        $result = $registry->get('test');
+        $this->assertInternalType('array', $result);
+        $this->assertContains('1', $result);
+        $this->assertContains('2', $result);
+        $this->assertContains('3', $result);
+    }
+    
+    
+    public function testConstruct()
     {
         $obj = \acd\Registry::getInstance();
         $refl = new \ReflectionObject($obj);
