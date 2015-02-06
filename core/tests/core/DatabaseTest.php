@@ -62,7 +62,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 
     protected function getDataSet()
     {
-        return $this->createMySQLXMLDataSet(__DIR__ . '/datapump.xml');
+        return $this->createMySQLXMLDataSet(__DIR__ . '/datasource/mysqldump.xml');
     }
 
     /**
@@ -80,5 +80,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
         //Here we check that the table in the database matches the data in the XML file
         $this->assertTablesEqual($expectedTable, $queryTable);
     }
+    
+    /**
+     * TODO: This is where you can put your actual tests
+     */
 
 }
