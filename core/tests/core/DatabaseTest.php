@@ -17,22 +17,13 @@ require_once 'core/Registry.php';
 class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 {
 
-    /**
-     * This is the object that will be tested
-     * @var object Database
-     */
+    /** @var object Database: This is the object that will be tested **/
     protected $object;
 
-    /**
-     * only instantiate pdo once for test clean-up/fixture load
-     * @var object PDO
-     */
+    /** @var object PDO: only instantiate pdo once for test clean-up/fixture load **/
     static private $pdo = null;
 
-    /**
-     * only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test
-     * @var void $conn 
-     */
+    /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test **/
     private $conn = null;
 
     /**
