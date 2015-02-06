@@ -48,7 +48,7 @@ class Registry implements \ArrayAccess
     /**
      * Adds element to registry array
      * @param string $key
-     * @param string|object $value
+     * @param mixed $value
      * @throws Exception When there is a duplicate $key
      */
     public function set($key, $value)
