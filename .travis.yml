@@ -8,13 +8,13 @@ php:
 before_script:
   - mysql -e 'create database shop;'
   - mysql -e 'USE shop;'
-  - mysql -e 'create table products("
+  - mysql -e 'create table shop.products(
               products_id INT(7) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
               products_quantity INT(6) NOT NULL,
               products_model VARCHAR(30) NOT NULL
-              ");'
-  - mysql -e 'INSERT INTO products (products_id, products_quantity, products_model) VALUES (1000001, 31, example1);'
-  - mysql -e 'INSERT INTO products (products_id, products_quantity, products_model) VALUES (1000002, 15, example2);'
+              );'
+  - mysql -e 'INSERT INTO shop.products (products_id, products_quantity, products_model) VALUES (1000001, 31, example1);'
+  - mysql -e 'INSERT INTO shop.products (products_id, products_quantity, products_model) VALUES (1000002, 15, example2);'
   
 test:
   adapter: mysql2
