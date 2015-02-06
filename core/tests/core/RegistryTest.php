@@ -34,7 +34,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('2', $result);
         $this->assertContains('3', $result);
     }
-    
+
     
     public function testConstruct()
     {

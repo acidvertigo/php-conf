@@ -16,10 +16,10 @@ namespace acd;
 class Database 
 {
 
-    /** @var object|null **/
+    /** @var object|null Database instance */
     private static $conn = null;
     
-    /** @var array $db **/
+    /** @var array $db: database configuration array */
     private $db = array();
 
     private function __construct() {}

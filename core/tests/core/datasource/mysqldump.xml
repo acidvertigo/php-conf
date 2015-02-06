@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <database name="testing_database">
+        <table_data name="products">
+            <row>
+                <field name="products_id">1000001</field>
+                <field name="products_quantity">31</field>
+                <field name="products_model">example1</field>
+            </row>
+            <row>
+                <field name="products_id">1000002</field>
+                <field name="products_quantity">15</field>
+                <field name="products_model">example2</field>
+            </row>
+        </table_data>
+    </database>
+</mysqldump>
