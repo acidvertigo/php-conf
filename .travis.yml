@@ -7,6 +7,12 @@ php:
   
 before_script:
   - mysql -e 'create database shop;'
+  - mysql -e 'create table products(
+              products_id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+              products_quantity INT(6) NOT NULL,
+              products_model VARCHAR(30) NOT NULL,
+              );'
+  - mysql -e 'INSERT INTO products (column1, column2, column3,...) VALUES (value1, value2, value3,...);'
   
 test:
   adapter: mysql2
