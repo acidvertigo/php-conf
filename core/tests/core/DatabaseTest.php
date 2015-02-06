@@ -19,19 +19,19 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 
     /**
      * This is the object that will be tested
-     * @var DataPump
+     * @var object Database
      */
     protected $object;
 
     /**
      * only instantiate pdo once for test clean-up/fixture load
-     * @var PDO
+     * @var void PDO
      */
     static private $pdo = null;
 
     /**
      * only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test
-     * @var type 
+     * @var void $conn 
      */
     private $conn = null;
 
