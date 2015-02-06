@@ -47,8 +47,8 @@ class Registry implements \ArrayAccess
     
     /**
      * Adds element to registry array
-     * @param string $key
-     * @param mixed $value
+     * @param string $key - registry Key
+     * @param mixed $value - registry Value
      * @throws Exception When there is a duplicate $key
      */
     public function set($key, $value)
@@ -56,14 +56,14 @@ class Registry implements \ArrayAccess
         if (isset($this->registry[$key])) {
             throw new \Exception("There is already an entry for key: ".$key);
         }
-
+$this->
         $this->registry[$key] = $value;
     }
 
     /**
      * Retrieves elements from registry array
      * @param string $key
-     * @return string
+     * @return mixed returns a registry value
      * @throws Exception when no $key found
      */
     public function get($key)
