@@ -25,7 +25,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 
     /**
      * only instantiate pdo once for test clean-up/fixture load
-     * @var void PDO
+     * @var object PDO
      */
     static private $pdo = null;
 
