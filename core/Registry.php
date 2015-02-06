@@ -56,7 +56,7 @@ class Registry implements \ArrayAccess
         if (isset($this->registry[$key])) {
             throw new \Exception("There is already an entry for key: ".$key);
         }
-$this->
+
         $this->registry[$key] = $value;
     }
 
