@@ -20,12 +20,6 @@ class Registry implements \ArrayAccess
     /** @var object|null Class instance */
     private static $instance = null;
 
-    /** @var string $key configuration array key */
-    private static $key = null;
-    
-    /** @var string $value configuration array value */
-    private static $value = null;
-
     /**
      * Gets an istance of the Registry class
      * @return Registry|null
