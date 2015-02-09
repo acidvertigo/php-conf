@@ -40,9 +40,10 @@ class Database
             try {
                 // Load the database connection parameters from the Registry
                 $db = $registry->get('config')['database'];
+                $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
 
                 // Starts connection
-                self::$conn = new \PDO("mysql:host=".$db['HOST'].";dbname=".$db['NAME'], $db['USERNAME'], $db['PASSWORD']);
+                self::$conn = new \PDO("mysql:host=".$db['HOST'].";dbname=".$db['NAME'], $db['USERNAME'], $db['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
             }
