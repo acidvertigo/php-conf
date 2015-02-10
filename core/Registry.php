@@ -8,11 +8,15 @@
 
 namespace acd;
 
+require_once 'core/ArrayAccess.php';
+
 /**
  * Registry class
  */
 class Registry implements \ArrayAccess
 {
+
+    use ArrayAccess;
 
     /** @var array Registry configuration array */
     private $registry = array();
@@ -71,34 +75,6 @@ class Registry implements \ArrayAccess
     
     public static function reset() {
         self::$instance = null;
-    }
-
-    public function offsetExists($key)
-    {
-        return isset($this->registry[$key]);
-    }
-
-    public function offsetGet($key)
-    {
-        if (isset($this->registry[$key])) {
-            return $this->registry[$key];
-        }
-
-        return null;
-    }
-
-    public function offsetSet($key, $value)
-    {
-        if (is_null($key)) {
-            $this->registry[] = $value;
-        } else {
-            $this->registry[$key] = $value;
-        }
-    }
-
-    public function offsetUnset($key)
-    {
-        unset($this->registry[$key]);
     }
 
 }
