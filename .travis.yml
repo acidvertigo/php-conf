@@ -25,6 +25,6 @@ test:
 script: phpunit
 
 after_success:
- - pip install coveralls
+ - sudo pip install coveralls
  - coveralls
 
