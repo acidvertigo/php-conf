@@ -6,7 +6,7 @@ trait ArrayAccess
 {
     /**
      * Key to set
-     * @param mixed $offset
+     * @param mixed $key
      * @param mixed $value
      * @throws \Exception
      */
