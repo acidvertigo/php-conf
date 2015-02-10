@@ -5,9 +5,6 @@ php:
   - 5.6
   - hhvm
   
-install:
-   - pip install coveralls
-  
 before_script:
   - mysql -e 'create database shop;'
   - mysql -e 'USE shop;'
@@ -28,5 +25,6 @@ test:
 script: phpunit
 
 after_success:
+ - pip install coveralls
  - coveralls
 
