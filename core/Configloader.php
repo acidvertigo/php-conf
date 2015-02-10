@@ -33,7 +33,7 @@ namespace acd;
 class Configloader implements \ArrayAccess
 {
 
-    use \ArrayAccess;
+    use acd\ArrayAccess;
 
     /** @var array $data: Main configuration data Array */
     private $data = array();
