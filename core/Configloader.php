@@ -37,7 +37,7 @@ class Configloader implements \ArrayAccess
 
     use ArrayAccess;
 
-    /** @var array $comtent: Main configuration data Array */
+    /** @var array $content: Main configuration data Array */
     private $content = array();
 
     /**
@@ -49,7 +49,7 @@ class Configloader implements \ArrayAccess
     {
         $this->content = @parse_ini_file($path, true);
 
-        if (!$this->data) {
+        if (!$this->content) {
             throw new \Exception("Configuration file not found: ".$path);
         }
     }
