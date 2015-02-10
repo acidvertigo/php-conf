@@ -50,6 +50,7 @@ class Configloader implements \ArrayAccess
         }
     }
 
+    /** ArrayAccess Methods */
     public function offsetExists($key)
     {
         return isset($this->data[$key]);
