@@ -32,6 +32,7 @@ namespace acd;
  */
 class Configloader implements \ArrayAccess
 {
+    use ArrayAccess;
 
     /** @var array $data: Main configuration data Array */
     private $data = array();
@@ -48,35 +49,6 @@ class Configloader implements \ArrayAccess
         if (!$this->data) {
             throw new \Exception("Configuration file not found: ".$path);
         }
-    }
-
-    /** ArrayAccess Methods */
-    public function offsetExists($key)
-    {
-        return isset($this->data[$key]);
-    }
-
-    public function offsetGet($key)
-    {
-        if (isset($this->data[$key])) {
-            return $this->data[$key];
-        }
-
-        return null;
-    }
-
-    public function offsetSet($key, $value)
-    {
-        if (is_null($key)) {
-            $this->data[] = $value;
-        } else {
-            $this->data[$key] = $value;
-        }
-    }
-
-    public function offsetUnset($key)
-    {
-        unset($this->data[$key]);
     }
 
 }
