@@ -1,5 +1,7 @@
 <?php
 
+namespace acd;
+
 trait ArrayAccess
 {
     /**
