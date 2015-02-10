@@ -1,6 +1,6 @@
 <?php
 // Import core libraries.
-require 'core/ArrayAccess.php';
+require_once 'core/ArrayAccess.php';
 require_once 'core/Configloader.php';
 require_once 'core/Database.php';
 require_once 'core/Registry.php';
