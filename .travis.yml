@@ -23,3 +23,7 @@ test:
   encoding: utf8
 
 script: phpunit
+
+after_success:
+ - coveralls
+
