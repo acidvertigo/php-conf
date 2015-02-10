@@ -37,8 +37,8 @@ class Configloader implements \ArrayAccess
 
     use ArrayAccess;
 
-    /** @var array $data: Main configuration data Array */
-    private $data = array();
+    /** @var array $comtent: Main configuration data Array */
+    private $content = array();
 
     /**
      * Parses a INI file as an array
@@ -47,7 +47,7 @@ class Configloader implements \ArrayAccess
      */
     public function __construct($path)
     {
-        $this->data = @parse_ini_file($path, true);
+        $this->content = @parse_ini_file($path, true);
 
         if (!$this->data) {
             throw new \Exception("Configuration file not found: ".$path);
