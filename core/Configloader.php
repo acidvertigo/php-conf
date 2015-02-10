@@ -23,9 +23,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-require_once 'core/ArrayAccess.php';
 
 namespace acd;
+
+require_once 'core/ArrayAccess.php';
 
 /**
  * Configloader - Configuration file loader class
