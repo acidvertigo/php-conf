@@ -5,6 +5,9 @@ php:
   - 5.6
   - hhvm
   
+install:
+   - pip install coveralls
+  
 before_script:
   - mysql -e 'create database shop;'
   - mysql -e 'USE shop;'
