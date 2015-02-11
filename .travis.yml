@@ -26,7 +26,7 @@ test:
 
 script:
  - mkdir -p build/logs
- - phpunit -c travis.phpunit.xml
+ - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
  - coveralls -v
