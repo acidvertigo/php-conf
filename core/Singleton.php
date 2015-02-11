@@ -9,7 +9,7 @@ trait Singleton {
 
     /**
      * Get Instance
-     * @return void Returns self instance
+     * @return Singleton Returns self instance
      */
     final public static function getInstance()
     {
