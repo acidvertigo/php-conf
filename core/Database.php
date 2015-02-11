@@ -8,6 +8,8 @@
 
 namespace acd;
 
+require_once 'core/Singleton.php';
+
 /**
  * Description of database
  *
@@ -15,19 +17,8 @@ namespace acd;
  */
 class Database 
 {
-
-    /** @var object|null Database instance */
-    private static $conn = null;
-    
-    /** @var array $db: database configuration array */
-    private $db = array();
-
-    private function __construct() {}
-    
-    private function __clone() {}
-    
-    private function __wakeup() {}
-
+    use Singleton;
+     
     /**
      * Connects to the database
      * @param \acd\Registry $registry
@@ -36,17 +27,18 @@ class Database
     public static function connect(array $registry)
     {
         // One connection through whole application
-        if (null == self::$conn) {
+        if (!self::$instance) {
             try {
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
                 // Starts connection
-                self::$conn = new \PDO("mysql:host=".$registry['HOST'].";dbname=".$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
+                self::$instance = new \PDO("mysql:host=".$registry['HOST'].";dbname=".$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
             }
         }
-        return self::$conn;
+        
+        return self::$instance;
     }
 
     /**
@@ -54,7 +46,7 @@ class Database
      */
     public static function disconnect()
     {
-        self::$conn = null;
+        self::$instance = null;
     }
 
 }
