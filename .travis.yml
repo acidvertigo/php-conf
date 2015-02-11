@@ -6,6 +6,8 @@ php:
   - hhvm
   
 before_script:
+  - composer --self-update
+  - pip install coveralls
   - mysql -e 'create database shop;'
   - mysql -e 'USE shop;'
   - mysql -e 'create table shop.products(
@@ -25,6 +27,5 @@ test:
 script: phpunit
 
 after_success:
- - pip install coveralls
  - coveralls
 
