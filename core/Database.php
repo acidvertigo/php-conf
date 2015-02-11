@@ -33,17 +33,15 @@ class Database
      * @param \acd\Registry $registry
      * @return null|object
      */
-    public static function connect(Registry $registry)
+    public static function connect(array $registry)
     {
         // One connection through whole application
         if (null == self::$conn) {
             try {
-                // Load the database connection parameters from the Registry
-                $db = $registry->get('config')['database'];
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
                 // Starts connection
-                self::$conn = new \PDO("mysql:host=".$db['HOST'].";dbname=".$db['NAME'], $db['USERNAME'], $db['PASSWORD'], $options);
+                self::$conn = new \PDO("mysql:host=".$registry['HOST'].";dbname=".$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
             }

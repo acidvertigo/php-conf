@@ -37,7 +37,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
                                                            'NAME' => 'shop', 
                                                            'USERNAME' => 'root',
                                                            'PASSWORD' =>'' )));
-        $this->object = acd\Database::connect($registry);
+
+        $this->object = acd\Database::connect($registry->get('config')['database']);
     }
 
     /**
