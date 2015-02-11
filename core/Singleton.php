@@ -18,10 +18,10 @@ trait Singleton {
             : static::$instance = new static;
     }
 
-    final private function __construct() { }
+    protected function __construct() { }
     
-    final private function __clone() { }
+    protected function __clone() { }
 
-    final private function __wakeup() { }
+    protected function __wakeup() { }
 
 }
