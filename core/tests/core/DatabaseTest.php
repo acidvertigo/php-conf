@@ -34,9 +34,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     {
         $registry = acd\Registry::getInstance();
         $registry->set('config', array('database' => array('HOST' => 'localhost', 
-                                                           'NAME' => 'shop', 
-                                                           'USERNAME' => 'root',
-                                                           'PASSWORD' =>'' )));
+                                                            'NAME' => 'shop', 
+                                                            'USERNAME' => 'root',
+                                                            'PASSWORD' =>'' )));
 
         $this->object = acd\Database::connect($registry->get('config')['database']);
     }
@@ -63,7 +63,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 
     protected function getDataSet()
     {
-        return $this->createMySQLXMLDataSet(__DIR__ . '/datasource/mysqldump.xml');
+        return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
     }
 
     /**
