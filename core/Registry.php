@@ -8,6 +8,7 @@
 
 namespace acd;
 
+require_once 'core/Singleton.php';
 require_once 'core/ArrayAccess.php';
 
 /**
@@ -16,33 +17,12 @@ require_once 'core/ArrayAccess.php';
 class Registry implements \ArrayAccess
 {
 
+    use Singleton;
     use ArrayAccess;
 
     /** @var array Registry configuration array */
     private $data = array();
 
-    /** @var object|null Class instance */
-    private static $instance = null;
-
-    /**
-     * Gets an istance of the Registry class
-     * @return Registry|null
-     */
-    public static function getInstance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new Registry();
-        }
-
-        return self::$instance;
-    }
-
-    private function __construct() {}
-
-    private function __clone() {}
-
-    private function __wakeup() {}
-    
     /**
      * Adds element to registry array
      * @param string $key - registry Key
