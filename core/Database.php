@@ -18,7 +18,7 @@ require_once 'core/Singleton.php';
 class Database 
 {
     use Singleton;
-     
+
     /**
      * Connects to the database
      * @param \acd\Registry $registry
