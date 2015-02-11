@@ -26,6 +26,6 @@ test:
 
 script: phpunit
 
-after_success:
- - coveralls
+after_script:
+ - coveralls -v
 
