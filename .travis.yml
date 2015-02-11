@@ -29,5 +29,5 @@ script:
  - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
- - coveralls -v
+ - bin/coveralls -v
 
