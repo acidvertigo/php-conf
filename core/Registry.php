@@ -19,7 +19,7 @@ class Registry implements \ArrayAccess
     use ArrayAccess;
 
     /** @var array Registry configuration array */
-    private $registry = array();
+    private $data = array();
 
     /** @var object|null Class instance */
     private static $instance = null;
@@ -51,11 +51,11 @@ class Registry implements \ArrayAccess
      */
     public function set($key, $value)
     {
-        if (isset($this->registry[$key])) {
+        if (isset($this->data[$key])) {
             throw new \Exception("There is already an entry for key: ".$key);
         }
 
-        $this->registry[$key] = $value;
+        $this->data[$key] = $value;
     }
 
     /**
@@ -66,11 +66,11 @@ class Registry implements \ArrayAccess
      */
     public function get($key)
     {
-        if (!isset($this->registry[$key])) {
+        if (!isset($this->data[$key])) {
             throw new \Exception("There is no entry for key: ".$key);
         }
 
-        return $this->registry[$key];
+        return $this->data[$key];
     }
     
     public static function reset() {

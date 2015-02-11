@@ -5,8 +5,6 @@ namespace acd;
 trait ArrayAccess
 {
 
-    private $data = array();
-
     /**
      * Key to set
      * @param mixed $key
