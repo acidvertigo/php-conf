@@ -7,10 +7,6 @@ trait Singleton {
     /** @var static Singleton instance */
     protected static $instance;
 
-    /**
-     * Get Instance
-     * @return Singleton Returns self instance
-     */
     final public static function getInstance()
     {
         return isset(static::$instance)
