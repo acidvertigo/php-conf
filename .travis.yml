@@ -24,7 +24,9 @@ test:
   username: root
   encoding: utf8
 
-script: phpunit
+script:
+ - mkdir -p build/logs
+ - phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
  - coveralls -v
