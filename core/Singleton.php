@@ -4,12 +4,8 @@ namespace acd;
 
 trait Singleton {
 
-    /** @var object Singleton instance */
     protected static $instance;
 
-    /**
-     * @return Singleton
-     */
     final public static function getInstance()
     {
         return isset(static::$instance)
