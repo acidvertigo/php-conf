@@ -13,14 +13,12 @@ trait Singleton {
      */
     final public static function getInstance()
     {
-        if(!self::$instance) { // If no instance then make one
-            self::$instance = new self();
-	}
-	
-        return self::$instance;
+        return isset(static::$instance)
+            ? static::$instance
+            : static::$instance = new static;
     }
 
-    private function __construct() { }
+    private function __construct() {}
     
     private function __clone() { }
 
