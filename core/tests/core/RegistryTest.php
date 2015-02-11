@@ -26,7 +26,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     public function testget()
     {
         $registry = \acd\Registry::getInstance();
-        $registry->set('test', array(1,2,3));
+        $registry->set('test', array(1, 2, 3));
         
         $result = $registry->get('test');
         $this->assertInternalType('array', $result);
