@@ -4,7 +4,7 @@ namespace acd;
 
 trait Singleton {
 
-    /** @var static Singleton instance */
+    /** @var object Singleton instance */
     protected static $instance;
 
     final public static function getInstance()
