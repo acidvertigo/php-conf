@@ -21,7 +21,7 @@ class Database
 
     /**
      * Connects to the database
-     * @param \acd\Registry $registry
+     * @param array $registry
      * @return null|object
      */
     public static function connect(array $registry)
