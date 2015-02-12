@@ -27,7 +27,7 @@ test:
 
 script:
  - mkdir -p build/logs
- - phpunit --coverage-clover build/logs/clover.xml
+ - phpunit -v --coverage-clover build/logs/clover.xml
 
 after_script:
  - php vendor/bin/coveralls -v -c .coveralls.yml
