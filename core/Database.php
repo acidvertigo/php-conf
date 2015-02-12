@@ -15,7 +15,7 @@ require_once 'core/Singleton.php';
  *
  * @author Acidvertigo
  */
-class Database 
+class Database
 {
     use Singleton;
 
@@ -48,5 +48,4 @@ class Database
     {
         self::$instance = null;
     }
-
 }
