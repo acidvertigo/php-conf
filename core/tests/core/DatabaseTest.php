@@ -54,7 +54,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     {
         if ($this->conn === null) {
             if (self::$pdo === null) {
-                self::$pdo = new PDO('mysql:dbname=shop;host=localhost', 'root', '');
+                $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+                self::$pdo = new PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
             }
             $this->conn = $this->createDefaultDBConnection(self::$pdo, 'ross_testing');
         }
