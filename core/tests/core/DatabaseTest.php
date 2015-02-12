@@ -74,7 +74,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 
         $this->getConnection()->createDataSet(array('products'));
         $prod = $this->getDataSet();
-        $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
+        $queryTable =          $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
         $expectedTable = $this->getDataSet()->getTable('products');
         //Here we check that the table in the database matches the data in the XML file
         $this->assertTablesEqual($expectedTable, $queryTable);
