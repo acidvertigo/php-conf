@@ -36,7 +36,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
         $registry->set('config', array('database' => array('HOST' => 'localhost', 
                                                             'NAME' => 'shop', 
                                                             'USERNAME' => 'root',
-                                                            'PASSWORD' =>'')));
+                                                            'PASSWORD' => '')));
 
         $this->object = acd\Database::connect($registry->get('config')['database']);
     }
@@ -53,7 +53,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     protected function getConnection()
     {
         if ($this->conn === null) {
-            if (self::$pdo == null) {
+            if (self::$pdo === null) {
                 self::$pdo = new PDO('mysql:dbname=shop;host=localhost', 'root', '');
             }
             $this->conn = $this->createDefaultDBConnection(self::$pdo, 'ross_testing');
@@ -74,9 +74,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 
         $this->getConnection()->createDataSet(array('products'));
         $prod = $this->getDataSet();
-        $queryTable = $this->getConnection()->createQueryTable(
-                'products', 'SELECT * FROM products'
-        );
+        $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
         $expectedTable = $this->getDataSet()->getTable('products');
         //Here we check that the table in the database matches the data in the XML file
         $this->assertTablesEqual($expectedTable, $queryTable);
@@ -85,5 +83,4 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     /**
      * TODO: This is where you can put your actual tests
      */
-
 }
