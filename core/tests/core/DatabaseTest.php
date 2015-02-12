@@ -83,7 +83,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     
     public function testDisconnect()
     {
-        $database = \acd\Database::getInstance();
-        $this->assertNull($database->disconnect());
+        $this->assertNull($this->object->disconnect());
     }
 }
