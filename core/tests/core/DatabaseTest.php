@@ -81,7 +81,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
         $this->assertTablesEqual($expectedTable, $queryTable);
     }
     
-    /**
-     * TODO: This is where you can put your actual tests
-     */
+    public function testDisconnect()
+    {
+        $database = \acd\Databse::getInstance();
+        $this->assertNull($database->disconnect());
+    }
 }
