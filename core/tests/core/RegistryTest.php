@@ -39,10 +39,9 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     
     public function testConstruct()
     {
-        $obj = \acd\Registry::getInstance();
+        $obj  = \acd\Registry::getInstance();
         $refl = new \ReflectionObject($obj);
         $meth = $refl->getMethod('__construct');
         $this->assertTrue($meth->isPrivate());
     }
- 
 }
