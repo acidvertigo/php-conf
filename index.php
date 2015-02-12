@@ -1,5 +1,6 @@
 <?php
 // Import core libraries.
+require_once 'vendor/autoload.php';
 require_once 'core/Configloader.php';
 require_once 'core/Database.php';
 require_once 'core/Registry.php';
