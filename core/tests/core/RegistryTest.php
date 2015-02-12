@@ -14,7 +14,8 @@
 require_once 'core/Registry.php';
 
 class RegistryTest extends \PHPUnit_Framework_TestCase
-{    
+{
+
     public function testgetInstance()
     {
         $firstCall = \acd\Registry::getInstance();
