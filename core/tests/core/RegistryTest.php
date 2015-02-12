@@ -45,7 +45,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($meth->isPrivate());
     }
     
-       public function testReset()
+        public function testReset()
     {
         $registry = \acd\Registry::getInstance();
         $this->assertNull($registry->reset());
