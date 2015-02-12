@@ -32,7 +32,7 @@ class Database
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
                 // Starts connection
-                self::$instance = new \PDO("mysql:host=".$registry['HOST'].";dbname=".$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
+                self::$instance = new \PDO('mysql:host='.$registry['HOST'].';dbname='.$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
             }
