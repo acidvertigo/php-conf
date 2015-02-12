@@ -48,6 +48,6 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
        public function testReset()
     {
         $registry = \acd\Registry::getInstance();
-        $this->assertNull($registry->Reset());
+        $this->assertNull($registry->reset());
     }    
 }
