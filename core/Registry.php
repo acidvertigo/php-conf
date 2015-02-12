@@ -54,5 +54,4 @@ class Registry implements \ArrayAccess
     public static function reset() {
         self::$instance = null;
     }
-
 }
