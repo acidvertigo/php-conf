@@ -53,5 +53,4 @@ class Configloader implements \ArrayAccess
             throw new \Exception('Configuration file not found: '.$path);
         }
     }
-
 }
