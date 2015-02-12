@@ -2,7 +2,8 @@
 
 namespace acd;
 
-trait Singleton {
+trait Singleton
+{
 
     protected static $instance;
 
@@ -18,5 +19,4 @@ trait Singleton {
     private function __clone() { }
 
     private function __wakeup() { }
-
 }
