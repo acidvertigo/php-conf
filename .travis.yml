@@ -7,7 +7,7 @@ php:
   
 before_script:
   - composer self-update
-  - composer install --dev
+  - composer install
   - composer require satooshi/php-coveralls:* --dev
   - mysql -e 'create database shop;'
   - mysql -e 'USE shop;'
