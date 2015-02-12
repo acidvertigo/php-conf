@@ -22,7 +22,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
     {
         //First we need to create a ReflectionClass object
         //passing in the class name as a variable
-        $reflection_class = new ReflectionClass("\acd\Configloader");
+        $reflection_class = new ReflectionClass('\acd\Configloader');
 
         //Then we need to get the property we wish to test
         //and make it accessible
@@ -41,5 +41,4 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('database', $property->getValue($config));
         $this->assertArrayHasKey('test', $property->getValue($config));
     }
-
 }
