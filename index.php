@@ -13,8 +13,7 @@ try {
     $registry->set('config', new \acd\Configloader('include/config.ini'));
 
     // Connect to database
-    $database = acd\Database::getInstance();
-    $database->connect($registry->get('config')['database']);
+    $database = acd\Database::connect($registry->get('config')['database']);
 
 } catch (\Exception $e) {
     echo $e->getMessage();

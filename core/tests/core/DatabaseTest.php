@@ -21,7 +21,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     protected $object;
 
     /** @var object PDO: only instantiate pdo once for test clean-up/fixture load **/
-    static private $pdo = null;
+    static private $instance = null;
 
     /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test **/
     private $conn = null;
@@ -44,18 +44,24 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
         
     }
 
+    /**
+     * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
+     */
     protected function getConnection()
     {
         if ($this->conn === null) {
-            if (self::$pdo === null) {
+            if (self::$instance === null) {
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
-                self::$pdo = new PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
+                self::$instance = new PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
             }
-            $this->conn = $this->createDefaultDBConnection(self::$pdo, 'shop');
+            $this->conn = $this->createDefaultDBConnection(self::$instance, 'shop');
         }
         return $this->conn;
     }
 
+    /**
+     * @return PHPUnit_Extensions_Database_DataSet_IDataSet
+     */
     protected function getDataSet()
     {
         return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
