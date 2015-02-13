@@ -29,12 +29,12 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         $property = $reflection_class->getProperty('data');
         $property->setAccessible(true);
         
-        $file = 'include/config.ini';
-        $this->assertFileExists($file);
+        $path = 'include/config.ini';
+        $this->assertFileExists($path);
 
         //We need to create an empty object to pass to
         //ReflectionProperty's getValue method
-        $config = new \acd\Configloader($file);
+        $config = new \acd\Configloader($path);
         
         $this->assertInternalType('array', $property->getValue($config));
 
