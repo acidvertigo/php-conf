@@ -52,10 +52,11 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
         if ($this->conn === null) {
             if (self::$instance === null) {
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
-                self::$instance = new PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
+                self::$instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
             }
             $this->conn = $this->createDefaultDBConnection(self::$instance, 'shop');
         }
+
         return $this->conn;
     }
 
@@ -70,7 +71,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     /**
      * This is here to ensure that the database is working correctly
      */
-    public function testDataBaseConnection()
+    public function testConnect()
     {
 
         $this->getConnection()->createDataSet(array('products'));
