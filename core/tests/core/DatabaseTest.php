@@ -99,16 +99,5 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     {
         $this->assertNull($this->object);
     }
-    
-    /**
-     * @expectedException \PDOException
-     */
-    public function testConnectionException()
-    {
-        return \acd\Database::connect(array('HOST' => 'localhojst',
-                                                 'NAME' => 's1hop',
-                                                 'USERNAME' => 'root',
-                                                 'PASSWORD' => ''));
 
-    }
 }
