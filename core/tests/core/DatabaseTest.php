@@ -32,13 +32,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
      */
     protected function setUp()
     {
-        $registry = acd\Registry::getInstance();
-        $registry->set('config', array('database' => array('HOST' => 'localhost', 
-                                                            'NAME' => 'shop', 
-                                                            'USERNAME' => 'root',
-                                                            'PASSWORD' => '')));
-
-        $this->object = acd\Database::connect($registry->get('config')['database']);
+        
     }
 
     /**
@@ -57,7 +51,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
                 self::$pdo = new PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
             }
-            $this->conn = $this->createDefaultDBConnection(self::$pdo, 'ross_testing');
+            $this->conn = $this->createDefaultDBConnection(self::$pdo, 'shop');
         }
         return $this->conn;
     }
