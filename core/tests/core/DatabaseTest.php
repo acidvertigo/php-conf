@@ -11,8 +11,8 @@
  *
  * @author Luca
  */
+
 require_once 'core/Database.php';
-require_once 'core/Registry.php';
 
 class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 {
