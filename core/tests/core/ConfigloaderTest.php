@@ -12,33 +12,18 @@
  * @author Luca
  */
 
-require_once 'core/Configloader.php';
+require_once '../../core/Configloader.php';
 
 
 class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testConstructor()
+    public function testConstruct()
     {
-        //First we need to create a ReflectionClass object
-        //passing in the class name as a variable
-        $reflection_class = new ReflectionClass('\acd\Configloader');
-
-        //Then we need to get the property we wish to test
-        //and make it accessible
-        $property = $reflection_class->getProperty('data');
-        $property->setAccessible(true);
-        
-        $path = 'include/config.ini';
+        $path = '../../include/config.ini';
         $this->assertFileExists($path);
 
-        //We need to create an empty object to pass to
-        //ReflectionProperty's getValue method
-        $config = new \acd\Configloader($path);
-        
-        $this->assertInternalType('array', $property->getValue($config));
-
-        $this->assertArrayHasKey('database', $property->getValue($config));
-        $this->assertArrayHasKey('test', $property->getValue($config));
+        $class = new \acd\Configloader($path);
+        $this->assertAttributeInternalType('array', 'data', $class);
     }
 }
