@@ -58,6 +58,6 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     {
         $registry = \acd\Registry::getInstance();
         $registry->set('test', array(1, 2, 3));
-        $result = $registry->get('config');
+        return $registry->get('config');
     }
 }
