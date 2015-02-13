@@ -83,6 +83,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     
     public function testDisconnect()
     {
-        $this->assertNull($this->object->disconnect());
+        $this->assertNull($this->conn);
     }
 }
