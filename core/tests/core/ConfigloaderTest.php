@@ -18,8 +18,8 @@ require_once '../../core/Configloader.php';
 class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {
 
-    private $path = '../../include/config.ini';
-    private $wrong_path = '../../include/conffig.ini';
+    private $path = 'include/config.ini';
+    private $wrong_path = 'include/conffig.ini';
     
     public function testConstruct()
     {
