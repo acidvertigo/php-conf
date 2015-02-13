@@ -71,14 +71,27 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     /**
      * This is here to ensure that the database is working correctly
      */
-    public function testConnect()
+    public function testDatabase()
     {
 
         $this->getConnection()->createDataSet(array('products'));
+        
         $queryTable    = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
         $expectedTable = $this->getDataSet()->getTable('products');
         //Here we check that the table in the database matches the data in the XML file
         $this->assertTablesEqual($expectedTable, $queryTable);
+    }
+    
+    public function testConnection() {
+    {
+        $database = \acd\Database::connect(array('HOST' => 'localhost',
+                                                 'NAME' => 'shop',
+                                                 'USERNAME' => 'root',
+                                                 'PASSWORD' => ''));
+
+        $this->assertInstanceOf('PDO', $database);
+    }
+        
     }
     
     public function testDisconnect()
