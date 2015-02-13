@@ -12,18 +12,23 @@
  * @author Luca
  */
 
-require_once '../../core/Configloader.php';
+require_once 'core/Configloader.php';
 
 
 class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {
 
+    private $path = 'include/config.ini';
+
+
     public function testConstruct()
     {
-        $path = '../../include/config.ini';
-        $this->assertFileExists($path);
-
-        $class = new \acd\Configloader($path);
+        $class = new \acd\Configloader($this->path);
         $this->assertAttributeInternalType('array', 'data', $class);
+    }
+    
+    public function testFileLoad()
+    {
+        $this->assertFileExists($this->path);   
     }
 }
