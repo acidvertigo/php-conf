@@ -86,9 +86,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     {
         self::$instance === null;
         $this->object = \acd\Database::connect(array('HOST' => 'localhost',
-                                                 'NAME' => 'shop',
-                                                 'USERNAME' => 'root',
-                                                 'PASSWORD' => ''));
+                                                    'NAME' => 'shop',
+                                                    'USERNAME' => 'root',
+                                                    'PASSWORD' => ''));
 
         $this->assertInstanceOf('PDO', $this->object);
     }
@@ -106,9 +106,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     public function testConnectionException()
     {
         return \acd\Database::connect(array('HOST' => 'localhojst',
-                                                 'NAME' => 's1hop',
-                                                 'USERNAME' => 'root',
-                                                 'PASSWORD' => ''));
+                                                    'NAME' => 's1hop',
+                                                    'USERNAME' => 'root',
+                                                    'PASSWORD' => ''));
 
     }
 }
