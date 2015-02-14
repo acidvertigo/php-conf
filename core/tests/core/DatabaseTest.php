@@ -11,27 +11,24 @@
  *
  * @author Luca
  */
-
 require_once 'core/Database.php';
 
-class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
-{
+class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
-    /** @var object Database: This is the object that will be tested **/
+    /** @var object Database: This is the object that will be tested * */
     protected $object;
 
-    /** @var object PDO: only instantiate pdo once for test clean-up/fixture load **/
+    /** @var object PDO: only instantiate pdo once for test clean-up/fixture load * */
     static private $instance = null;
 
-    /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test **/
+    /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test * */
     private $conn = null;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
-    {
+    protected function setUp() {
         
     }
 
@@ -39,16 +36,14 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
-    {
+    protected function tearDown() {
         
     }
 
     /**
      * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
      */
-    protected function getConnection()
-    {
+    protected function getConnection() {
         if ($this->conn === null) {
             if (self::$instance === null) {
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
@@ -63,41 +58,45 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
     /**
      * @return PHPUnit_Extensions_Database_DataSet_IDataSet
      */
-    protected function getDataSet()
-    {
-        return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
+    protected function getDataSet() {
+        return $this->createMySQLXMLDataSet(__DIR__ . '/datasource/mysqldump.xml');
     }
 
     /**
      * This is here to ensure that the database is working correctly
      */
-    public function testDatabase()
-    {
+    public function testDatabase() {
 
         $this->getConnection()->createDataSet(array('products'));
-        
-        $queryTable    = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
+
+        $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
         $expectedTable = $this->getDataSet()->getTable('products');
         //Here we check that the table in the database matches the data in the XML file
         $this->assertTablesEqual($expectedTable, $queryTable);
     }
-    
-    public function testConnection() {
-    {
-        self::$instance === null;
-        $this->object = \acd\Database::connect(array('HOST' => 'localhost',
-                                                 'NAME' => 'shop',
-                                                 'USERNAME' => 'root',
-                                                 'PASSWORD' => ''));
 
-        $this->assertInstanceOf('PDO', $this->object);
+    public function testConnection() { {
+            self::$instance === null;
+            $this->object = \acd\Database::connect(array('HOST' => 'localhost',
+                        'NAME' => 'shop',
+                        'USERNAME' => 'root',
+                        'PASSWORD' => ''));
+
+            $this->assertInstanceOf('PDO', $this->object);
+        }
     }
-        
-    }
-    
-    public function testDisconnect()
-    {
+
+    public function testDisconnect() {
+        $this->object = null;
         $this->assertNull($this->object);
     }
 
+    /**
+     * @depends testConnection
+     * @expectedException \PDOException
+     * @todo check \PDOException 
+     */
+    public function testConnectionException() {
+     
+    }
 }
