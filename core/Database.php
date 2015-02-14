@@ -34,11 +34,12 @@ class Database
 
                 // Starts connection
                 self::$instance = new \PDO('mysql:host='.$registry['HOST'].';dbname='.$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
-            } catch (\PDOException $e) {
+            } 
+            catch (\PDOException $e) {
                 echo $e->getMessage();
             }
         }
-        
+
         return self::$instance;
     }
 
