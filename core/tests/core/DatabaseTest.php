@@ -75,16 +75,21 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $this->assertTablesEqual($expectedTable, $queryTable);
     }
 
-    public function testConnection() { {
-            self::$instance === null;
+    public function testConnection() { 
+        try {
+            $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
             $this->object = \acd\Database::connect(array('HOST' => 'localhost',
                                                          'NAME' => 'shop',
                                                          'USERNAME' => 'root',
-                                                         'PASSWORD' => ''));
-
+                                                         'PASSWORD' => '',
+                                                         $options));
+            }
+            catch (\PDOException $e) {
+              return $this->testConnectionException(); 
+            }
             $this->assertInstanceOf('PDO', $this->object);
         }
-    }
+ 
 
     public function testDisconnect() {
         $this->assertNotInstanceOf('PDO', \acd\Database::disconnect());
@@ -95,6 +100,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @todo check \PDOException 
      */
     public function testConnectionException() {
-     
+     // Stop here and mark this test as incomplete.
+        $this->markTestIncomplete(
+          'This test has not been implemented yet.'
+        );
     }
 }
