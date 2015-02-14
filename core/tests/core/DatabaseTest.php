@@ -76,16 +76,15 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     public function testConnection() { 
-        try {
+
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
             $this->object = \acd\Database::connect(array('HOST' => 'localhost',
                                                          'NAME' => 'shop',
                                                          'USERNAME' => 'root',
                                                          'PASSWORD' => '',
                                                          $options));
-            } catch (\PDOException $e) {
-              return $this->testConnectionException(); 
-            }
+
+
             $this->assertInstanceOf('PDO', $this->object);
         }
 
