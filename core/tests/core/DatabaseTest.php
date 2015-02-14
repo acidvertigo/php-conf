@@ -83,8 +83,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                                                          'USERNAME' => 'root',
                                                          'PASSWORD' => '',
                                                          $options));
-            }
-            catch (\PDOException $e) {
+            } catch (\PDOException $e) {
               return $this->testConnectionException(); 
             }
             $this->assertInstanceOf('PDO', $this->object);
