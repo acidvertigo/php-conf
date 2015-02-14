@@ -87,7 +87,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     public function testDisconnect() {
-        $this->object = null;
         $this->assertNotInstanceOf('PDO', $this->object);
     }
 
