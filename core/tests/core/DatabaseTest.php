@@ -78,9 +78,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     public function testConnection() { {
             self::$instance === null;
             $this->object = \acd\Database::connect(array('HOST' => 'localhost',
-                        'NAME' => 'shop',
-                        'USERNAME' => 'root',
-                        'PASSWORD' => ''));
+                                                         'NAME' => 'shop',
+                                                         'USERNAME' => 'root',
+                                                         'PASSWORD' => ''));
 
             $this->assertInstanceOf('PDO', $this->object);
         }
