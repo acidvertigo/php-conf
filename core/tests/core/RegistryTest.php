@@ -63,12 +63,12 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     
     public function testArrayAccess()
     {
-        $list = \acd\Registry::getInstance();
+        $registry = \acd\Registry::getInstance();
         $property = 'foo';
         $value = 'bar';
         $array = array('foo' => 'bar');
-        $list[$property] = $value;
-        $this->assertEquals($array[$property], $list[$property]);
+        $registry[$property] = $value;
+        $this->assertEquals($array[$property], $registry[$property]);
     }
 
     public function testArrayAccessExists()
