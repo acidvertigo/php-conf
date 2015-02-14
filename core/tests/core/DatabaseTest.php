@@ -59,7 +59,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @return PHPUnit_Extensions_Database_DataSet_IDataSet
      */
     protected function getDataSet() {
-        return $this->createMySQLXMLDataSet(__DIR__ . '/datasource/mysqldump.xml');
+        return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
     }
 
     /**
