@@ -92,8 +92,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @depends testConnection
-     * @expectedException \PDOException
      * @todo check \PDOException 
      */
     public function testConnectionException() {
