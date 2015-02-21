@@ -1,4 +1,5 @@
 default:
-  paths:
-    features: features
-    bootstrap: features/bootstrap
+    suites:
+        core_features:
+            paths:    [ %paths.base%/features ]
+            contexts: [ CoreDomainContext ]
