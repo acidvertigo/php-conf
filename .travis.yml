@@ -28,6 +28,8 @@ test:
 script:
  - mkdir -p build/logs
  - phpunit -v --coverage-clover build/logs/clover.xml
+ - vendor/bin/behat --init
+
 
 after_script:
  - php vendor/bin/coveralls -v -c .coveralls.yml
