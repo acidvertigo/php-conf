@@ -2,6 +2,10 @@
 
 namespace acd;
 
+/**
+ * A simple trait for classes that use ArrayAccess
+ */
+
 trait ArrayAccess
 {
 
@@ -19,8 +23,10 @@ trait ArrayAccess
             $this->data[$key] = $value;
         }
     }
+
     /**
      * Key to retrieve
+     *
      * @param mixed $key
      * @return string
      */
@@ -31,8 +37,10 @@ trait ArrayAccess
         }
         return null;
     }
+
     /**
      * Whether a key exists
+     *
      * @param mixed $key
      * @return bool
      */
@@ -40,8 +48,10 @@ trait ArrayAccess
     {
         return isset($this->data[$key]);
     }
+
     /**
      * Key to unset
+     *
      * @param mixed $key
      */
     public function offsetUnset($key)

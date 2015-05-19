@@ -2,6 +2,10 @@
 
 namespace acd;
 
+/**
+ * A simple trait for classes that use Singleton pattern
+ */
+
 trait Singleton
 {
 
