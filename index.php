@@ -11,8 +11,9 @@ $container->add('registry', function()
 {
     return \acd\Registry::getInstance();
 });
+
 $container->make('registry');
-var_dump($container);
+
 try {
 
     // Get an instance of the Registry
