@@ -24,10 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace acd;
-
-require_once 'core/Singleton.php';
-require_once 'core/ArrayAccess.php';
+namespace Acd;
 
 /**
  * Registry class

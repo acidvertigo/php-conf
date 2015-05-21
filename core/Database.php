@@ -24,9 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace acd;
-
-require_once 'core/Singleton.php';
+namespace Acd;
 
 /**
  * Database connection class

@@ -24,9 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace acd;
-
-require_once 'core/ArrayAccess.php';
+namespace Acd;
 
 /**
  * Configloader - Configuration file loader class

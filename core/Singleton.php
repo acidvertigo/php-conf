@@ -1,6 +1,6 @@
 <?php
 
-namespace acd;
+namespace Acd;
 
 /**
  * A simple trait for classes that use Singleton pattern
