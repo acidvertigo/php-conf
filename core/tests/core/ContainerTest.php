@@ -56,7 +56,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase {
        $this->assertInternalType('array', $result);
 	
 	   $result = $container->make('object');
-       $this->assertInternalType('object', $result);
+       $this->assertInternalType('object', $result());
 	}
 
 	/**
