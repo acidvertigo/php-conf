@@ -10,14 +10,12 @@ $container->add('registry', function()
     return Acd\Registry::getInstance();
 });
 
-$container->make('registry');
-
 try {
 
     // Get an instance of the Registry
-    $registry = Acd\Registry::getInstance();
+    $registry = $container->make('registry');
 
-    // Load configuration into the registry
+    // Lead configuration into the registry
     $registry->set('config', new Acd\Configloader('include/config.ini'));
 
     // Connect to database
