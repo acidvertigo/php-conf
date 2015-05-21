@@ -60,7 +60,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         return $registry->get('config');
     }
 	
-	/**
+    /**
      * @expectedException \Exception 
      */
     public function testSetException()
