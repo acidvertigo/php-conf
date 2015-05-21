@@ -51,7 +51,7 @@ class Container implements \ArrayAccess
     public function add($key, $value)
     {
         if ($this->exists($key)) {
-            throw new \InvalidArgumentException("[{$key}] not found");
+            throw new \InvalidArgumentException("[{$key}] already exists");
         }
         return $this->values[$key] = $value;
     }
