@@ -11,7 +11,7 @@ trait ArrayAccess
 
     /**
      * Key to set
-	 * 
+     * 
      * @param mixed $key
      * @param mixed $value
      * @throws \Exception
