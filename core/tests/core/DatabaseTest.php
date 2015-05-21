@@ -11,7 +11,7 @@
  *
  * @author Luca
  */
-require_once '../../Autoloader.php';
+require_once '/../../Autoloader.php';
 
 class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
