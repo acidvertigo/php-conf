@@ -69,14 +69,14 @@ class ContainerTest extends \PHPUnit_Framework_TestCase {
         return $container->make('config');
     }
 	
-	/**
+    /**
      * @expectedException \Exception 
      */
     public function testContainerAddException()
     {
         $container = new \Acd\Container;
         $container->add('test', array(1, 2, 3));
-		return $container->add('test', array(1, 2, 3));
+        return $container->add('test', array(1, 2, 3));
     }
 
 }
