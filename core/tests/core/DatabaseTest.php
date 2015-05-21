@@ -41,7 +41,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
+     * @return PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
      */
     protected function getConnection() {
         if ($this->conn === null) {
@@ -79,10 +79,10 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
             $this->object = \acd\Database::connect(array('HOST' => 'localhost',
-                                                         'NAME' => 'shop',
-                                                         'USERNAME' => 'root',
-                                                         'PASSWORD' => '',
-                                                         $options));
+                                                            'NAME' => 'shop',
+                                                            'USERNAME' => 'root',
+                                                            'PASSWORD' => '',
+                                                            $options));
 
 
             $this->assertInstanceOf('PDO', $this->object);
@@ -97,9 +97,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @todo check \PDOException 
      */
     public function testConnectionException() {
-     // Stop here and mark this test as incomplete.
+        // Stop here and mark this test as incomplete.
         $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 }

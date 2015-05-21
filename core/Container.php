@@ -37,17 +37,17 @@ class Container implements \ArrayAccess
     use ArrayAccess;
         
     /**
-    * Container Array
-    * @var array
-    */
+     * Container Array
+     * @var array
+     */
     protected $values = array();
 
     /**
-    * Adds an item to the container
-    * @param string $key
-    * @param mixed $value
-    * @return void
-    */
+     * Adds an item to the container
+     * @param string $key
+     * @param mixed $value
+     * @return void
+     */
     public function add($key, $value)
     {
         if ($this->exists($key)) {
@@ -73,7 +73,7 @@ class Container implements \ArrayAccess
      * Finds a Value
      * @param  mixed $key
      * @return mixed
-    */
+     */
     private function find($key)
     {
         if (is_object($key)) {

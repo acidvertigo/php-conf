@@ -34,7 +34,7 @@ namespace Acd;
 class Database
 {
     /** @var object class instance */
-   protected static $instance;
+    protected static $instance;
     
     /**
      * Connects to the database
@@ -44,7 +44,7 @@ class Database
     public static function connect(array $registry)
     {
         // One connection through whole application
-       if (!self::$instance){
+        if (!self::$instance){
             try {
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
