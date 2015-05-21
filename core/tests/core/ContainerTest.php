@@ -26,18 +26,28 @@ public function testAdd()
 	});
 	
 	
-	$result = $container->make('integer');
-    $this->assertInternalType('integer', $result);
+	   $result = $container->make('integer');
+       $this->assertInternalType('integer', $result);
 	
-	$result = $container->make('string');
-    $this->assertInternalType('string', $result);
+	   $result = $container->make('string');
+       $this->assertInternalType('string', $result);
 	
-	$result = $container->make('array');
-    $this->assertInternalType('array', $result);
+	   $result = $container->make('array');
+       $this->assertInternalType('array', $result);
 	
-	$result = $container->make('object');
-    $this->assertInternalType('object', $result);
+	   $result = $container->make('object');
+       $this->assertInternalType('object', $result);
 
-}
+    }
+
+	/**
+     * @expectedException \Exception 
+     */
+    public function testContainerException()
+    {
+        $container = new \Acd\Container;
+        $container->add('test', array(1, 2, 3));
+        return $container->make('config');
+    }
 
 }
