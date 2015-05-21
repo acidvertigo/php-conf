@@ -5,7 +5,7 @@ require_once 'Autoloader.php';
 
 $container = new Acd\Container;
 
-$container->add('registry', function()
+$container->add('registry', function(Container $container)
 {
     return Acd\Registry::getInstance();
 });
@@ -19,7 +19,7 @@ try {
     $registry->set('config', new Acd\Configloader('include/config.ini'));
 
     // Connect to database
-    $database = Acd\Database::connect($registry->get('config')['database']);
+    $database = $database::connect($registry->get('config')['database']);
 
 } catch (\Exception $e) {
     echo $e->getMessage();
