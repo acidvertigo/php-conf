@@ -53,11 +53,21 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Exception 
      */
-    public function testRegistryException()
+    public function testGetException()
     {
         $registry = Acd\Registry::getInstance();
         $registry->set('test', array(1, 2, 3));
         return $registry->get('config');
+    }
+	
+	/**
+     * @expectedException \Exception 
+     */
+    public function testSetException()
+    {
+        $registry = Acd\Registry::getInstance();
+        $registry->set('test', array(1, 2, 3));
+        return $registry->set('test', array(1, 2, 3));
     }
     
     public function testArrayAccess()
