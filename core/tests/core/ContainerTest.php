@@ -17,16 +17,16 @@ class ContainerTest extends \PHPUnit_Framework_TestCase {
     public function testAdd()
     {
 	    $container = new \Acd\Container;
-	    $result =$container->add("integer", 1);
+	    $result =$container->add('integer', 1);
 		$this->assertInternalType('integer', $result);
 		
-	    $result =$container->add("string", 'value');
+	    $result =$container->add('string', 'value');
 		$this->assertInternalType('string', $result);
 		
-	    $result =$container->add("array", array(1,2,3));
+	    $result =$container->add('array', array(1,2,3));
 		$this->assertInternalType('array', $result);
 		
-	    $result = $container->add("object",function()
+	    $result = $container->add('object',function()
 	    {
 	    	return Acd\Registry::getInstance();
 	    });
@@ -37,10 +37,10 @@ class ContainerTest extends \PHPUnit_Framework_TestCase {
 	public function testMake()
     {
 		$container = new \Acd\Container;
-	    $container->add("integer", 1);
-	    $container->add("string", 'value');
-	    $container->add("array", array(1,2,3));
-	    $container->add("object",function()
+	    $container->add('integer', 1);
+	    $container->add('string', 'value');
+	    $container->add('array', array(1,2,3));
+	    $container->add('object',function()
 	    {
 	    	return Acd\Registry::getInstance();
 	    });
