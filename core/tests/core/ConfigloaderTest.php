@@ -12,7 +12,7 @@
  * @author Luca
  */
 
-require_once '/../../Autoloader.php';
+require_once './../../Autoloader.php';
 
 
 class ConfigloaderTest extends \PHPUnit_Framework_TestCase
