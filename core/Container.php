@@ -46,7 +46,8 @@ class Container implements \ArrayAccess
      * Adds an item to the container
      * @param string $key
      * @param mixed $value
-     * @return void
+     * @return mixed $value   
+     * @throws Exception When there is a duplicate $key
      */
     public function add($key, $value)
     {
