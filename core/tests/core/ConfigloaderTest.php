@@ -1,5 +1,6 @@
 <?php
 
+namespace Acd\Test;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,8 +13,7 @@
  * @author Luca
  */
 
-require_once './../../Autoloader.php';
-
+require_once 'Autoloader.php';
 
 class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {

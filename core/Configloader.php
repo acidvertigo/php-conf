@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * The MIT License
  *
  * Copyright 2015 Acidvertigo.
@@ -24,7 +24,9 @@
  * THE SOFTWARE.
  */
 
-namespace Acd;
+namespace acd;
+
+require_once 'ArrayAccess.php';
 
 /**
  * Configloader - Configuration file loader class
