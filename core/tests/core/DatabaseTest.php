@@ -11,7 +11,7 @@
  *
  * @author Luca
  */
-require_once 'core/Database.php';
+require_once '../../Autoloader.php';
 
 class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
@@ -78,7 +78,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     public function testConnection() { 
 
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
-            $this->object = \acd\Database::connect(array('HOST' => 'localhost',
+            $this->object = Acd\Database::connect(array('HOST' => 'localhost',
                                                             'NAME' => 'shop',
                                                             'USERNAME' => 'root',
                                                             'PASSWORD' => '',
@@ -89,8 +89,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         }
 
     public function testDisconnect() {
-        $this->assertNotInstanceOf('PDO', \acd\Database::disconnect());
-        $this->assertNull(\acd\Database::disconnect());
+        $this->assertNotInstanceOf('PDO', Acd\Database::disconnect());
+        $this->assertNull(Acd\Database::disconnect());
     }
 
     /**

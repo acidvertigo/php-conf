@@ -12,18 +12,18 @@
  * @author Luca
  */
 
-require_once 'core/Configloader.php';
+require_once '../../Autoloader.php';
 
 
 class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {
 
-    private $path = 'include/config.ini';
-    private $wrong_path = 'include/conffig.ini';
+    private $path = '../../include/config.ini';
+    private $wrong_path = '../../include/conffig.ini';
     
     public function testConstruct()
     {
-        $class = new \acd\Configloader($this->path);
+        $class = new Acd\Configloader($this->path);
         $this->assertAttributeInternalType('array', 'data', $class);
     }
     
@@ -32,6 +32,6 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testContstructException()
     {
-        return new \acd\Configloader($this->wrong_path);  
+        return new Acd\Configloader($this->wrong_path);  
     }
 }
