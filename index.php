@@ -26,5 +26,16 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
-var_dump($registry);
+
+// Load configuration group from registry
+$data = $registry->get('config');
+
+foreach ($data['database'] as $key => $value) {
+	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
+} 
+
+foreach ($data['test'] as $key => $value) {
+	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
+} 
+
 Acd\Database::disconnect();
