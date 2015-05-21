@@ -5,7 +5,7 @@ require_once 'Autoloader.php';
 
 $container = new Acd\Container;
 
-$container->add('registry', function(Container $container)
+$container->add('registry', function()
 {
     return Acd\Registry::getInstance();
 });
