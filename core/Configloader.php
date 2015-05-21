@@ -26,7 +26,7 @@
 
 namespace acd;
 
-require_once 'core/ArrayAccess.php';
+require_once 'ArrayAccess.php';
 
 /**
  * Configloader - Configuration file loader class
