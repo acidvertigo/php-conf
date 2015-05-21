@@ -1,6 +1,6 @@
 <?php
 // Import core libraries.
-require 'vendor/autoload.php';
+require '../../vendor/autoload.php';
 require_once 'Autoloader.php';
 
 $container = new Acd\Container;
