@@ -41,7 +41,7 @@ public function testAdd()
     }
 
 	/**
-     * @expectedException \Exception 
+     * @expectedException \InvalidArgumentException 
      */
     public function testContainerException()
     {
