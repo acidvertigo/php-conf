@@ -41,9 +41,9 @@ public function testAdd()
     }
 
 	/**
-     * @expectedException \InvalidArgumentException 
+     * @expectedException \Exception 
      */
-    public function testContainerException()
+    public function testContainerMakeException()
     {
         $container = new \Acd\Container;
         $container->add('test', array(1, 2, 3));
