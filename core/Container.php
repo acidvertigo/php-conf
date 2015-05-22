@@ -31,7 +31,7 @@ namespace Acd;
  *
  * @author acidvertigo
  */
-class Container implements \ArrayAccess
+class Container implements \Countable, \IteratorAggregate, \ArrayAccess
 {
 
     use ArrayAccess;
@@ -91,5 +91,35 @@ class Container implements \ArrayAccess
     private function exists($key)
     {
         return array_key_exists($key, $this->values);
+    }
+	
+	/**
+	 * Return values as array
+	 * 
+	 * @return Array
+	 */
+    public function toArray()
+    {
+        return $this->values;
+    }
+	
+	/**
+	 * Count how many values are in the container 
+	 * 
+	 * @return \Countable
+	 */
+    public function count()
+    {
+        return count($this->values);
+    }
+	
+	/**
+	 * Return an iterator of the values
+	 * 
+	 * @return \ArrayIterator
+	 */
+	public function getIterator()
+    {
+        return new \ArrayIterator($this->values);
     }
 }
