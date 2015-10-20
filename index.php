@@ -15,7 +15,7 @@ try {
     // Get an instance of the Registry
     $registry = $container->make('registry');
 
-    // Lead configuration into the registry
+    // Loads configuration into the registry
     $registry->set('config', new Acd\Configloader('include/config.ini'));
 
     // Connect to database
@@ -25,7 +25,7 @@ try {
     echo $e->getMessage();
 }
 
-// Load configuration group from registry
+// Gets configuration group from the registry
 $data = $registry->get('config');
 
 foreach ($data['database'] as $key => $value) {
