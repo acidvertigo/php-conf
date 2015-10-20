@@ -5,7 +5,7 @@ return Array('database' => Array(
 'HOST' => 'localhost',
 'NAME' => 'shop',
 'USERNAME' => 'root',
-'PASSWORD' => '')
+'PASSWORD' => ''
 ),
 ('test' => Array(
 'USERNAME' => 'test',
