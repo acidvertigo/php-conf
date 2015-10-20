@@ -7,6 +7,6 @@ return Array('database' => Array(
 'USERNAME' => 'root',
 'PASSWORD' => ''
 ),
-('test' => Array(
+'test' => Array(
 'USERNAME' => 'test',
 'PASSWORD' => 'test2'));
