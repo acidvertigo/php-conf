@@ -36,4 +36,5 @@ foreach ($data['test'] as $key => $value) {
 	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 } 
 
+// Close connection to the database
 Acd\Database::disconnect();
