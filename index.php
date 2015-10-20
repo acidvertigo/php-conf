@@ -16,7 +16,7 @@ try {
     $registry = $container->make('registry');
 
     // Loads configuration into the registry
-    $registry->set('config', new Acd\Configloader('include/config.ini'));
+    $registry->set('config', new Acd\Configloader('include/config.php'));
 
     // Connect to database
     $database = $database::connect($registry->get('config')['database']);
