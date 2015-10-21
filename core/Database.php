@@ -69,9 +69,11 @@ class Database
     /**
      * Check if called method exists in pdo class and returns it
      */
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
         $callable = array($this->pdo, $method);
         if(is_callable($callable)) {
             return call_user_func_array($callable, $args);
         }
     }
+}
