@@ -71,7 +71,7 @@ class Database
      */
     public function __call($method, $args)
     {
-        $callable = array($this->pdo, $method);
+        $callable = array(self::$instance, $method);
         if(is_callable($callable)) {
             return call_user_func_array($callable, $args);
         }
