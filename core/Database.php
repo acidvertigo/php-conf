@@ -33,8 +33,7 @@ namespace Acd;
  */
 class Database
 {
-    /** @var object class instance */
-    protected static $instance;
+     use Singleton;
     
     /**
      * Connects to the database
