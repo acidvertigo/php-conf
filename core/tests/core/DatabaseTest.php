@@ -92,7 +92,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                               'NAME' => 'shop',
                               'USERNAME' => 'root',
                               'PASSWORD' => '',
-                               $options));
+                               $options);
             $a = new Acd\Database();
             $reflection = new \ReflectionClass($a);
             $property = $reflection->getProperty('registry');
