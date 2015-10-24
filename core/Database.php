@@ -32,8 +32,11 @@ namespace Acd;
  * @author Acidvertigo
  */
 class Database
-{ 
+{
+
+    /** @var array Registry configuration array */
     private $registry = [];
+    /** @var object PDO connection object */
     public $connection = null;
     
     public function _construct(array $registry = array()) {
