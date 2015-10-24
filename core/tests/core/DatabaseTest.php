@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 
+namespace \Acd\core\tests;
+
 /**
  * Description of DatabaseTest
  *
@@ -96,7 +98,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                                 'PASSWORD' => '',
                                 $options);
                                
-            $database = new Acd\Database();
+            $database = new \Acd\Database();
             $reflection = new \ReflectionClass($database);
             $property = $reflection->getProperty('registry');
             $property->setAccessible(true);
@@ -108,7 +110,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         }
 
     public function testDisconnect() {
-        $database = new Acd\Database;
+        $database = new \Acd\Database;
         $this->assertNotInstanceOf('PDO', $database->disconnect());
         $this->assertNull($database->disconnect());
     }
