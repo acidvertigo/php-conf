@@ -42,8 +42,7 @@ class Database
 
     /**
      * Connects to the database
-     * @param array $registry
-     * @return null|object
+     * @return \PDO
      */
     public function connect()
     {
