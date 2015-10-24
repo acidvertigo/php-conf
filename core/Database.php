@@ -49,8 +49,8 @@ class Database
         try {
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
-             // Starts connection
-             $this->connection = new \PDO('mysql:host='.$this->registry['HOST'].';dbname='.$this->registry['NAME'], $this->registry['USERNAME'], $this->registry['PASSWORD'], $options);
+                // Starts connection
+                $this->connection = new \PDO('mysql:host='.$this->registry['HOST'].';dbname='.$this->registry['NAME'], $this->registry['USERNAME'], $this->registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
             }
@@ -63,7 +63,7 @@ class Database
      */
     public function disconnect()
     {
-       $connection = null;
+        $connection = null;
     }
     
     /**
