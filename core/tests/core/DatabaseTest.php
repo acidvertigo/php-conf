@@ -44,11 +44,10 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     protected function getConnection() {
         if ($this->conn === null) {
-            if (self::$instance === null) {
                 $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
-                self::$instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
+                $instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
             }
-            $this->conn = $this->createDefaultDBConnection(self::$instance, 'shop');
+            $this->conn = $this->createDefaultDBConnection($instance, 'shop');
         }
 
         return $this->conn;
@@ -77,7 +76,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     public function testConnection() { 
 
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
-            $this->object = Acd\Database::connect(array('HOST' => 'localhost',
+            $database = new Acd\Database;
+            $this->object = $database->connect(array('HOST' => 'localhost',
                                                             'NAME' => 'shop',
                                                             'USERNAME' => 'root',
                                                             'PASSWORD' => '',
@@ -88,8 +88,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         }
 
     public function testDisconnect() {
-        $this->assertNotInstanceOf('PDO', Acd\Database::disconnect());
-        $this->assertNull(Acd\Database::disconnect());
+        $this->assertNotInstanceOf('PDO', Acd\Database->disconnect());
+        $this->assertNull(Acd\Database->disconnect());
     }
 
     /**
