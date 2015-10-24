@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 
+namespace \Acd\core\tests;
+
 /**
  * Description of RegistryTest
  *
@@ -17,7 +19,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     
     public function testget()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $registry->set('test', array(1, 2, 3));
         
         $result = $registry->get('test');
@@ -29,7 +31,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     
         public function testReset()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $this->assertNull($registry->reset());
     }
     
@@ -38,7 +40,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetException()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $registry->set('test', array(1, 2, 3));
         return $registry->get('config');
     }
@@ -48,14 +50,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetException()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $registry->set('test', array(1, 2, 3));
         return $registry->set('test', array(1, 2, 3));
     }
     
     public function testArrayAccess()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $property = 'foo';
         $value = 'bar';
         $array = array('foo' => 'bar');
@@ -65,14 +67,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testArrayAccessExists()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $registry->set('test1', array(1, 2, 3));
         $this->assertTrue(isset($registry['test1']));
     }
 
     public function testArrayAccessUnset()
     {
-        $registry = new Acd\Registry;
+        $registry = new \Acd\Registry;
         $registry->set('test2', array(1, 2, 3));
         unset($registry['test2']);
         $this->assertFalse(isset($registry['test2']));
