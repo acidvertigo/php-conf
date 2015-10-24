@@ -37,18 +37,27 @@ class Configloader implements \ArrayAccess
 
     /** @var array $content: Main configuration data Array */
     private $data = array();
+    /** @var string $path The path of the configuration file */
+    private $path = null;
 
     /**
-     * Parses a INI file as an array
      * @param  string $path
-     * @throws ParseException If there is an error parsing the INI file
      */
     public function __construct($path)
     {
-        if (file_exists($path)) {
-            $this->data = include $path;
-        } else {
-            throw new \Exception('Configuration file not found: '.$path);
-        }
+        $this->path = $path;
     }
+
+     /**
+     * Loads configuration file
+     * @throws ParseException If there is an error parsing the INI file
+     */
+     public function loadconfig()
+     {
+        if (file_exists($this->path)) {
+            $this->data = include $this->path;
+        } else {
+            throw new \Exception('Configuration file not found: '.$this->path);
+        }
+     }
 }
