@@ -42,7 +42,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'HOST' => 'localhost',
         'NAME' => 'shop',
         'USERNAME' => 'root',
-        'PASSWORD' => ''];
+        'PASSWORD' => '']];
 
         $mock = $this->getMockBuilder('\Acd\Database')
         ->setMethods(array('__construct'))
