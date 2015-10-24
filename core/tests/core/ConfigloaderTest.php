@@ -31,6 +31,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testContstructException()
     {
-        return new \Acd\Configloader($this->wrong_path);  
+        $loadconfig = new \Acd\Configloader($this->wrong_path);
+        return $loadconfig->loadconfig();
     }
 }
