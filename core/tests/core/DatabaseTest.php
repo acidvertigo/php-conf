@@ -17,9 +17,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     /** @var object Database: This is the object that will be tested * */
     protected $object;
 
-    /** @var object PDO: only instantiate pdo once for test clean-up/fixture load * */
-    static private $instance = null;
-
     /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test * */
     private $conn = null;
 
@@ -43,10 +40,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @return PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
      */
     protected function getConnection() {
-        if ($this->conn === null) {
-                $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+        if ($this->conn === null) {           
                 $instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
-
                 $this->conn = $this->createDefaultDBConnection($instance, 'shop');
         }
 
