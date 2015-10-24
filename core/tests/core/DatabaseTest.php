@@ -76,7 +76,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * This is here to ensure that the database is working correctly
      */
     public function testDatabase() {
-
+    
   $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);            $this->getConnection()->createDataSet(array('products'));
 
         $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
@@ -88,13 +88,18 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     public function testConnection() { 
 
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
-            $database = new Acd\Database(array('HOST' => 'localhost',
-                                                            'NAME' => 'shop',
-                                                            'USERNAME' => 'root',
-                                                            'PASSWORD' => '',
-                                                            $options));
+            $config = array('HOST' => 'localhost',
+                              'NAME' => 'shop',
+                              'USERNAME' => 'root',
+                              'PASSWORD' => '',
+                               $options));
+            $a = new Acd\Database();
+            $reflection = new \ReflectionClass($a);
+            $property = $reflection->getProperty('registry');
+            $property->setAccessible(true);
+            $property->setValue($a, $config);
+                                                         
             $this->object = $database->connect();
-
 
             $this->assertInstanceOf('PDO', $this->object);
         }
