@@ -14,18 +14,10 @@
 
 class RegistryTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function testgetInstance()
-    {
-        $firstCall = Acd\Registry::getInstance();
-        $this->assertInstanceOf('\acd\Registry', $firstCall);
-        $secondCall = Acd\Registry::getInstance();
-        $this->assertSame($firstCall, $secondCall);
-    }
     
     public function testget()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $registry->set('test', array(1, 2, 3));
         
         $result = $registry->get('test');
@@ -34,19 +26,10 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('2', $result);
         $this->assertContains('3', $result);
     }
-
-    
-    public function testConstruct()
-    {
-        $obj  = Acd\Registry::getInstance();
-        $refl = new \ReflectionObject($obj);
-        $meth = $refl->getMethod('__construct');
-        $this->assertTrue($meth->isPrivate());
-    }
     
         public function testReset()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $this->assertNull($registry->reset());
     }
     
@@ -55,7 +38,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetException()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $registry->set('test', array(1, 2, 3));
         return $registry->get('config');
     }
@@ -65,14 +48,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetException()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $registry->set('test', array(1, 2, 3));
         return $registry->set('test', array(1, 2, 3));
     }
     
     public function testArrayAccess()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $property = 'foo';
         $value = 'bar';
         $array = array('foo' => 'bar');
@@ -82,14 +65,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testArrayAccessExists()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $registry->set('test1', array(1, 2, 3));
         $this->assertTrue(isset($registry['test1']));
     }
 
     public function testArrayAccessUnset()
     {
-        $registry = Acd\Registry::getInstance();
+        $registry = new Acd\Registry;
         $registry->set('test2', array(1, 2, 3));
         unset($registry['test2']);
         $this->assertFalse(isset($registry['test2']));
