@@ -77,7 +77,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     public function testDatabase() {
 
-        $this->getConnection()->createDataSet(array('products'));
+  $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);            $this->getConnection()->createDataSet(array('products'));
 
         $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
         $expectedTable = $this->getDataSet()->getTable('products');
