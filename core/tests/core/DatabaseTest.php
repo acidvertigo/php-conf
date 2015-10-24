@@ -97,7 +97,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                                $options);
                                
             $database = new Acd\Database();
-            $reflection = new \ReflectionClass($$database);
+            $reflection = new \ReflectionClass($database);
             $property = $reflection->getProperty('registry');
             $property->setAccessible(true);
             $property->setValue($database, $config);
