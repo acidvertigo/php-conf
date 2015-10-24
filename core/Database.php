@@ -32,37 +32,40 @@ namespace Acd;
  * @author Acidvertigo
  */
 class Database
-{
-     use Singleton;
+{ 
+    private $registry = [];
+    public $connection = null;
     
+    public function _construct(array $registry = array()) {
+        $this->registry = $registry;
+    }
+
     /**
      * Connects to the database
      * @param array $registry
      * @return null|object
      */
-    public static function connect(array $registry)
+    public function connect()
     {
-        // One connection through whole application
-        if (!self::$instance) {
-            try {
-                $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+        try {
+            $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
-                // Starts connection
-                self::$instance = new \PDO('mysql:host='.$registry['HOST'].';dbname='.$registry['NAME'], $registry['USERNAME'], $registry['PASSWORD'], $options);
+             // Starts connection
+             $this->connection = new \PDO('mysql:host='.$this->registry['HOST'].';dbname='.$this->registry['NAME'], $this->registry['USERNAME'], $this->registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 echo $e->getMessage();
             }
-        }
+    }
 
-        return self::$instance;
+        return $connection;
     }
 
     /**
      * Close database connection
      */
-    public static function disconnect()
+    public stfunction disconnect()
     {
-        self::$instance = null;
+       $instance = null;
     }
     
     /**
@@ -70,7 +73,7 @@ class Database
      */
     public function __call($method, $args)
     {
-        $callable = array(self::$instance, $method);
+        $callable = array($this->connection, $method);
         if(is_callable($callable)) {
             return call_user_func_array($callable, $args);
         }

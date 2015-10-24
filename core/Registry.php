@@ -34,11 +34,10 @@ namespace Acd;
 class Registry implements \ArrayAccess
 {
 
-    use Singleton;
     use ArrayAccess;
 
     /** @var array Registry configuration array */
-    private $data = array();
+    private $data = [];
 
     /**
      * Adds element to registry array
@@ -75,7 +74,7 @@ class Registry implements \ArrayAccess
     /**
      * Reset Registry container
      */
-    public static function reset() {
-        self::$instance = null;
+    public function reset() {
+        $this->data = [];
     }
 }

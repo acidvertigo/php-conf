@@ -3,23 +3,16 @@
 require '../../vendor/autoload.php';
 require_once 'Autoloader.php';
 
-$container = new Acd\Container;
-
-$container->add('registry', function()
-{
-    return Acd\Registry::getInstance();
-});
+$registry = new Acd\Registry;
+$database = new Acd\Database;
 
 try {
-
-    // Get an instance of the Registry
-    $registry = $container->make('registry');
 
     // Loads configuration into the registry
     $registry->set('config', new Acd\Configloader('include/config.php'));
 
     // Connect to database
-    $database = $database::connect($registry->get('config')['database']);
+    $database = $database->connect($registry->get('config')['database']);
 
 } catch (\Exception $e) {
     echo $e->getMessage();
