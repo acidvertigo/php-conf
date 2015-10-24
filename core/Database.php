@@ -58,7 +58,7 @@ class Database
             }
     }
 
-        return $connection;
+        return $this->connection;
     }
 
     /**
