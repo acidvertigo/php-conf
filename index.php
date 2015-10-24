@@ -4,15 +4,15 @@ require '../../vendor/autoload.php';
 require_once 'Autoloader.php';
 
 $registry = new Acd\Registry;
-$database = new Acd\Database;
 
 try {
 
     // Loads configuration into the registry
     $registry->set('config', new Acd\Configloader('include/config.php'));
+    $database = new Acd\Database($registry->get('config')['database']);
 
     // Connect to database
-    $database = $database->connect($registry->get('config')['database']);
+    $database = $database->connect();
 
 } catch (\Exception $e) {
     echo $e->getMessage();
