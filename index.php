@@ -6,9 +6,9 @@ require_once 'Autoloader.php';
 $registry = new Acd\Registry;
 
 try {
-    $config = new Acd\Configloader;
+    $config = new Acd\Configloader('include/config.php');
     // Loads configuration into the registry
-    $registry->set('config', $config->loadconfig('include/config.php'));
+    $registry->set('config', $config->loadconfig());
     $database = new Acd\Database($registry->get('database'));
 
     // Connect to database
