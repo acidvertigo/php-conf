@@ -77,8 +77,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * This is here to ensure that the database is working correctly
      */
     public function testDatabase() {
-    
-        $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);  
+
         $this->getConnection()->createDataSet(array('products'));
 
         $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
