@@ -62,7 +62,7 @@ class Database
     /**
      * Close database connection
      */
-    public stfunction disconnect()
+    public function disconnect()
     {
        $instance = null;
     }
