@@ -9,7 +9,7 @@ try {
 
     // Loads configuration into the registry
     $registry->set('config', new Acd\Configloader('include/config.php'));
-    $database = new Acd\Database($registry->get('config')['database']);
+    $database = new Acd\Database($registry->get('database'));
 
     // Connect to database
     $database = $database->connect();
