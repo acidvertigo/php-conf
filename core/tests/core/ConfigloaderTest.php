@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Acd\tests;
+namespace \Acd\core\tests;
 
 /**
  * Description of Configloader
