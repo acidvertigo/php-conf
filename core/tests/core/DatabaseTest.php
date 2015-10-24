@@ -56,7 +56,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @return PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
+     * @return \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
      */
     protected function getConnection() {
         if ($this->conn === null) {       
@@ -69,7 +69,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @return PHPUnit_Extensions_Database_DataSet_IDataSet
+     * @return \PHPUnit_Extensions_Database_DataSet_MysqlXmlDataSet
      */
     protected function getDataSet() {
         return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
