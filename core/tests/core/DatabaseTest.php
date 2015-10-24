@@ -93,11 +93,12 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                               'USERNAME' => 'root',
                               'PASSWORD' => '',
                                $options);
-            $a = new Acd\Database();
-            $reflection = new \ReflectionClass($a);
+                               
+            $database = new Acd\Database();
+            $reflection = new \ReflectionClass($$database);
             $property = $reflection->getProperty('registry');
             $property->setAccessible(true);
-            $property->setValue($a, $config);
+            $property->setValue($database, $config);
                                                          
             $this->object = $database->connect();
 
