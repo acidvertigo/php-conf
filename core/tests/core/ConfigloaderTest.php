@@ -22,7 +22,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
     
     public function testConstruct()
     {
-        $class = new Acd\Configloader($this->path);
+        $class = new \Acd\Configloader($this->path);
         $this->assertAttributeInternalType('array', 'data', $class);
     }
     
@@ -31,6 +31,6 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testContstructException()
     {
-        return new Acd\Configloader($this->wrong_path);  
+        return new \Acd\Configloader($this->wrong_path);  
     }
 }
