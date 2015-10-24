@@ -57,7 +57,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @return PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
      */
     protected function getConnection() {
-        if ($this->conn === null) {           
+        if ($this->conn === null) {       
+                $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);  
                 $instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $options);
                 $this->conn = $this->createDefaultDBConnection($instance, 'shop');
         }
@@ -77,7 +78,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     public function testDatabase() {
     
-  $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);            $this->getConnection()->createDataSet(array('products'));
+        $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);  
+        $this->getConnection()->createDataSet(array('products'));
 
         $queryTable = $this->getConnection()->createQueryTable('products', 'SELECT * FROM products');
         $expectedTable = $this->getDataSet()->getTable('products');
