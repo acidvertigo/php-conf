@@ -30,4 +30,4 @@ foreach ($data['test'] as $key => $value) {
 } 
 
 // Close connection to the database
-Acd\Database::disconnect();
+$database->disconnect();
