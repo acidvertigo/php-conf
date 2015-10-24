@@ -63,7 +63,7 @@ class Database
      */
     public function disconnect()
     {
-       $instance = null;
+       $connection = null;
     }
     
     /**
