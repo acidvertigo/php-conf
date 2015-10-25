@@ -132,7 +132,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
         $registry->set('config', $config);
   		
-        $database = new \Acd\Database($registry;
+        $database = new \Acd\Database($registry);
         $this->assertNotInstanceOf('PDO', $database->disconnect());
         $this->assertNull($database->disconnect());
     }
