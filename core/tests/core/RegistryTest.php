@@ -42,7 +42,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     {
         $registry = new \Acd\Registry;
         $registry->set('test', array(1, 2, 3));
-        return $registry->get('config');
+		$this->assertAttributeInternalType('array', 'data', $registry->get('config'));
     }
 	
     /**
