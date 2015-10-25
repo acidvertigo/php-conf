@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', true);
+
 // Import core libraries.
 if (file_exists('./vendor/autoload.php')) {
     require './vendor/autoload.php';
