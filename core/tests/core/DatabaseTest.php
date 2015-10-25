@@ -101,8 +101,13 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                                 'USERNAME' => 'root',
                                 'PASSWORD' => '',
                                 $options);
-                               
-            $database = new \Acd\Database();
+            $registry = $this->getMockBuilder('\Acd\Registry')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+            $registry->set('config', $config);
+                            
+            $database = new \Acd\Database($registry);
             $reflection = new \ReflectionClass($database);
             $property = $reflection->getProperty('registry');
             $property->setAccessible(true);
@@ -114,7 +119,20 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         }
 
     public function testDisconnect() {
-        $database = new \Acd\Database;
+
+        $config = array('HOST' => 'localhost',
+                        'NAME' => 'shopshop',
+                        'USERNAME' => 'rootroot',
+                        'PASSWORD' => 'root',
+                        $options);
+
+        $registry = $this->getMockBuilder('\Acd\Registry')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $registry->set('config', $config);
+  		
+        $database = new \Acd\Database($registry;
         $this->assertNotInstanceOf('PDO', $database->disconnect());
         $this->assertNull($database->disconnect());
     }
@@ -124,14 +142,14 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     public function testConnectionException() {
         $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+
+        $registry = $this->getMockBuilder('\Acd\Registry')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $registry->set('config', $config);
 		
-        $config = array('HOST' => 'localhost',
-                        'NAME' => 'shopshop',
-                        'USERNAME' => 'rootroot',
-                        'PASSWORD' => 'root',
-                        $options);
-		
-        $database = new \Acd\Database($config);
+        $database = new \Acd\Database($registry);
         $database->connect();
 
     }
