@@ -158,7 +158,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $registry->set('config', $config);
 		
         $database = new \Acd\Database($registry);
-        $database->connect();
-
+        return $database->connect();
     }
 }
