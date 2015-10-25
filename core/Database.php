@@ -39,7 +39,7 @@ class Database
     /** @var object PDO connection object */
     public $connection = null;
     
-    public function _construct(array $registry = array()) {
+    public function __construct(array $registry = array()) {
         $this->registry = $registry;
     }
 
