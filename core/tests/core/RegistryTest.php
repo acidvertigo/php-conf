@@ -63,6 +63,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $array = array('foo' => 'bar');
         $registry[$property] = $value;
         $this->assertEquals($array[$property], $registry[$property]);
+		$this->assertAttributeInternalType('array', 'data', $registry);
     }
 
     public function testArrayAccessExists()
