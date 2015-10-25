@@ -55,7 +55,7 @@ class Database
                 // Starts connection
                 $this->connection = new \PDO('mysql:host='.$this->registry['HOST'].';dbname='.$this->registry['NAME'], $this->registry['USERNAME'], $this->registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
-                echo $e->getMessage();
+                throw $e;
             }
 
         return $this->connection;
