@@ -22,11 +22,11 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
     
     public function testConstruct()
     {
-		$reflection_class = new \ReflectionClass("\Acd\Configloader");
-		$property = $reflection_class->getProperty('path');
-		$property->setAccessible(true);
-		$object = new \Acd\Configloader($this->path);
-		$this->assertEquals($this->path, $property->getValue($object));
+        $reflection_class = new \ReflectionClass("\Acd\Configloader");
+        $property = $reflection_class->getProperty('path');
+        $property->setAccessible(true);
+        $object = new \Acd\Configloader($this->path);
+        $this->assertEquals($this->path, $property->getValue($object));
     }
     
     /**
@@ -38,9 +38,9 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         return $loadconfig->loadconfig();
     }
 	
-	public function testLoadconfig()
-	{
-		$loadconfig = new \Acd\Configloader($this->path);
-		$this->assertAttributeInternalType('array', 'data', $loadconfig);
-	}		
+    public function testLoadconfig()
+    {
+        $loadconfig = new \Acd\Configloader($this->path);
+        $this->assertAttributeInternalType('array', 'data', $loadconfig);
+    }		
 }
