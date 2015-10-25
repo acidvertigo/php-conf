@@ -45,11 +45,11 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     public function __construct() {
 
     $this->options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];  
-    $this->config =  [
+    $this->config =  ['database'[
         'HOST' => '127.0.0.1',
         'NAME' => 'shop',
         'USERNAME' => 'root',
-        'PASSWORD' => ''];
+        'PASSWORD' => '']];
     }
 
     public function testConstruct() {
