@@ -3,6 +3,12 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', true);
 
+// Check for required PHP version
+if (version_compare(PHP_VERSION, '5.4', '<'))
+{
+    exit(sprintf('This app requires PHP 5.4 or higher. Your PHP version is: %s.',PHP_VERSION));
+}
+
 // Import core libraries.
 if (file_exists('./vendor/autoload.php')) {
     require './vendor/autoload.php';
