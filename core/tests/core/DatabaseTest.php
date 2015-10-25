@@ -56,7 +56,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $property = $reflection_class->getProperty('registry');
         $property->setAccessible(true);
         $object = new \Acd\Database($registry);
-        $this->assertEquals($config, $property->getValue($object));
+        $this->assertInstanceOf('\Acd\Registry', $registry);
     }
 
     /**
@@ -75,7 +75,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     /**
      * @return \PHPUnit_Extensions_Database_DataSet_MysqlXmlDataSet
      */
-    protected function getDataSet() {
+    protected Afunction getDataSet() {
         return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
     }
 
