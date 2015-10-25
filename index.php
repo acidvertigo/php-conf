@@ -3,10 +3,13 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', true);
 
-// Check for required PHP version
-if (version_compare(PHP_VERSION, '5.4.0', '<'))
-{
+// Check if we are on hhvm
+if (!defined('HHVM_VERSION')) {
+ // Check for required PHP version   
+  if (version_compare(PHP_VERSION, '5.4.0', '<'))
+  {
     exit(sprintf('This app requires PHP 5.4 or higher. Your PHP version is: %s.',PHP_VERSION));
+  }
 }
 
 // Import external libraries.
