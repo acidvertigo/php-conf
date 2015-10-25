@@ -119,14 +119,14 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     public function testConnectionException() {
         $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 		
-		$config = array('HOST' => 'localhost',
+        $config = array('HOST' => 'localhost',
                         'NAME' => 'shopshop',
                         'USERNAME' => 'rootroot',
                         'PASSWORD' => 'root',
                         $options);
 		
-		$database = new \Acd\Database($config);
-		$database->connect();
+        $database = new \Acd\Database($config);
+        $database->connect();
 
     }
 }
