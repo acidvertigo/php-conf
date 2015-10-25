@@ -105,7 +105,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->disableOriginalConstructor()
             ->getMock();
 
-            $registry->set('config', $this->config);
+            $registry->set('database', $this->config);
                             
             $database = new \Acd\Database($registry);                                                       
             $this->object = $database->connect();
