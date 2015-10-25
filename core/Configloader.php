@@ -59,7 +59,7 @@ class Configloader implements \ArrayAccess
         } else {
             throw new \Exception('Configuration file not found: '.$this->path);
         }
-		
-		return $this->data;
+
+       return $this->data;
      }
 }
