@@ -63,8 +63,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $reflection_class = new \ReflectionClass("\Acd\Database");
         $property = $reflection_class->getProperty('registry');
         $property->setAccessible(true);
-        $object = new \Acd\Database($registry);
-        $this->assertInstanceOf('\Acd\Registry', $registry);
+        $this->object = new \Acd\Database($registry);
+        $this->assertInstanceOf('\Acd\Database', $registry);
     }
 
     /**
