@@ -105,10 +105,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->getMock();
 
         $registry->set('config', $this->config);
-  		
-        $reflection_class = new \ReflectionClass("\Acd\Database");
-        $property = $reflection_class->getProperty('registry');
-        $property->setAccessible(true);
+ 
         $this->object = new \Acd\Database($registry);
         $this->assertInstanceOf('PDO', $this->object);
     }
