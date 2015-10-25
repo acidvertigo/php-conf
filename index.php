@@ -3,13 +3,12 @@
 error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', true);
 
-// Check if we are on hhvm
-if (!defined('HHVM_VERSION')) {
-    // Check for required PHP version   
-    if (version_compare(PHP_VERSION, '5.6.0', '<'))
-    {
+
+// Check for required PHP version   
+if (version_compare(PHP_VERSION, '5.6.0', '<'))
+  {
     exit(sprintf('This app requires PHP 5.6 or higher. Your PHP version is: %s.',PHP_VERSION));
-    }
+  }
 }
 
 // Import external libraries.
