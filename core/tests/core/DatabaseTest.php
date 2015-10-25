@@ -75,7 +75,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     /**
      * @return \PHPUnit_Extensions_Database_DataSet_MysqlXmlDataSet
      */
-    protected Afunction getDataSet() {
+    protected function getDataSet() {
         return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
     }
 
