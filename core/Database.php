@@ -45,7 +45,7 @@ class Database
 
     /**
      * Connects to the database
-	 * @throws \PDOException
+     * @throws \PDOException
      * @return \PDO
      */
     public function connect()
