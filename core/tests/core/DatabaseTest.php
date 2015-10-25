@@ -49,8 +49,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'HOST' => 'localhost',
         'NAME' => 'shop',
         'USERNAME' => 'root',
-        'PASSWORD' => '',
-        $this->options]];
+        'PASSWORD' => '']];
     }
 
     public function testConstruct() {
