@@ -1,33 +1,26 @@
 <?php
 // Import core libraries.
-require '../../vendor/autoload.php';
+require './vendor/autoload.php';
 require_once 'Autoloader.php';
 
-$registry = new Acd\Registry;
+    $registry = new Acd\Registry;
 
-try {
     $config = new Acd\Configloader('include/config.php');
+
     // Loads configuration into the registry
-    $registry->set('config', $config->loadconfig());
+	foreach($config->loadconfig() as $key => $value) {
+        $registry->set($key, $value);
+	}
+
     $database = new Acd\Database($registry->get('database'));
 
     // Connect to database
     $database = $database->connect();
 
-} catch (\Exception $e) {
-    echo $e->getMessage();
+
+foreach ($registry->get('database') as $key => $value) {
+	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
-
-// Gets configuration group from the registry
-$data = $registry->get('config');
-
-foreach ($data['database'] as $key => $value) {
-	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
-} 
-
-foreach ($data['test'] as $key => $value) {
-	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
-} 
 
 // Close connection to the database
 $database->disconnect();
