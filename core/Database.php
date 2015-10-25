@@ -34,7 +34,7 @@ namespace Acd;
 class Database
 {
 
-    /** @var array Registry configuration array */
+    /** @var object Registry configuration array */
     private $registry = [];
     /** @var object PDO connection object */
     public $connection = null;
