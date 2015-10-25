@@ -1,7 +1,8 @@
 {
     "require-dev": {
         "phpunit/phpunit": "5.*",
-        "phpunit/dbunit": "2.*"
+        "phpunit/dbunit": "2.*",
+        "satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
         "psr-0": {
