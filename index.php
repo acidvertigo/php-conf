@@ -1,7 +1,7 @@
 <?php
 // Import core libraries.
 if (file_exists('./vendor/autoload.php')) {
-  require './vendor/autoload.php';
+    require './vendor/autoload.php';
 }
 
 // class autoload
@@ -12,7 +12,7 @@ $registry = new Acd\Registry;
 $config = new Acd\Configloader('include/config.php');
 
 // Loads configuration into the registry
-foreach($config->loadconfig() as $key => $value) {
+foreach ($config->loadconfig() as $key => $value) {
     $registry->set($key, $value);
 }
 
@@ -22,6 +22,6 @@ $database = new Acd\Database($registry->get('database'));
 $database = $database->connect();
 
 foreach ($registry->get('database') as $key => $value) {
-	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
+    echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
 
