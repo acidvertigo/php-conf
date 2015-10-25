@@ -120,6 +120,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     public function testDisconnect() {
 
+        $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+
         $config = array('HOST' => 'localhost',
                         'NAME' => 'shopshop',
                         'USERNAME' => 'rootroot',
@@ -142,6 +144,12 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     public function testConnectionException() {
         $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+
+        $config = array('HOST' => 'localhost',
+                        'NAME' => 'shopshop',
+                        'USERNAME' => 'rootroot',
+                        'PASSWORD' => 'root',
+                        $options);
 
         $registry = $this->getMockBuilder('\Acd\Registry')
             ->disableOriginalConstructor()
