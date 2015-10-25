@@ -22,13 +22,11 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
     
     public function testConstruct()
     {
-
 		$reflection_class = new \ReflectionClass("\Acd\configloader");
 		$property = $reflection_class->getProperty('path');
 		$property->setAccessible(true);
 		$object = new \Acd\configloader($this->path);
 		$this->assertEquals($this->path, $property->getValue($object));
-
     }
     
     /**

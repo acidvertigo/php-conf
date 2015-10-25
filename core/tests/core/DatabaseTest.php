@@ -38,21 +38,19 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         
     }
 
-        public function testConstruct() {
+    public function testConstruct() {
         
         $config = ['database' => [
         'HOST' => 'localhost',
         'NAME' => 'shop',
         'USERNAME' => 'root',
         'PASSWORD' => '']];
-
-        $mock = $this->getMockBuilder('\Acd\Database')
-        ->setMethods(array('__construct'))
-        ->setConstructorArgs($config)
-        // ->disableOriginalConstructor()
-        ->getMock();
-
-        $obj = new $mock;
+		
+	    $reflection_class = new \ReflectionClass("\Acd\database");
+		$property = $reflection_class->getProperty('registry');
+		$property->setAccessible(true);
+		$object = new \Acd\databse($config);
+		$this->assertEquals($config, $property->getValue($object));
     }
 
     /**
