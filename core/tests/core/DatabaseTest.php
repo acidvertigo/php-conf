@@ -114,12 +114,19 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @todo check \PDOException 
+     * @expectedException \PDOException 
      */
     public function testConnectionException() {
-        // Stop here and mark this test as incomplete.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
+		
+		$config = array('HOST' => 'lollocalhost',
+                                'NAME' => 'shop',
+                                'USERNAME' => 'root',
+                                'PASSWORD' => '',
+                                $options);
+		
+		$database = new \Acd\Database($config);
+		$database->connect();
+
     }
 }
