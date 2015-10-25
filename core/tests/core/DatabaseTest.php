@@ -107,7 +107,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
             $registry->set('database', $this->config);
                             
-            $database = new \Acd\Database($registry->get('database'));                                                       
+            $database = new \Acd\Database($registry);                                                       
             $this->object = $database->connect();
 
             $this->assertInstanceOf('PDO', $this->object);
@@ -119,7 +119,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->disableOriginalConstructor()
             ->getMock();
 
-        $registry->set('config', $this->config);
+        $registry->set('database', $this->config);
   		
         $database = new \Acd\Database($registry);
         $this->assertNotInstanceOf('PDO', $database->disconnect());
@@ -135,7 +135,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->disableOriginalConstructor()
             ->getMock();
 
-        $registry->set('config', $this->config);
+        $registry->set('database', $this->config);
 		
         $database = new \Acd\Database($registry);
         return $database->connect();
