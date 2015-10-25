@@ -42,7 +42,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         
     }
 
-    public function __construct {
+    public function __construct() {
 
     $this->options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];  
     $this->config = ['database' => [
