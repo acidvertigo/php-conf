@@ -25,5 +25,3 @@ foreach ($registry->get('database') as $key => $value) {
 	echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
 
-// Close connection to the database
-$database->disconnect();
