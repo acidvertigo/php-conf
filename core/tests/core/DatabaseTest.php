@@ -40,7 +40,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     public function testConstruct() {
         
-        $config = new \Acc['database' => [
+        $config = ['database' => [
         'HOST' => 'localhost',
         'NAME' => 'shop',
         'USERNAME' => 'root',
