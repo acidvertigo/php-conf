@@ -46,7 +46,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     $this->options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];  
     $this->config =  ['database'[
-        'HOST' => '127.0.0.1',
+        'HOST' => 'localhost',
         'NAME' => 'shop',
         'USERNAME' => 'root',
         'PASSWORD' => '']];
