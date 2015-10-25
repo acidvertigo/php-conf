@@ -42,7 +42,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     {
         $registry = new \Acd\Registry;
         $registry->set('test', array(1, 2, 3));
-		return $registry->get('foo');
+        return $registry->get('foo');
     }
 	
     /**
@@ -63,7 +63,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $array = array('foo' => 'bar');
         $registry[$property] = $value;
         $this->assertEquals($array[$property], $registry[$property]);
-		$this->assertAttributeInternalType('array', 'data', $registry);
+        $this->assertAttributeInternalType('array', 'data', $registry);
     }
 
     public function testArrayAccessExists()
