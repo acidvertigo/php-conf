@@ -17,17 +17,17 @@ namespace Acd\core\tests;
 class HttpTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp() {
-      $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
-      $_SERVER['HTTPS'] = 'ON';
-      $_SERVER['PORT'] = '80';
+        $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
+        $_SERVER['HTTPS'] = 'ON';
+        $_SERVER['PORT'] = '80';
     }
 	
-	function tearDown() {
-		unset($_SERVER['SERVER_PROTOCOL']);
-		unset($_SERVER['HTTPS']);
-		unset($_SERVER['PORT']);
-		parent::tearDown();
-	}
+    function tearDown() {
+        unset($_SERVER['SERVER_PROTOCOL']);
+        unset($_SERVER['HTTPS']);
+        unset($_SERVER['PORT']);
+        parent::tearDown();
+    }
     
     /** 
      * Check HTTP version
@@ -35,7 +35,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */
     public function testProtocol()
     {  
-		$http = new \Acd\Http;
+        $http = new \Acd\Http;
 		
         $this->assertInternalType('string', $http->protocol());
         $this->assertContains('HTTP/1.1', $http->protocol());                           
@@ -47,9 +47,9 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsSsl()
     {  
-		$http = new \Acd\Http;
+        $http = new \Acd\Http;
 		
-		$this->assertTrue($http->isSsl());
+        $this->assertTrue($http->isSsl());
     }
   
     /** 
@@ -58,13 +58,13 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */ 
     public function testIsSafeMethod() 
     { 
-		$http = new \Acd\Http;
-		$safeMethods = ['HEAD', 'GET', 'OPTIONS', 'TRACE'];
+        $http = new \Acd\Http;
+        $safeMethods = ['HEAD', 'GET', 'OPTIONS', 'TRACE'];
 
-		foreach ($safeMethods as $value)
-		{
-			$this->assertTrue($http->isSafeMethod($value));
-		}
+        foreach ($safeMethods as $value)
+        {
+            $this->assertTrue($http->isSafeMethod($value));
+        }
 		
     } 
 
@@ -76,12 +76,12 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     public function testIsIdempotentMethod() 
     { 
         $http = new \Acd\Http;
-		$idempotentMethods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'PUT', 'TRACE'];
+        $idempotentMethods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'PUT', 'TRACE'];
 
-		foreach ($idempotentMethods as $value)
-		{
-			$this->assertTrue($http->isIdempotentMethod($value));
-		}
+        foreach ($idempotentMethods as $value)
+        {
+            $this->assertTrue($http->isIdempotentMethod($value));
+        }
     }
 
 }
