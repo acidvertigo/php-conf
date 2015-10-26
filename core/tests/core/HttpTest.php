@@ -16,16 +16,16 @@ namespace Acd\core\tests;
 
 class HttpTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp(){
+    public function setUp() {
       $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
       $_SERVER['HTTPS'] = 'ON';
       $_SERVER['PORT'] = '80';
     }
 	
 	function tearDown() {
-		unset( $_SERVER['SERVER_PROTOCOL'] );
-		unset( $_SERVER['HTTPS'] );
-		unset( $_SERVER['PORT'] );
+		unset($_SERVER['SERVER_PROTOCOL']);
+		unset($_SERVER['HTTPS']);
+		unset($_SERVER['PORT']);
 		parent::tearDown();
 	}
     
