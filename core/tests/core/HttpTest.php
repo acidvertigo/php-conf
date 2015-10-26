@@ -38,8 +38,8 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsSsl()
     {  
-      $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+        $this->markTestIncomplete(
+            'This test has not been implemented yet.'
         );
 
     }
@@ -51,7 +51,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     public function testIsSafeMethod($method) 
     { 
         $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     } 
 
@@ -63,7 +63,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     public function isIdempotentMethod($method) 
     { 
         $this->markTestIncomplete(
-          'This test has not been implemented yet.'
+            'This test has not been implemented yet.'
         );
     }
 

@@ -10,23 +10,23 @@ namespace Acd;
 class Request 
 {
 
-  private $headers = [];
+    private $headers = [];
 
-  /** 
-   * Check HTTP response headers
-   * @param string $url 
-   * @return array list of response headers 
-   */
-  public function getRequestHeaders($url = null)
-  {  
+    /** 
+     * Check HTTP response headers
+     * @param string $url 
+     * @return array list of response headers 
+     */
+    public function getRequestHeaders($url = null)
+    {  
 
     if (getallheaders() == FALSE) {
-      throw new \InvalidArgumentException('Unable to get Request Headers');
+        throw new \InvalidArgumentException('Unable to get Request Headers');
     } else {
-      $this->headers[] = getallheaders();
+        $this->headers[] = getallheaders();
     }  
 
-      return $this->headers;
-  }
+        return $this->headers;
+    }
 
 }
