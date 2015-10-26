@@ -59,7 +59,13 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     public function testIsSafeMethod() 
     { 
 		$http = new \Acd\Http;
-		$this->assertTrue($http->isSafeMethod('OPTIONS'));
+		$safeMethods = ['HEAD', 'GET', 'OPTIONS', 'TRACE'];
+
+		foreach ($safeMethods as $value)
+		{
+			$this->assertTrue($http->isSafeMethod($value));
+		}
+		
     } 
 
   
@@ -70,7 +76,12 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     public function testIsIdempotentMethod() 
     { 
         $http = new \Acd\Http;
-		$this->assertTrue($http->isIdempotentMethod('DELETE'));
+		$idempotentMethods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'PUT', 'TRACE'];
+
+		foreach ($idempotentMethods as $value)
+		{
+			$this->assertTrue($http->isIdempotentMethod($value));
+		}
     }
 
 }
