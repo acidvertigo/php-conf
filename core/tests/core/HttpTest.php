@@ -28,8 +28,8 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */
     public function testProtocol()
     {  
-         $this->assertInternalType('string', filter_input(INPUT_SERVER, 'SERVER_PROTOCOL');
-         $this->assertContains('HTTP/1.1', filter_input(INPUT_SERVER, 'SERVER_PROTOCOL');                           
+         $this->assertInternalType('string', filter_input(INPUT_SERVER, 'SERVER_PROTOCOL'));
+         $this->assertContains('HTTP/1.1', filter_input(INPUT_SERVER, 'SERVER_PROTOCOL'));                           
     }
   
     /** 
