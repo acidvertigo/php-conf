@@ -35,13 +35,13 @@ class Response
    */
   public function getStatusCode($url = null)
   {
-    $codeStatus = (int)substr($this->getResponseHeaders($url)[0], 9, 3);
+    $codeStatus = (int) substr($this->getResponseHeaders($url)[0], 9, 3);
 
     if ($codeStatus < 100 || $codeStatus > 999) { 
-        throw new \InvalidArgumentException('Invalid  status code: ' . $statusCode); 
+        throw new \InvalidArgumentException('Invalid  status code: '.$statusCode); 
     }
     
     return $codeStatus;
-  }
+    }
 
 }
