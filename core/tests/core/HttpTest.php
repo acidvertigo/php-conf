@@ -28,11 +28,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
         unset($_SERVER['PORT']);
         parent::tearDown();
     }
-    
-    /** 
-     * Check HTTP version
-     * @return string 
-     */
+ 
     public function testProtocol()
     {  
         $http = new \Acd\Http;
@@ -41,21 +37,14 @@ class HttpTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('HTTP/1.1', $http->protocol());                           
     }
 
-    /** 
-     * Check if communication is on SSL or not
-     * @return bool true on HTTPS 
-     */
+
     public function testIsSsl()
     {  
         $http = new \Acd\Http;
 		
         $this->assertTrue($http->isSsl());
     }
-  
-    /** 
-     * @param string $method HTTP method
-     * @return bool true if the mothod is safe
-     */ 
+
     public function testIsSafeMethod() 
     { 
         $http = new \Acd\Http;
@@ -68,11 +57,6 @@ class HttpTest extends \PHPUnit_Framework_TestCase
 		
     } 
 
-  
-    /** 
-     * @param string $method HTTP method
-     * @return bool true if the method is idempotent
-     */ 
     public function testIsIdempotentMethod() 
     { 
         $http = new \Acd\Http;
