@@ -22,7 +22,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
         $_SERVER['PORT'] = '80';
     }
 	
-    function tearDown() {
+    public function tearDown() {
         unset($_SERVER['SERVER_PROTOCOL']);
         unset($_SERVER['HTTPS']);
         unset($_SERVER['PORT']);
