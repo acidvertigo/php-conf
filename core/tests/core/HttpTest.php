@@ -17,8 +17,8 @@ namespace Acd\core\tests;
 class HttpTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp(){
-      $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.0';
-      $_SERVER['HTTPS'] = 'HTTP/1.0';
+      $_SERVER['SERVER_PROTOCOL'] = 'HTTP/1.1';
+      $_SERVER['HTTPS'] = 'ON';
       $_SERVER['PORT'] = '80';
     }
     
