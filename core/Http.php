@@ -7,15 +7,15 @@ namespace Acd;
 * @author Acidvertigo MIT Licence 
 */ 
 class Http 
-{ 
-  
+{
+
     /** 
      * Check HTTP version
      * @return string 
      */
     public function protocol()
     {  
-    return $_SERVER['SERVER_PROTOCOL'];
+      return filter_input(INPUT_SERVER,'SERVER_PROTOCOL');
     }
   
     /** 
@@ -24,7 +24,7 @@ class Http
      */
     public function isSsl()
     {  
-    return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? true : false;
+    return (!empty(filter_input(INPUT_SERVER,'HTTPS')) && filter_input(INPUT_SERVER,'HTTPS') !== 'off' || filter_input(INPUT_SERVER,'SERVER_PORT') == 443) ? TRUE : FALSE;
     }
   
     /** 
