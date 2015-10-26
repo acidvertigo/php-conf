@@ -8,7 +8,8 @@ namespace Acd;
 */
 
 class Response 
-{ 
+{
+
   private $headers = [];
 
   /** 
