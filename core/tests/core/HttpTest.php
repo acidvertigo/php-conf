@@ -21,6 +21,13 @@ class HttpTest extends \PHPUnit_Framework_TestCase
       $_SERVER['HTTPS'] = 'ON';
       $_SERVER['PORT'] = '80';
     }
+	
+	function tearDown() {
+		unset( $_SERVER['SERVER_PROTOCOL'] );
+		unset( $_SERVER['HTTPS'] );
+		unset( $_SERVER['PORT'] );
+		parent::tearDown();
+	}
     
     /** 
      * Check HTTP version
@@ -28,10 +35,12 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */
     public function testProtocol()
     {  
-         $this->assertInternalType('string', filter_input(INPUT_SERVER, 'SERVER_PROTOCOL'));
-         $this->assertContains('HTTP/1.1', filter_input(INPUT_SERVER, 'SERVER_PROTOCOL'));                           
+		$http = new \Acd\Http;
+		
+        $this->assertInternalType('string', $http->protocol());
+        $this->assertContains('HTTP/1.1', $http->protocol());                           
     }
-  
+
     /** 
      * Check if communication is on SSL or not
      * @return bool true on HTTPS 
@@ -48,7 +57,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      * @param string $method HTTP method
      * @return bool true if the mothod is safe
      */ 
-    public function testIsSafeMethod($method) 
+    public function testIsSafeMethod() 
     { 
         $this->markTestIncomplete(
             'This test has not been implemented yet.'
@@ -60,7 +69,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      * @param string $method HTTP method
      * @return bool true if the method is idempotent
      */ 
-    public function isIdempotentMethod($method) 
+    public function isIdempotentMethod() 
     { 
         $this->markTestIncomplete(
             'This test has not been implemented yet.'

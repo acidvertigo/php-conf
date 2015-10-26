@@ -15,7 +15,7 @@ class Http
      */
     public function protocol()
     {  
-        return filter_input(INPUT_SERVER, 'SERVER_PROTOCOL', FILTER_SANITIZE_STRING);
+        return $_SERVER['SERVER_PROTOCOL'];
     }
   
     /** 
@@ -24,9 +24,7 @@ class Http
      */
     public function isSsl()
     {  
-    return (!empty(filter_input(INPUT_SERVER, 'HTTPS', FILTER_SANITIZE_STRING))
-			&& filter_input(INPUT_SERVER, 'HTTPS', FILTER_SANITIZE_STRING) !== 'off' 
-			|| filter_input(INPUT_SERVER, 'SERVER_PORT', FILTER_SANITIZE_STRING) == 443) ? TRUE : FALSE;
+    return (!empty($_SERVER['HTTPS'] && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443)) ? TRUE : FALSE;
     }
   
     /** 
