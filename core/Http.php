@@ -15,7 +15,7 @@ class Http
      */
     public function protocol()
     {  
-        return filter_input(INPUT_SERVER,'SERVER_PROTOCOL');
+        return filter_input(INPUT_SERVER, 'SERVER_PROTOCOL');
     }
   
     /** 
