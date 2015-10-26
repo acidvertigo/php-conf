@@ -34,7 +34,7 @@ class Http
     public function isSafeMethod($method) 
     { 
         $safeMethods = ['HEAD', 'GET', 'OPTIONS', 'TRACE'];
-        return isset($safeMethods[$method]);
+        return in_array($method, $safeMethods);
     } 
 
   
@@ -48,6 +48,6 @@ class Http
         // is not guarunteed to be, and more often than 
         // not, it is not. 
         $idempotentMethods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'PUT', 'TRACE'];
-        return isset($idempotentMethods[$method]);
+        return in_array($method, $idempotentMethods);
     }
 }

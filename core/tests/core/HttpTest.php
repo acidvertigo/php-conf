@@ -47,10 +47,9 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsSsl()
     {  
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-
+		$http = new \Acd\Http;
+		
+		$this->assertTrue($http->isSsl());
     }
   
     /** 
@@ -59,9 +58,8 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      */ 
     public function testIsSafeMethod() 
     { 
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+		$http = new \Acd\Http;
+		$this->assertTrue($http->isSafeMethod('OPTIONS'));
     } 
 
   
@@ -69,11 +67,10 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      * @param string $method HTTP method
      * @return bool true if the method is idempotent
      */ 
-    public function isIdempotentMethod() 
+    public function testIsIdempotentMethod() 
     { 
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        $http = new \Acd\Http;
+		$this->assertTrue($http->isIdempotentMethod('DELETE'));
     }
 
 }
