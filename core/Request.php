@@ -17,7 +17,7 @@ class Request
      * @param string $url 
      * @return array list of response headers 
      */
-    public function getRequestHeaders($url = null)
+    public function getRequestHeaders()
     {  
 
     if (getallheaders() == FALSE) {
