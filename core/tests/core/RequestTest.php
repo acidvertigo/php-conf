@@ -33,16 +33,16 @@ class RequestTest extends \PHPUnit_Framework_TestCase
        
         $this->header = $this->request_headers();
             
-     $this->assertEquals($this->header, ['HTTP_ACCEPT_LANGUAGE' => 'it']);
+     $this->assertEquals($this->header, ['ACCEPT_LANGUAGE' => 'it']);
    }
 
      public function request_headers()
      {
-    if(function_exists("apache_request_headers")) // If apache_request_headers() exists...
+    if(function_exists("apache_request_headers"))
     {
-        if($headers = apache_request_headers()) // And works...
+        if($headers = apache_request_headers()) 
         {
-            return $headers; // Use it
+            return $headers;
         }
     }
 
@@ -51,8 +51,8 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     {
         if(substr($skey, 0, 5) == "HTTP_")
         {
-            // $headername = str_replace("_", " ", substr($skey, 0, 5)))));
-            $headers[$skey] = $_SERVER[$skey];
+            $headername = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($key, 5)))));
+            $header[$headername] = $_SERVER[$skey];
         }
     }
     return $headers;
