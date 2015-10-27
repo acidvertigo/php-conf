@@ -19,13 +19,13 @@ class Request
     public function getRequestHeaders()
     {  
 
-      if (getallheaders() == FALSE) {
+        if (getallheaders() == FALSE) {
         throw new \InvalidArgumentException('Unable to get Request Headers');
-      } else {
+        } else {
         $this->headers[] = getallheaders();
-      }  
+        }  
 
-      return $this->headers;
+        return $this->headers;
     }
 
 }
