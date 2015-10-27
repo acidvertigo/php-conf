@@ -37,10 +37,10 @@ class RequestTest extends \PHPUnit_Framework_TestCase
      public function testGetRequestHeaders() 
      {   
   
-       if (getallheaders() == FALSE) { 
+       if (apache_request_headers() == FALSE) { 
          throw new \InvalidArgumentException('Unable to get Request Headers'); 
        } else { 
-         $this->headers[] = getallheaders(); 
+         $this->headers[] = apache_request_headers(); 
        }
        
        $request = null;
