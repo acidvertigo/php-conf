@@ -14,7 +14,6 @@ class Request
 
     /** 
      * Check HTTP response headers
-     * @param string $url 
      * @return array list of response headers 
      */
     public function getRequestHeaders()
