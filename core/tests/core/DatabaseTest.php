@@ -68,7 +68,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @return \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
+     * @return \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection
      */
     protected function getConnection() {
         if ($this->conn === null) {                
