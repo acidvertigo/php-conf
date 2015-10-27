@@ -20,9 +20,9 @@ class Response
     public function getResponseHeaders($url = null)
     {  
         if (get_headers($url, 1) == FALSE) {
-        throw new \InvalidArgumentException('Unable to get Response Headers');
+            throw new \InvalidArgumentException('Unable to get Response Headers');
         } else {
-        $this->headers[] = get_headers($url, 1);
+            $this->headers[] = get_headers($url, 1);
         }
 
         return $this->headers;
