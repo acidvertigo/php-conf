@@ -52,7 +52,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         if(substr($skey, 0, 5) == "HTTP_")
         {
             $headername = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))));
-            $header[$headername] = $_SERVER[$skey];
+            $headers[$headername] = $_SERVER[$skey];
         }
     }
     return $headers;
