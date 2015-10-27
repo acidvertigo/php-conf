@@ -45,7 +45,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
        
        $request = null;
       
-       foreach ($this->headers as $key => value) {
+       foreach ($this->headers as $key => $value) {
          $request .= "$key: $value";  
        }   
 
