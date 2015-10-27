@@ -9,9 +9,8 @@
 namespace Acd\core\tests;
 
 /**
- * Description of RegistryTest
- *
- * @author Luca
+ * Http Class Test
+ * @author Acidvertigo
  */
 
 class HttpTest extends \PHPUnit_Framework_TestCase
