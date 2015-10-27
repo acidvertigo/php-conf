@@ -1,4 +1,11 @@
 <?php
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace Acd\core\tests;
 
 if( !function_exists('apache_request_headers') ) {
 ///
@@ -23,15 +30,6 @@ function apache_request_headers() {
 }
 ///
 }
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-namespace Acd\core\tests;
 
 /**
  * Description of RequestTest
