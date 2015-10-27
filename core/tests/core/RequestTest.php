@@ -33,7 +33,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
        
         $this->header = $this->request_headers();
             
-     $this->assertEquals($this->header, ['HTTP_ACCEPT_LANGUAGE' => 'it']);
+     $this->assertEquals($this->header, ['Accept-Language' => 'it']);
    }
 
      public function request_headers()
