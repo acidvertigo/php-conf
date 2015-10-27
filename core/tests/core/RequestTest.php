@@ -51,8 +51,8 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     {
         if(substr($skey, 0, 5) == "HTTP_")
         {
-            $headername = str_replace(" ", "-", ucwords(strtolower(str_replace("_", " ", substr($skey, 0, 5)))));
-            $headers[$headername] = $_SERVER[$skey];
+            // $headername = str_replace("_", " ", substr($skey, 0, 5)))));
+            $headers[$skey] = $_SERVER[$skey];
         }
     }
     return $headers;
