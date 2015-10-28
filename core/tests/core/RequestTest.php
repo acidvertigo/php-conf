@@ -36,26 +36,6 @@ class RequestTest extends \PHPUnit_Framework_TestCase
      $this->assertEquals($this->header, ['Accept-Language' => 'it']);
    }
 
-     public function request_headers()
-     {
-    if(function_exists("apache_request_headers"))
-    {
-        if($headers = apache_request_headers()) 
-        {
-            return $headers;
-        }
-    }
-
-    $headers = array();
-    foreach(array_keys($_SERVER) as $skey)
-    {
-        if(substr($skey, 0, 5) == "HTTP_")
-        {
-            $headername = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))));
-            $headers[$headername] = $_SERVER[$skey];
-        }
-    }
-    return $headers;
-} 
+  
 
 }   
