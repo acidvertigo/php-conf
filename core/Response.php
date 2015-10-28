@@ -14,7 +14,7 @@ class Response
 
     /** 
      * Check HTTP response headers
-     * @param string $url 
+     * @param string|null $url 
      * @return array list of response headers 
      */
     public function getResponseHeaders($url = null)
@@ -31,7 +31,7 @@ class Response
     }
 
     /** 
-     * @param string $url 
+     * @param string|null $url 
      * @return integer HTTP response code 
      */
     public function getStatusCode($url = null)
