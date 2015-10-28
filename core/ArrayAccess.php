@@ -18,9 +18,11 @@ trait ArrayAccess
      */
     public function offsetSet($key, $value)
     {
-        if (!$key) {
+        if (!$key)
+        {
             $this->data[] = $value;
-        } else {
+        } else
+        {
             $this->data[$key] = $value;
         }
     }
@@ -33,7 +35,8 @@ trait ArrayAccess
      */
     public function offsetGet($key)
     {
-        if (isset($this->data[$key])) {
+        if (isset($this->data[$key]))
+        {
             return $this->data[$key];
         }
         return null;

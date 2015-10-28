@@ -10,7 +10,8 @@ error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', true);
 
 // Import external libraries.
-if (file_exists('./vendor/autoload.php')) {
+if (file_exists('./vendor/autoload.php'))
+{
     require './vendor/autoload.php';
 }
 
@@ -32,6 +33,6 @@ $database = new Acd\Database($registry->get('database'));
 $database = $database->connect();
 
 foreach ($registry->get('database') as $key => $value) {
-    echo 'Key = '.$key.' Value = '.$value.'<br>';
+    echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
 
