@@ -53,8 +53,8 @@ class Configloader implements \ArrayAccess
 		 * @return array Return data configuration as array
          * @throws \Exception If php configuration file not found
          */
-        public function loadconfig()
-        {
+    public function loadconfig()
+    {
         if (file_exists($this->path))
         {
             $this->data = include $this->path;
@@ -64,5 +64,5 @@ class Configloader implements \ArrayAccess
         }
 
         return $this->data;
-        }
+    }
 }
