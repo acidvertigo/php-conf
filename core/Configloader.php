@@ -50,7 +50,7 @@ class Configloader implements \ArrayAccess
 
      /**
      * Loads configuration file
-     * @throws ParseException If there is an error parsing the INI file
+     * @throws \Exception If php configuration file not found
      */
      public function loadconfig()
      {
