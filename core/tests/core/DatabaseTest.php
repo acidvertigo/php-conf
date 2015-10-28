@@ -20,7 +20,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     protected $object;
 
     /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test * */
-    private $conn;
+    private $conn = null;
 
     /** @var \PDO * */
     static private $pdo = null;
@@ -71,7 +71,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     /**
-     * @return \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection
+     * @return \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection|null
      */
     protected function getConnection() {
         if ($this->conn === null)
