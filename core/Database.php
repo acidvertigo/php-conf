@@ -76,6 +76,7 @@ class Database
 
     /**
      * Check if called method exists in pdo class and returns it
+	 * @return function The called function
      */
     public function __call($method, $args)
     {
