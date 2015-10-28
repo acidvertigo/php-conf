@@ -22,6 +22,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     /** @var void $conn: only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test * */
     private $conn = null;
 
+	/** @var PDO * */
+    static private $pdo = null;
+
     private $config = [];
 
     private $options = [];
@@ -73,7 +76,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     protected function getConnection() {
         if ($this->conn === null)
         {
-                $instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $this->options);
+			if (self::$pdo == null) {
+                self::$pdo = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $this->options);
+			}	
                 $this->conn = $this->createDefaultDBConnection($instance, 'shop');
         }
 
