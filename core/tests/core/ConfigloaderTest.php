@@ -44,7 +44,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
     {
         $loadconfig = new \Acd\Configloader($this->path);
         $this->assertAttributeInternalType('array', 'data', $loadconfig);
-		$this->assertArrayHasKey('database', $loadconfig->loadconfig());
-		$this->assertArrayHasKey('test', $loadconfig->loadconfig());
+        $this->assertArrayHasKey('database', $loadconfig->loadconfig());
+        $this->assertArrayHasKey('test', $loadconfig->loadconfig());
     }
 }
