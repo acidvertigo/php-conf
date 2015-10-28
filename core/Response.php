@@ -1,7 +1,7 @@
 <?php 
 
 namespace Acd;
-  
+
 /** 
 * Response Class
 * @author Acidvertigo MIT Licence 
