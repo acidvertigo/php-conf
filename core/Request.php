@@ -19,7 +19,7 @@ class Request
     public function getRequestHeaders()
     {
       if(function_exists("getallheaders()")) {
-        if (!getallheaders()) {
+        if (getallheaders() == null) {
           throw new \InvalidArgumentException('Unable to get Request Headers');
         } else {
           $this->headers = getallheaders();
