@@ -39,13 +39,14 @@ class Request
      * Helper function if getallheaders() not available
      * @return array list of response headers 
      */
-    private function getServerHeaders() {
-    foreach (array_keys($_SERVER) as $skey) {
-        if (strpos($skey, 'HTTP_') !== FALSE)
-        {
-        $this->headers[str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))))] = $_SERVER[$skey];
+    private function getServerHeaders()
+    {
+        foreach (array_keys($_SERVER) as $skey) {
+            if (strpos($skey, 'HTTP_') !== FALSE)
+            {
+                $this->headers[str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))))] = $_SERVER[$skey];
+            }
         }
-    }
 
     return $this->headers;
     }
