@@ -79,7 +79,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 			if (self::$pdo == null) {
                 self::$pdo = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $this->options);
 			}	
-                $this->conn = $this->createDefaultDBConnection($instance, 'shop');
+                $this->conn = $this->createDefaultDBConnection(self::$pdo, 'shop');
         }
 
         return $this->conn;
