@@ -32,8 +32,3 @@ after_script:
  - php vendor/bin/coveralls -v -c .coveralls.yml
  - if [ "$TRAVIS_PHP_VERSION" != "7" ] && [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
  - if [ "$TRAVIS_PHP_VERSION" != "7" ] && [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
-
-cache:
-  directories:
-    - vendor
-    - $COMPOSER_CACHE_DIR
