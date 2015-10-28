@@ -51,7 +51,7 @@ class Configloader implements \ArrayAccess
         } else {
             throw new \Exception('Configuration directory not found: ' . $path);
         }
-		
+
     }
 
     /**
