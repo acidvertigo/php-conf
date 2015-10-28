@@ -71,7 +71,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @return \PHPUnit_Extensions_Database_DB_DefaultDatabaseConnection
      */
     protected function getConnection() {
-        if ($this->conn === null) {                
+        if ($this->conn === null)
+        {
                 $instance = new \PDO('mysql:dbname=shop;host=localhost', 'root', '', $this->options);
                 $this->conn = $this->createDefaultDBConnection($instance, 'shop');
         }
@@ -83,7 +84,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @return \PHPUnit_Extensions_Database_DataSet_MysqlXmlDataSet
      */
     protected function getDataSet() {
-        return $this->createMySQLXMLDataSet(__DIR__.'/datasource/mysqldump.xml');
+        return $this->createMySQLXMLDataSet(__DIR__ . '/datasource/mysqldump.xml');
     }
 
     /**

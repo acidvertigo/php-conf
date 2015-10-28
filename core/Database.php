@@ -54,7 +54,7 @@ class Database
             $options = array(\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING);
 
                 // Starts connection
-                $this->connection = new \PDO('mysql:host='.$this->registry['HOST'].';dbname='.$this->registry['NAME'], $this->registry['USERNAME'], $this->registry['PASSWORD'], $options);
+                $this->connection = new \PDO('mysql:host=' . $this->registry['HOST'] . ';dbname=' . $this->registry['NAME'], $this->registry['USERNAME'], $this->registry['PASSWORD'], $options);
             } catch (\PDOException $e) {
                 throw $e;
             }
@@ -76,7 +76,7 @@ class Database
     public function __call($method, $args)
     {
         $callable = array($this->connection, $method);
-        if(is_callable($callable)) {
+        if (is_callable($callable)) {
             return call_user_func_array($callable, $args);
         }
     }
