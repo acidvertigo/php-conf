@@ -83,7 +83,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                 $this->conn = $this->createDefaultDBConnection(self::$pdo, 'shop');
         }
 
-		$this->assertNotNull($this->conn);
         return $this->conn;
     }
 
@@ -116,6 +115,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
         $this->object = new \Acd\Database($registry);
         $this->assertInstanceOf('\Acd\Database', $this->object);
+		$this->assertNotNull($this->object->connect());
     }
 
     public function testDisconnect() {
