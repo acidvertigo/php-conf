@@ -14,7 +14,8 @@ class Request
 
     /** 
      * Check HTTP request headers
-     * @return array list of response headers 
+     * @return array list of response headers
+	 * @throws InvalidArgumentException if header is null
      */
     public function getRequestHeaders()
     {
@@ -33,7 +34,11 @@ class Request
           throw new \InvalidArgumentException('Unable to get Request Headers');       
       }
     } 
-   
+  
+   /** 
+    * Helper function if getallheaders() not available
+    * @return array list of response headers 
+    */	
   private function getServerHeaders() {
     foreach(array_keys($_SERVER) as $skey) {
       if(strpos($skey, 'HTTP_') !== FALSE)
