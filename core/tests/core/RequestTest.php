@@ -35,7 +35,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $request = new \Acd\Request;
         $this->header = $request->getRequestHeaders();
         $this->assertEquals($this->header, ['Accept-Language' => 'it']);
-		$this->assertEquals($this->header, ['Accept_Encoding' => 'gzip, deflate, sdch']);
+		$this->assertEquals($this->header, ['Accept-Encoding' => 'gzip, deflate, sdch']);
      }
 
 }
