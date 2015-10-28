@@ -41,18 +41,24 @@ class Configloader implements \ArrayAccess
     private $path = null;
 
     /**
-     * @param  string $path
+     * @param string|null $path
+	 * @throw \Exception if configuration directory not found 
      */
     public function __construct($path)
     {
-        $this->path = $path;
+        if (file_exists($path)) {
+            $this->path = $path;
+		} else {
+	        throw new \Exception('Configuration directory not found' . $path);
+		}
+		
     }
 
-        /**
-         * Loads configuration file
-		 * @return array Return data configuration as array
-         * @throws \Exception If php configuration file not found
-         */
+    /**
+     * Loads configuration file
+	 * @return array Return data configuration as array
+     * @throws \Exception If php configuration file not found
+     */
     public function loadconfig()
     {
         if (file_exists($this->path))
