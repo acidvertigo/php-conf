@@ -31,7 +31,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        
+
     }
 
     /**
@@ -39,12 +39,12 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * This method is called after a test is executed.
      */
     protected function tearDown() {
-        
+
     }
 
     public function __construct() {
 
-    $this->options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];  
+    $this->options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];
     $this->config = ['database' => [
         'HOST' => 'localhost',
         'NAME' => 'shop',
@@ -59,7 +59,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->getMock();
 
         $registry->set('config', $this->config);
-  		
+
         $reflection_class = new \ReflectionClass("\Acd\Database");
         $property = $reflection_class->getProperty('registry');
         $property->setAccessible(true);
@@ -100,13 +100,13 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $this->assertTablesEqual($expectedTable, $queryTable);
     }
 
-    public function testConnection() { 
+    public function testConnection() {
         $registry = $this->getMockBuilder('\Acd\Registry')
             ->disableOriginalConstructor()
             ->getMock();
 
         $registry->set('config', $this->config);
- 
+
         $this->object = new \Acd\Database($registry);
         $this->assertInstanceOf('\Acd\Database', $this->object);
     }
@@ -118,7 +118,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->getMock();
 
         $registry->set('database', $this->config);
-  		
+
         $database = new \Acd\Database($registry);
         $this->assertNotInstanceOf('PDO', $database->disconnect());
         $this->assertNull($database->disconnect());
@@ -134,7 +134,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->getMock();
 
         $registry->set('database', $this->config);
-		
+
         $database = new \Acd\Database($registry);
         return $database->connect();
     }

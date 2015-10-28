@@ -28,7 +28,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         $object = new \Acd\Configloader($this->path);
         $this->assertEquals($this->path, $property->getValue($object));
     }
-    
+
     /**
      * @expectedException \Exception 
      */
@@ -37,11 +37,11 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         $loadconfig = new \Acd\Configloader($this->wrong_path);
         return $loadconfig->loadconfig();
     }
-	
+
     public function testLoadconfig()
     {
         $loadconfig = new \Acd\Configloader($this->path);
         $this->assertFileExists($this->path);
         $this->assertAttributeInternalType('array', 'data', $loadconfig);
-    }		
+    }
 }

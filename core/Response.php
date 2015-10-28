@@ -1,6 +1,6 @@
 <?php 
-  
-namespace Acd; 
+
+namespace Acd;
   
 /** 
 * Response Class
@@ -18,7 +18,7 @@ class Response
      * @return array list of response headers 
      */
     public function getResponseHeaders($url = null)
-    {  
+    {
         if (get_headers($url, 1) == FALSE)
         {
             throw new \InvalidArgumentException('Unable to get Response Headers');
@@ -40,7 +40,7 @@ class Response
 
         if ($codeStatus < 100 || $codeStatus > 999)
         {
-            throw new \InvalidArgumentException('Invalid  status code: ' . $statusCode); 
+            throw new \InvalidArgumentException('Invalid  status code: ' . $statusCode);
         }
 
         return $codeStatus;

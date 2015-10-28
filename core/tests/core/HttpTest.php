@@ -20,40 +20,40 @@ class HttpTest extends \PHPUnit_Framework_TestCase
         $_SERVER['HTTPS'] = 'ON';
         $_SERVER['PORT'] = '80';
     }
-	
+
     public function tearDown() {
         unset($_SERVER['SERVER_PROTOCOL']);
         unset($_SERVER['HTTPS']);
         unset($_SERVER['PORT']);
         parent::tearDown();
     }
- 
+
     public function testProtocol()
-    {  
+    {
         $http = new \Acd\Http;
-		
+
         $this->assertInternalType('string', $http->protocol());
         $this->assertContains('HTTP/1.1', $http->protocol());                           
     }
 
 
     public function testIsSsl()
-    {  
+    {
         $http = new \Acd\Http;
-		
+
         $this->assertTrue($http->isSsl());
     }
 
-    public function testIsSafeMethod() 
-    { 
+    public function testIsSafeMethod()
+    {
         $http = new \Acd\Http;
         $safeMethods = ['HEAD', 'GET', 'OPTIONS', 'TRACE'];
 
         foreach ($safeMethods as $value) {
             $this->assertTrue($http->isSafeMethod($value));
         }
-		
-    } 
+
+    }
 
     public function testIsIdempotentMethod() 
     { 

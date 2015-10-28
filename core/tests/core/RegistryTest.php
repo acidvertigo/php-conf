@@ -16,25 +16,25 @@ namespace Acd\core\tests;
 
 class RegistryTest extends \PHPUnit_Framework_TestCase
 {
-    
+
     public function testget()
     {
         $registry = new \Acd\Registry;
         $registry->set('test', array(1, 2, 3));
-        
+
         $result = $registry->get('test');
         $this->assertInternalType('array', $result);
         $this->assertContains('1', $result);
         $this->assertContains('2', $result);
         $this->assertContains('3', $result);
     }
-    
+
         public function testReset()
     {
         $registry = new \Acd\Registry;
         $this->assertNull($registry->reset());
     }
-    
+
     /**
      * @expectedException \Exception 
      */
@@ -44,7 +44,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $registry->set('test', array(1, 2, 3));
         return $registry->get('foo');
     }
-	
+
     /**
      * @expectedException \Exception 
      */
@@ -54,7 +54,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $registry->set('test', array(1, 2, 3));
         return $registry->set('test', array(1, 2, 3));
     }
-    
+
     public function testArrayAccess()
     {
         $registry = new \Acd\Registry;

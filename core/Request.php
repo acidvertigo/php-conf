@@ -1,10 +1,10 @@
 <?php 
-  
-namespace Acd; 
-  
+
+namespace Acd;
+
 /** 
 * Request Class
-* @author Acidvertigo MIT Licence 
+* @author Acidvertigo MIT Licence
 */
 
 class Request 
@@ -12,10 +12,10 @@ class Request
 
     private $headers = [];
 
-    /** 
+    /**
      * Check HTTP request headers
      * @return array list of response headers
-	 * @throws InvalidArgumentException if header is null
+     * @throws InvalidArgumentException if header is null
      */
     public function getRequestHeaders()
     {
@@ -31,21 +31,21 @@ class Request
           return $this->headers;
       } else
       {
-          throw new \InvalidArgumentException('Unable to get Request Headers');       
+          throw new \InvalidArgumentException('Unable to get Request Headers');
       }
-    } 
-  
+    }
+
    /** 
     * Helper function if getallheaders() not available
     * @return array list of response headers 
-    */	
+    */
   private function getServerHeaders() {
     foreach (array_keys($_SERVER) as $skey) {
       if (strpos($skey, 'HTTP_') !== FALSE)
       {
         $this->headers[str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))))] = $_SERVER[$skey];
       }
-    }  
+    }
 
     return $this->headers;
   }

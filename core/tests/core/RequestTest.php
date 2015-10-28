@@ -18,20 +18,20 @@ class RequestTest extends \PHPUnit_Framework_TestCase
   
   private $header;
   
-  public function setUp() { 
+  public function setUp() {
          $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'it';
-  } 
- 	 
+  }
+
   public function tearDown() { 
     unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
     parent::tearDown(); 
-  } 
+  }
   
      public function testGetRequestHeaders() 
-     {   
+     {
         $request = new \Acd\Request;
-        $this->header = $request->getRequestHeaders();            
+        $this->header = $request->getRequestHeaders();
         $this->assertEquals($this->header, ['Accept-Language' => 'it']);
-     }  
+     }
 
 }

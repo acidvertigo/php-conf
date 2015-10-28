@@ -38,7 +38,7 @@ class Database
     private $registry = [];
     /** @var object PDO connection object */
     public $connection = null;
-    
+
     public function __construct(\Acd\Registry $registry) {
         $this->registry = $registry;
     }
@@ -69,7 +69,7 @@ class Database
     {
         $this->connection = null;
     }
-    
+
     /**
      * Check if called method exists in pdo class and returns it
      */
