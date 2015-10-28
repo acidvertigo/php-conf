@@ -19,13 +19,21 @@ class Request
     public function getRequestHeaders()
     {  
 
-      if (getallheaders() == FALSE) {
+      if(function_exists("getallheaders()")) {
+        if (getallheaders() == FALSE) {
           throw new \InvalidArgumentException('Unable to get Request Headers');
+        } else {
+          $this->headers = getallheaders();
+        }
       } else {
-          $this->headers[] = getallheaders();
-      }  
+      foreach(array_keys($_SERVER) as $skey) {
+        if(substr($skey, 0, 5) == "HTTP_")
+        {
+            $headername = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))));
+            $this->headers[$headername] = $_SERVER[$skey];
+        }
+       }  
 
       return $this->headers;
     }
-
 }
