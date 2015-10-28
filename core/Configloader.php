@@ -54,9 +54,11 @@ class Configloader implements \ArrayAccess
      */
      public function loadconfig()
      {
-        if (file_exists($this->path)) {
+        if (file_exists($this->path))
+        {
             $this->data = include $this->path;
-        } else {
+        } else
+        {
             throw new \Exception('Configuration file not found: ' . $this->path);
         }
 
