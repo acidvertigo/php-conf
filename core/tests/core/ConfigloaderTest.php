@@ -19,7 +19,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 
     private $path = 'include/config.php';
     private $wrongFile = 'include/conffig.php';
-	private $wrongPath = 'iinclude/config.php';
+    private $wrongPath = 'iinclude/config.php';
 	
     
     public function testConstruct()
@@ -31,7 +31,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->path, $property->getValue($object));
     }
 
-	/**
+    /**
      * @expectedException \Exception 
      * @return array Configuration array
      */
