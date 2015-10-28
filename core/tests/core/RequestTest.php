@@ -29,13 +29,9 @@ class RequestTest extends \PHPUnit_Framework_TestCase
   
      public function testGetRequestHeaders() 
      {   
-  
-       
-        $this->header = $this->request_headers();
-            
-     $this->assertEquals($this->header, ['Accept-Language' => 'it']);
-   }
-
-  
+        $request = new \Acd\Request;
+        $this->header = $request->getRequestHeaders();            
+        $this->assertEquals($this->header, ['Accept-Language' => 'it']);
+     }  
 
 }   
