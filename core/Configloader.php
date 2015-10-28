@@ -49,7 +49,7 @@ class Configloader implements \ArrayAccess
         if (file_exists($path)) {
             $this->path = $path;
 		} else {
-	        throw new \Exception('Configuration directory not found' . $path);
+	        throw new \Exception('Configuration directory not found: ' . $path);
 		}
 		
     }
