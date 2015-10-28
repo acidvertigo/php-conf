@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Acd;
 
@@ -16,7 +16,7 @@ class Response
      * Check HTTP response headers
      * @param string|null $url 
      * @return array a list of response headers
-	 * @throws \InvalidArgumentException if response headers are null
+     * @throws \InvalidArgumentException if response headers are null
      */
     public function getResponseHeaders($url = null)
     {
@@ -34,7 +34,7 @@ class Response
     /** 
      * @param string|null $url 
      * @return integer HTTP response code
-	 * @throws \InvalidArgumentException if the status code is outside range
+     * @throws \InvalidArgumentException if the status code is outside range
      */
     public function getStatusCode($url = null)
     {
