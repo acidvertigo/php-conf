@@ -113,9 +113,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
         $registry->set('config', $this->config);
 
-        $this->object = new \Acd\Database($registry);
-        $this->assertInstanceOf('\Acd\Database', $this->object);
-		$this->assertNotNull($this->object->connect());
+        $object = new \Acd\Database($registry);
+        $this->assertInstanceOf('\Acd\Database', $object);
+		$this->assertNotNull($object->connect());
     }
 
     public function testDisconnect() {
