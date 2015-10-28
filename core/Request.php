@@ -19,17 +19,17 @@ class Request
     public function getRequestHeaders()
     {
       if(function_exists("getallheaders()")) {
-        if (getallheaders() == null) {
-          throw new \InvalidArgumentException('Unable to get Request Headers');
-        } else {
           $this->headers = getallheaders();
-        }
       } else {
-       $this->headers = $this->getServerHeaders();
+          $this->headers = $this->getServerHeaders();
       }
-    return $this->headers;  
-  } 
-  
+      if ($this->headers !== null) {
+          return $this->headers;
+      } else {
+          throw new \InvalidArgumentException('Unable to get Request Headers');       
+      }
+    } 
+   
   private function getServerHeaders() {
     foreach(array_keys($_SERVER) as $skey)
     {
