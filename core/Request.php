@@ -19,7 +19,7 @@ class Request
      */
     public function getRequestHeaders()
     {
-      if (function_exists("getallheaders()"))
+      if (function_exists('getallheaders()'))
       {
           $this->headers = getallheaders();
       } else
