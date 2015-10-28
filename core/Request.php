@@ -19,7 +19,7 @@ class Request
      */
     public function getRequestHeaders()
     {
-      if(function_exists("getallheaders()"))
+      if (function_exists("getallheaders()"))
       {
           $this->headers = getallheaders();
       } else
@@ -40,8 +40,8 @@ class Request
     * @return array list of response headers 
     */	
   private function getServerHeaders() {
-    foreach(array_keys($_SERVER) as $skey) {
-      if(strpos($skey, 'HTTP_') !== FALSE)
+    foreach (array_keys($_SERVER) as $skey) {
+      if (strpos($skey, 'HTTP_') !== FALSE)
       {
         $this->headers[str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))))] = $_SERVER[$skey];
       }

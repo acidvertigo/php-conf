@@ -38,7 +38,8 @@ class Response
     {
         $codeStatus = (int) substr($this->getResponseHeaders($url)[0], 9, 3);
 
-        if ($codeStatus < 100 || $codeStatus > 999) { 
+        if ($codeStatus < 100 || $codeStatus > 999)
+        {
             throw new \InvalidArgumentException('Invalid  status code: ' . $statusCode); 
         }
 
