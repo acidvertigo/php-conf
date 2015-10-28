@@ -83,7 +83,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
                 $this->conn = $this->createDefaultDBConnection(self::$pdo, 'shop');
         }
 
-        return $this->conn;
+		$this->assertNotNull($this->conn);
     }
 
     /**
