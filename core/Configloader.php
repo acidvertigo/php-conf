@@ -50,6 +50,7 @@ class Configloader implements \ArrayAccess
 
         /**
          * Loads configuration file
+		 * @return array Return data configuration as array
          * @throws \Exception If php configuration file not found
          */
         public function loadconfig()
