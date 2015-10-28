@@ -31,7 +31,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \Exception 
-	 * @return array Configuration array
+     * @return array Configuration array
      */
     public function testLoadconfigException()
     {
