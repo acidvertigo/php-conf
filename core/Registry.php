@@ -48,7 +48,8 @@ class Registry implements \ArrayAccess
      */
     public function set($key, $value)
     {
-        if (isset($this->data[$key])) {
+        if (isset($this->data[$key]))
+        {
             throw new \Exception('There is already an entry for key: ' . $key);
         }
 
@@ -64,7 +65,8 @@ class Registry implements \ArrayAccess
      */
     public function get($key)
     {
-        if (!isset($this->data[$key])) {
+        if (!isset($this->data[$key]))
+        {
             throw new \Exception('There is no entry for key: ' . $key);
         }
 
