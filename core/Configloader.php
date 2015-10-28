@@ -48,12 +48,12 @@ class Configloader implements \ArrayAccess
         $this->path = $path;
     }
 
-     /**
-     * Loads configuration file
-     * @throws \Exception If php configuration file not found
-     */
-     public function loadconfig()
-     {
+        /**
+         * Loads configuration file
+         * @throws \Exception If php configuration file not found
+         */
+        public function loadconfig()
+        {
         if (file_exists($this->path))
         {
             $this->data = include $this->path;
@@ -62,6 +62,6 @@ class Configloader implements \ArrayAccess
             throw new \Exception('Configuration file not found: ' . $this->path);
         }
 
-       return $this->data;
-     }
+        return $this->data;
+        }
 }
