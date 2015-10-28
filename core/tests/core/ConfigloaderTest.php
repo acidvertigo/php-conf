@@ -18,8 +18,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 {
 
     private $path = 'include/config.php';
-    private $wrongFile = 'include/conffig.php';
-    private $wrongPath = 'iinclude/config.php';
+    private $wrongPath = 'include/conffig.php';
 	
     
     public function testConstruct()
@@ -35,19 +34,9 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
      * @expectedException \Exception 
      * @return array Configuration array
      */
-    public function testLoadDirConfigException()
-    {
-        $loadconfig = new \Acd\Configloader($this->wrongPath);
-        return $loadconfig->loadconfig();
-    }
-	
-    /**
-     * @expectedException \Exception 
-     * @return array Configuration array
-     */
     public function testLoadconfigException()
     {
-        $loadconfig = new \Acd\Configloader($this->wrongFile);
+        $loadconfig = new \Acd\Configloader($this->wrongPath);
         return $loadconfig->loadconfig();
     }
 
