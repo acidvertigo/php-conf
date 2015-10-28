@@ -26,16 +26,21 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
   public function tearDown() { 
     unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-	unset($_SERVER['HTTP_ACCEPT_ENCODING']);
+    unset($_SERVER['HTTP_ACCEPT_ENCODING']);
     parent::tearDown(); 
   }
-  
+
      public function testGetRequestHeaders() 
      {
         $request = new \Acd\Request;
         $this->header = $request->getRequestHeaders();
-        $this->assertEquals($this->header, ['Accept-Language' => 'it']);
-		$this->assertEquals($this->header, ['Accept-Encoding' => 'gzip, deflate, sdch']);
+
+        $serverArray = ['Accept-Language' => 'it', 'Accept-Encoding' => 'gzip, deflate, sdch'];  
+
+        foreach($this->header as $key => $value) {
+           $this->assertEquals($this->header[$key],  $serverArray[$key]);
+        }
+
      }
 
 }
