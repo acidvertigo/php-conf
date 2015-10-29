@@ -37,7 +37,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
      */
    public function testGetResponseHeadersException() {
         $request = new \Acd\Response;
-        $this->header = $request->getResponseHeaders('http://www.example');
+        $this->header = $request->getResponseHeaders('ftp://www.example.com');
         return $this->headers;
    }
 
