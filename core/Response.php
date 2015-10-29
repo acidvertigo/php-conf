@@ -38,7 +38,8 @@ class Response
      */
     public function getStatusCode($url = null)
     {
-        $codeStatus = (int) substr($this->getResponseHeaders($url)[0], 9, 3);
+        $response = array_shift($this->getResponseHeaders($url));
+        $codeStatus = (int) substr($response, 9, 3);
 
         if ($codeStatus < 100 || $codeStatus > 999)
         {
