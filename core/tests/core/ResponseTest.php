@@ -12,21 +12,13 @@ namespace Acd\core\tests;
  */
 class ResponseTest extends \PHPUnit_Framework_TestCase
 {
-  
-    private $url;
+
     private $header;
-  
-    public function setUp() {
-        $this->request = 'http://www.example.com';
-    }
-    public function tearDown() { 
-        unset($this->request);
-        parent::tearDown(); 
-    }
+
     public function testGetResponseHeaders() 
     {
         $request = new \Acd\Response;
-        $this->header = $request->getResponseHeaders($this->url);
+        $this->header = $request->getResponseHeaders('http://www.example.com');
         $serverArray = ['0' => 'HTTP/1.1 200 OK', 'Content-Type' => 'text/html'];  
         foreach ($this->header as $key => $value) {
             $this->assertEquals($this->header[$key], $serverArray[$key]);
@@ -36,7 +28,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     public function testGetStatusCode()
     {
         $request = new \Acd\Response;
-        $this->header = $request->getStatusCode($this->url);
+        $this->header = $request->getStatusCode('http://www.example.com');
         $this->assertEquals($this->header, 200);
     }  
 }
