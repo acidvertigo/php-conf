@@ -29,8 +29,8 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         parent::tearDown(); 
     }
 
-        public function testGetRequestHeaders() 
-        {
+    public function testGetRequestHeaders() 
+    {
         $request = new \Acd\Request;
         $this->header = $request->getRequestHeaders();
 
@@ -40,6 +40,6 @@ class RequestTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals($this->header[$key], $serverArray[$key]);
         }
 
-        }
+    }
 
 }
