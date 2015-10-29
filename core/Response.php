@@ -26,7 +26,7 @@ class Response
             throw new \InvalidArgumentException('Unable to get Response Headers');
         } else
         {
-            $this->headers[] = get_headers($url, 1);
+            $this->headers = get_headers($url, 1);
         }
 
         return $this->headers;
