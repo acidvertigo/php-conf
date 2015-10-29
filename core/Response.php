@@ -21,7 +21,7 @@ class Response
      */
     public function getResponseHeaders($url = null)
     {
-        $response = get_headers($url, 1);
+        $response = @get_headers($url, 1);
         if (!is_array($response) || $response  === FALSE)
         {
             throw new \InvalidArgumentException('Unable to get Response Headers');
