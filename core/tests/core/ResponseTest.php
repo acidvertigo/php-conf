@@ -30,5 +30,15 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $request = new \Acd\Response;
         $this->header = $request->getStatusCode('http://www.example.com');
         $this->assertEquals($this->header, 200);
-    }  
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException 
+     */
+   public function testGetResponseHeadersException() {
+        $request = new \Acd\Response;
+        $this->header = $request->getResponseHeaders('http://www.example');
+        return $this->headers;
+   }
+
 }
