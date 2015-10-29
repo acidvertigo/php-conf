@@ -19,7 +19,6 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         $request = new \Acd\Response;
         $this->header = $request->getResponseHeaders('http://www.example.com');
-        $serverArray = ['0' => 'HTTP/1.0 200 OK', 'Content-Type' => 'text/html'];
         $this->assertArrayHasKey('0', $this->header);
         $this->assertContains('HTTP/1.0 200 OK', $this->header); 
         $this->assertArrayHasKey('Content-Type', $this->header);
