@@ -19,7 +19,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         $request = new \Acd\Response;
         $this->header = $request->getResponseHeaders('http://www.example.com');
-        $serverArray = [0 => 'HTTP/1.1 200 OK', 'Content-Type' => 'text/html'];  
+        $serverArray = ['0' => 'HTTP/1.1 200 OK', 'Content-Type' => 'text/html'];  
         foreach ($this->header as $key => $value) {
             $this->assertEquals($this->header[$key], $serverArray[$key]);
         }
