@@ -48,6 +48,6 @@ class Request
             }
         }
 
-      return $this->headers;
+        return $this->headers;
     }
 }
