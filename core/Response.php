@@ -10,7 +10,8 @@ namespace Acd;
 class Response 
 {
 
-    private $headers = [];
+    /** @var array|string $headers variable containing the headers* */
+    private $headers;
 
     /** 
      * Check HTTP response headers
