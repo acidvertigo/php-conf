@@ -16,7 +16,7 @@ class Response
     /** 
      * Check HTTP response headers
      * @param string|null $url 
-     * @return array|string a list of response headers
+     * @return array a list of response headers
      * @throws \InvalidArgumentException if response headers are null
      */
     public function getResponseHeaders($url = null)
@@ -29,7 +29,7 @@ class Response
             $this->headers = get_headers($url, 1);
         }
 
-        return $this->headers;
+        return $this->headers[];
     }
 
     /** 
