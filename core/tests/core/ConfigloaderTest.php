@@ -37,7 +37,7 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
         $property = $reflection_class->getProperty('path');
         $property->setAccessible(true);
         $object = new \Acd\Configloader($this->path);
-        $this->assertEquals($this->path, $property->getValue($object));
+        $this->assertEquals(__DIR__ . '/' . $this->path, $property->getValue($object));
     }
 
     /**
