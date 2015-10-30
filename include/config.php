@@ -11,8 +11,8 @@ return [
         'NAME' => 'shop',
         'USERNAME' => 'root',
         'PASSWORD' => ''
-       ],
+        ],
     'test' => [
         'USERNAME' => 'test',
         'PASSWORD' => 'test2']
-       ];
+        ];
