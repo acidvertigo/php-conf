@@ -2,6 +2,10 @@
 
 //This is a sample configuration file
 return [
+    'site' => [
+        'HOST' => $_SERVER['HTTP_HOST'],
+        'DOC_ROOT' => $_SERVER['DOCUMENT_ROOT']
+    ],
     'database' => [
         'HOST' => 'localhost',
         'NAME' => 'shop',
