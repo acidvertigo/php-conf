@@ -20,7 +20,17 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
     private $path = 'include/config.php';
     private $wrongPath = 'include/conffig.php';
 	
-    
+    public function setUp() { 
+         $_SERVER['HTTP_HOST'] = 'localhost'; 
+         $_SERVER['DOCUMENT_ROOT'] = '/'; 
+     } 
+  
+     public function tearDown() {  
+         unset($_SERVER['HTTP_HOST']); 
+         unset($_SERVER['DOCUMENT_ROOT']);
+         parent::tearDown();  
+     } 
+ 
     public function testConstruct()
     {
         $reflection_class = new \ReflectionClass('\Acd\Configloader');
