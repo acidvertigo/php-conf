@@ -22,12 +22,10 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
 	
     public function setUp() { 
             $_SERVER['HTTP_HOST'] = 'localhost'; 
-            $_SERVER['DOCUMENT_ROOT'] = '/'; 
         } 
   
         public function tearDown() {  
-            unset($_SERVER['HTTP_HOST']); 
-            unset($_SERVER['DOCUMENT_ROOT']);
+            unset($_SERVER['HTTP_HOST']);
             parent::tearDown();  
         } 
  
