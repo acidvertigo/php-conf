@@ -40,7 +40,7 @@ class Request
      */
     public function getReqestMethod()
     {
-        return $_SERVER['REQUEST_METHOD'];
+        return strtoupper($_SERVER['REQUEST_METHOD']);
     }
 
     /** 
