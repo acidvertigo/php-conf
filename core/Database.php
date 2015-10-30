@@ -54,10 +54,12 @@ class Database
             $options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, 
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];
 
+            $config = $registry->get('database');
+
                 // Starts connection
-                $this->connection = new \PDO('mysql:host=' . $this->registry['HOST'] . ';dbname=' . $this->registry['NAME'], 
-                                                $this->registry['USERNAME'], 
-                                                $this->registry['PASSWORD'], 
+                $this->connection = new \PDO('mysql:host=' . $config['HOST'] . ';dbname=' . $config['NAME'], 
+                                                $config['USERNAME'], 
+                                                $config['PASSWORD'], 
                                                 $options);
             } catch (\PDOException $e) {
                 throw $e;
