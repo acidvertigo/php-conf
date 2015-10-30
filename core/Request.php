@@ -34,6 +34,14 @@ class Request
             throw new \InvalidArgumentException('Unable to get Request Headers');
         }
     }
+    
+    /**
+     * @return string the actual request method
+     */
+    public function getReqestMethod()
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
 
     /** 
      * Helper function if getallheaders() not available
