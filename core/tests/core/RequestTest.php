@@ -45,9 +45,9 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     }
     
     public function testGetReqestMethod()
-     {
-         $request = new \Acd\Request;
-         $method = $request->getReqestMethod();
-         $this->assertSame('GET', $method);
-     }   
+        {
+            $request = new \Acd\Request;
+            $method = $request->getReqestMethod();
+            $this->assertSame('GET', $method);
+        }   
 }
