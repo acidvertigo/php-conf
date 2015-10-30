@@ -4,7 +4,7 @@
 return [
     'site' => [
         'HOST' => $_SERVER['HTTP_HOST'],
-        'DOC_ROOT' => $_SERVER['DOCUMENT_ROOT'],
+        'DOC_ROOT' => __DIR__ . '/',
         'NAME' => 'php-conf'
     ],
     'database' => [
