@@ -21,11 +21,13 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function setUp() {
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'it';
         $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate, sdch';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
     }
 
     public function tearDown() { 
         unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
         unset($_SERVER['HTTP_ACCEPT_ENCODING']);
+        unset($_SERVER['REQUEST_METHOD']);
         parent::tearDown(); 
     }
 
