@@ -43,6 +43,11 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
     /** @var array Registry configuration array */
     private $data = [];
 
+    public function __construct(array $data = [])
+    {
+        $this->data = $data;
+    }
+
     /**
      * Adds element to registry array
      *
