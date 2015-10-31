@@ -26,7 +26,6 @@
 
 namespace Acd;
 
-use ArrayAccess;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
@@ -38,6 +37,8 @@ use IteratorAggregate;
  */
 class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
 {
+
+    use ArrayAccess;
 
     /** @var array Registry configuration array */
     private $data = [];
