@@ -31,6 +31,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('3', $result);
     }
 
+    public function testRemove()
+    {
+        $registry = new \Acd\Registry;
+        $registry->set('test', 'data');
+        $registry->remove('test');
+        $this->assertArrayNotHasKey('test', $registry);
+    }
+
     public function testReset()
     {
         $registry = new \Acd\Registry;
