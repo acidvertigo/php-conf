@@ -81,7 +81,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
     {
         if ($this->get($key))
         {
-            unset($this->attributes[$key]);;
+            unset($this->attributes[$key]);
         }
     }
 
