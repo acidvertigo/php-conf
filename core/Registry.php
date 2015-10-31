@@ -31,10 +31,8 @@ namespace Acd;
  *
  * Simple class to store or get elements from configuration registry
  */
-class Registry implements \ArrayAccess
+class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
 {
-
-    use ArrayAccess;
 
     /** @var array Registry configuration array */
     private $data = [];
@@ -74,9 +72,39 @@ class Registry implements \ArrayAccess
     }
 
     /**
+     * Return true if value is empty for given key
+     *
+     * @return bool
+     */
+    public function isEmpty($key)
+    {
+        return empty($this->data[$key);
+    }
+
+    /**
      * Reset Registry container
      */
     public function reset() {
         $this->data = [];
     }
-}
+
+    /**
+     * Return total number of data elements
+     * @return int
+     */
+    public function count()
+    {
+        return count($this->data);
+    }
+
+    /**
+     * IteratorAggregate interface required method
+     *
+     * @return \ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->data);
+    }
+
+} 
