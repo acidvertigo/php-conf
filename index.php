@@ -35,3 +35,7 @@ $database = $database->connect();
 foreach ($registry->get('database') as $key => $value) {
     echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
+$http = new \Acd\Http();
+$uri = new \Acd\Uri($http);
+
+echo $uri->getUrl();
