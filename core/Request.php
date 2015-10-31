@@ -51,7 +51,7 @@ class Request
      */
     public function getBody()
     { 
-        if ($this->body == null) 
+        if ($this->body == null)
         {
             $this->body = @file_get_contents('php://input');
         }
