@@ -27,7 +27,7 @@ foreach ($config->loadconfig() as $key => $value) {
     $registry->set($key, $value);
 }
 
-$database = new Acd\Database($registry->get('database'));
+$database = new Acd\Database($registry);
 
 // Connect to database
 $database = $database->connect();
