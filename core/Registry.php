@@ -93,7 +93,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function isEmpty($key)
     {
-        return empty($this->data[$key);
+        return empty($this->data[$key]);
     }
 
     /**
