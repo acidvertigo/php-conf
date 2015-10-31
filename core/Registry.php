@@ -72,8 +72,23 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
     }
 
     /**
+     * Remove an entry from the Registry
+     *
+     * @param string $key
+     * @return void
+     */
+    public function remove($key)
+    {
+        if ($this->get($key))
+        {
+            unset($this->attributes[$key]);;
+        }
+    }
+
+    /**
      * Return true if value is empty for given key
      *
+     * @param string $key 
      * @return bool
      */
     public function isEmpty($key)
