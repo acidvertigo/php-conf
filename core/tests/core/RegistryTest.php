@@ -41,8 +41,8 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     {
        $registry = new \Acd\Registry;
        $registry->set('data', 'test');
-       $this->assertIsTrue($registry->isEmpty('data'));
-       $this->assertNotIsTrue($registry->isEmpty('data2'));
+       $this->asserFalse($registry->isEmpty('data'));
+       $this->assertTrue($registry->isEmpty('data2'));
     }
 
     /**
