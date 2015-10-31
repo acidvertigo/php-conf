@@ -12,6 +12,8 @@ class Request
 
     private $headers = [];
 
+    private $body;
+
     /**
      * Check HTTP request headers
      * @return array list of response headers
@@ -42,6 +44,21 @@ class Request
     {
         return strtoupper($_SERVER['REQUEST_METHOD']);
     }
+    
+    /**
+     * Get request body
+     * @return string the request body
+     */
+    public function getBody ()
+    { 
+        if ($this->body == null) 
+        {
+            $this->body = @file_get_contents('php://input');
+        }
+        
+      return $this->body;
+    }
+ 
 
     /** 
      * Helper function if getallheaders() not available
