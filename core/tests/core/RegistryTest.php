@@ -8,6 +8,8 @@
 
 namespace Acd\core\tests;
 
+use Acd\Registry;
+
 /**
  * Description of RegistryTest
  *
@@ -16,12 +18,12 @@ namespace Acd\core\tests;
 
 class RegistryTest extends \PHPUnit_Framework_TestCase
 {
-
+	
     public function testGet()
     {
         $array = [1, 2, 3];
 
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test', $array);
 
         $result = $registry->get('test');
@@ -33,21 +35,22 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testRemove()
     {
-        $registry = new \Acd\Registry;
-        $registry->set('test3', 'data');
-        $registry->remove('test3');
-        $this->assertArrayNotHasKey('test3', $registry);
+		$data = ['test' => [1, 2, 3]];
+        $registry = new Registry;
+        $registry->set('test', $data);
+        $registry->remove('test');
+        $this->assertArrayNotHasKey('test', $registry);
     }
 
     public function testReset()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $this->assertNull($registry->reset());
     }
 
     public function testIsEmpty()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('data', 'test');
         $this->assertFalse($registry->isEmpty('data'));
         $this->assertTrue($registry->isEmpty('data2'));
@@ -68,14 +71,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetException()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test', array(1, 2, 3));
         return $registry->set('test', array(1, 2, 3));
     }
 
     public function testArrayAccess()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $property = 'foo';
         $value = 'bar';
         $array = array('foo' => 'bar');
@@ -86,14 +89,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testArrayAccessExists()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test1', array(1, 2, 3));
         $this->assertTrue(isset($registry['test1']));
     }
 
     public function testArrayAccessUnset()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test2', array(1, 2, 3));
         unset($registry['test2']);
         $this->assertFalse(isset($registry['test2']));
