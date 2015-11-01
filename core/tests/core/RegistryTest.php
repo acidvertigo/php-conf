@@ -76,7 +76,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         return $registry->set('test', array(1, 2, 3));
     }
 
-    public function testArrayAccess()
+    public function testArrayAccessSet()
     {
         $registry = new Registry;
         $property = 'foo';
@@ -86,6 +86,12 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($array[$property], $registry[$property]);
         $this->assertAttributeInternalType('array', 'data', $registry);
     }
+	
+	public function testArrayAccessGet() {
+		$registry = new Registry;
+		$registry->set('test', 'data');
+		$this->assertTrue(isset($registry['test']));
+	}
 
     public function testArrayAccessExists()
     {
@@ -100,5 +106,25 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $registry->set('test2', array(1, 2, 3));
         unset($registry['test2']);
         $this->assertFalse(isset($registry['test2']));
+    }
+	
+	public function testIteratorAggregate()
+    {
+		$registry = new Registry;
+        $data = [];
+		$array = ['test' => [1,2,3]];
+		$registry->set('test', $array['test']);
+        foreach ($registry as $key => $value) {
+            $data[$key] = $value;
+        }
+        $this->assertSame($data, $array);
+    }
+	
+	public function testCount()
+    {
+		$data = ['test' => [1,2,3]];
+		$registry = new Registry;
+		$registry->set('test', $data);
+        $this->assertSame(count($data), $registry->count());
     }
 }
