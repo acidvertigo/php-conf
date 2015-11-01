@@ -9,9 +9,9 @@ namespace Acd;
 
 class Request 
 {
-
+    /** @var array $headers the request headers * */
     private $headers = [];
-
+    /** @var array $body the request body * */
     private $body;
 
     /**
