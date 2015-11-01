@@ -28,39 +28,39 @@ namespace Acd;
 
 /**
  *  Main app class
- *
+*
  * @author Acidvertigo
  */
 class Main {
    
-	private $http;
-	private $request;
-	private $response;
-	private $uri;
-	
-	public function __construct ()
+    private $http;
+    private $request;
+    private $response;
+    private $uri;
+
+    public function __construct ()
     {
-		$this->http = new Http;
-		$this->request = new Request;
-		$this->response = new Response;
-		$this->uri = new Uri($this->http);
-	}
-	
-	/**
-	 * Return request headers
-	 * @return array
-	 */
-	public function getHeaders() 
-	{
-		return $this->request->getRequestHeaders();
-	}
-	
-	/**
-	 * Returns current url
-	 * @return string
-	 */
-	public function getUrl()
-	{
-		return $this->uri->getUrl();
-	}		
+        $this->http = new Http;
+        $this->request = new Request;
+        $this->response = new Response;
+        $this->uri = new Uri($this->http);
+    }
+
+    /**
+     * Return request headers
+     * @return array
+     */
+    public function getHeaders() 
+    {
+        return $this->request->getRequestHeaders();
+    }
+
+    /**
+     * Returns current url
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->uri->getUrl();
+    }
 }
