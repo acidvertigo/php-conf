@@ -30,10 +30,8 @@ namespace Acd;
  * Configloader - Configuration file loader class
  * @author Acidvertigo
  */
-class Configloader implements \ArrayAccess
+class Configloader
 {
-
-    use ArrayAccess;
 
     /** @var array $content: Main configuration data Array */
     private $data = array();
