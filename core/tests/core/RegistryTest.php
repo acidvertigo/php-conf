@@ -35,7 +35,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testRemove()
     {
-		$data = ['test' => [1, 2, 3]];
+        $data = ['test' => [1, 2, 3]];
         $registry = new Registry;
         $registry->set('test', $data);
         $registry->remove('test');
@@ -87,11 +87,11 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeInternalType('array', 'data', $registry);
     }
 	
-	public function testArrayAccessGet() {
-		$registry = new Registry;
-		$registry->set('test', 'data');
-		$this->assertTrue(isset($registry['test']));
-	}
+    public function testArrayAccessGet() {
+        $registry = new Registry;
+        $registry->set('test', 'data');
+        $this->assertTrue(isset($registry['test']));
+    }
 
     public function testArrayAccessExists()
     {
@@ -108,23 +108,23 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(isset($registry['test2']));
     }
 	
-	public function testIteratorAggregate()
+    public function testIteratorAggregate()
     {
-		$registry = new Registry;
+        $registry = new Registry;
         $data = [];
-		$array = ['test' => [1,2,3]];
-		$registry->set('test', $array['test']);
+        $array = ['test' => [1,2,3]];
+        $registry->set('test', $array['test']);
         foreach ($registry as $key => $value) {
             $data[$key] = $value;
         }
         $this->assertSame($data, $array);
     }
 	
-	public function testCount()
+    public function testCount()
     {
-		$data = ['test' => [1,2,3]];
-		$registry = new Registry;
-		$registry->set('test', $data);
+        $data = ['test' => [1,2,3]];
+        $registry = new Registry;
+        $registry->set('test', $data);
         $this->assertSame(count($data), $registry->count());
     }
 }
