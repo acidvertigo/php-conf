@@ -19,12 +19,10 @@ if (file_exists('./vendor/autoload.php'))
 require_once 'Autoloader.php';
 
 //Initialize objects TODO: put all in main class
+$app = new Acd\Main;
 $registry = new Acd\Registry;
 $config = new Acd\Configloader('include/config.php');
 $database = new Acd\Database($registry);
-$http = new \Acd\Http();
-$uri = new \Acd\Uri($http);
-$request = new \Acd\Request;
 
 // Loads configuration into the registry
 foreach ($config->loadconfig() as $key => $value) {
@@ -38,7 +36,7 @@ foreach ($registry->get('database') as $key => $value) {
     echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
 
-$headers = $request->getRequestHeaders();
+$headers = $app->getHeaders();
 $registry->set('headers', $headers);
 print_r($registry->get('headers'));
-echo $uri->getUrl();
+echo $app->getUrl();
