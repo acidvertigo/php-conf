@@ -46,7 +46,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
     public function __construct(array $data = [])
     {
         foreach ($data as $key => $value) {
-            $this->set($key, $value);
+            $service->set($key, $value);
         }
     }
 
@@ -59,12 +59,12 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function set($key, $value)
     {
-        if (isset($this->data[$key]))
+        if (isset($service->data[$key]))
         {
             throw new \Exception('There is already an entry for key: ' . $key);
         }
 
-        $this->data[$key] = $value;
+        $service->data[$key] = $value;
     }
 
     /**
@@ -76,12 +76,12 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function get($key)
     {
-        if (!isset($this->data[$key]))
+        if (!isset($service->data[$key]))
         {
             throw new \Exception('There is no entry for key: ' . $key);
         }
 
-        return $this->data[$key];
+        return $service->data[$key];
     }
 
     /**
@@ -92,7 +92,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function remove($key)
     {      
-            unset($this->data[$key]);
+            unset($service->data[$key]);
     }
 
     /**
@@ -103,14 +103,31 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function isEmpty($key)
     {
-        return empty($this->data[$key]);
+        return empty($service->data[$key]);
     }
 
     /**
      * Reset Registry container
      */
     public function reset() {
-        $this->data = [];
+        $service->data = [];
+    }
+	
+	/**
+     * Service provider register.
+     * @param ServiceProviderInterface $provider ServiceProviderInterface instance
+     * @param array $data Array of values that customizes the provider
+     * @return self
+     */
+    public function register(ServiceProviderInterface $provider, array $data = [])
+    {
+        $provider->register($this);
+
+        foreach ($data as $key => $value) {
+            $this[$key] = $value;
+        }
+
+        return $this;
     }
 
     /**
@@ -119,7 +136,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function count()
     {
-        return count($this->data);
+        return count($service->data);
     }
 
     /**
@@ -129,7 +146,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->data);
+        return new \ArrayIterator($service->data);
     }
 
 } 
