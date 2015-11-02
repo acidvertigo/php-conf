@@ -21,7 +21,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 	
     public function testGet()
     {
-        $array = [1, 2, 3];
+        $array = ['test' => [1, 2, 3]];
 
         $registry = new Registry($array);
 
