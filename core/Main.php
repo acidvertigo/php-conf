@@ -34,24 +34,24 @@ namespace Acd;
 class Main {
    
     private $http;
-	private $registry;
+    private $registry;
     private $request;
     private $response;
     private $uri;
 
-    public function __construct (Registry $registry)
+    public function __construct(Registry $registry)
     {
         $this->http = new Http;
         $this->request = new Request;
         $this->response = new Response;
-		$this->registry = $registry;
+        $this->registry = $registry;
         $this->uri = new Uri($this->http);
     }
 	
-	public function connect()
-	{
-		return $this->registry->get('db');
-	}
+    public function connect()
+    {
+        return $this->registry->get('db');
+    }
 
     /**
      * Return request headers
