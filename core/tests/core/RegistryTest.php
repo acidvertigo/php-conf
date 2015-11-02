@@ -111,7 +111,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     {
         $registry = new Registry;
         $data = [];
-        $array = ['test' => [1,2,3]];
+        $array = ['test' => [1, 2, 3]];
         $registry->set('test', $array['test']);
         foreach ($registry as $key => $value) {
             $data[$key] = $value;
@@ -121,7 +121,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 	
     public function testCount()
     {
-        $data = ['test' => [1,2,3]];
+        $data = ['test' => [1, 2, 3]];
         $registry = new Registry;
         $registry->set('test', $data);
         $this->assertSame(count($data), $registry->count());
