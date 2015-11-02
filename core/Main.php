@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * The MIT License
  *
  * Copyright 2015 Acidvertigo.
@@ -27,41 +27,47 @@
 namespace Acd;
 
 /**
- * Configloader - Configuration file loader class
+ *  Main app class
+*
  * @author Acidvertigo
  */
-class Configloader
-{
+class Main {
+   
+    private $http;
+	private $registry;
+    private $request;
+    private $response;
+    private $uri;
 
-    /** @var array $content: Main configuration data Array */
-    private $data = array();
-    /** @var string $path The path of the configuration file */
-    private $path = null;
+    public function __construct (Registry $registry)
+    {
+        $this->http = new Http;
+        $this->request = new Request;
+        $this->response = new Response;
+		$this->registry = $registry;
+        $this->uri = new Uri($this->http);
+    }
+	
+	public function connect()
+	{
+		return $this->registry->get('db');
+	}
 
     /**
-     * @param string|null $path
-     * @throw \Exception if configuration directory not found 
+     * Return request headers
+     * @return array
      */
-    public function __construct($path)
+    public function getHeaders() 
     {
-        $this->path = $path;
+        return $this->request->getRequestHeaders();
     }
 
     /**
-     * Loads configuration file
-     * @return array Return data configuration as array
-     * @throws \Exception If php configuration file not found
+     * Returns current url
+     * @return string
      */
-    public function loadconfig()
+    public function getUrl()
     {
-        if (file_exists($this->path))
-        {
-            $this->data = include $this->path;
-        } else
-        {
-            throw new \Exception('Configuration file not found: ' . $this->path);
-        }
-
-        return $this->data;
+        return $this->uri->getUrl();
     }
 }

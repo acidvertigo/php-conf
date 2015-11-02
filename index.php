@@ -18,24 +18,27 @@ if (file_exists('./vendor/autoload.php'))
 // Core class autoload
 require_once 'Autoloader.php';
 
+//Initialize Registry object
 $registry = new Acd\Registry;
+$registry->set('db', function() { return new \Acd\Database($registry); });
 
+$app = new Acd\Main($registry);
 $config = new Acd\Configloader('include/config.php');
+
 
 // Loads configuration into the registry
 foreach ($config->loadconfig() as $key => $value) {
     $registry->set($key, $value);
 }
 
-$database = new Acd\Database($registry);
-
 // Connect to database
-$database = $database->connect();
+$database = $app->connect();
 
 foreach ($registry->get('database') as $key => $value) {
     echo 'Key = ' . $key . ' Value = ' . $value . '<br>';
 }
-$http = new \Acd\Http();
-$uri = new \Acd\Uri($http);
 
-echo $uri->getUrl();
+$headers = $app->getHeaders();
+$registry->set('headers', $headers);
+print_r($registry->get('headers'));
+echo $app->getUrl();

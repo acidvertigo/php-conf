@@ -9,9 +9,9 @@ namespace Acd;
 
 class Request 
 {
-
+    /** @var array $headers the request headers * */
     private $headers = [];
-
+    /** @var array $body the request body * */
     private $body;
 
     /**
@@ -51,7 +51,7 @@ class Request
      */
     public function getBody()
     { 
-        if ($this->body == null) 
+        if ($this->body == null)
         {
             $this->body = @file_get_contents('php://input');
         }

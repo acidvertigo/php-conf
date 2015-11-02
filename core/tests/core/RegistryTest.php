@@ -8,6 +8,8 @@
 
 namespace Acd\core\tests;
 
+use Acd\Registry;
+
 /**
  * Description of RegistryTest
  *
@@ -16,12 +18,12 @@ namespace Acd\core\tests;
 
 class RegistryTest extends \PHPUnit_Framework_TestCase
 {
-
+	
     public function testGet()
     {
         $array = [1, 2, 3];
 
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test', $array);
 
         $result = $registry->get('test');
@@ -33,24 +35,25 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testRemove()
     {
-        $registry = new \Acd\Registry;
-        $registry->set('test', 'data');
+        $data = ['test' => [1, 2, 3]];
+        $registry = new Registry;
+        $registry->set('test', $data);
         $registry->remove('test');
         $this->assertArrayNotHasKey('test', $registry);
     }
 
     public function testReset()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $this->assertNull($registry->reset());
     }
 
     public function testIsEmpty()
     {
-       $registry = new \Acd\Registry;
-       $registry->set('data', 'test');
-       $this->assertFalse($registry->isEmpty('data'));
-       $this->assertTrue($registry->isEmpty('data2'));
+        $registry = new Registry;
+        $registry->set('data', 'test');
+        $this->assertFalse($registry->isEmpty('data'));
+        $this->assertTrue($registry->isEmpty('data2'));
     }
 
     /**
@@ -68,14 +71,14 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetException()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test', array(1, 2, 3));
         return $registry->set('test', array(1, 2, 3));
     }
 
-    public function testArrayAccess()
+    public function testArrayAccessSet()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $property = 'foo';
         $value = 'bar';
         $array = array('foo' => 'bar');
@@ -83,19 +86,45 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($array[$property], $registry[$property]);
         $this->assertAttributeInternalType('array', 'data', $registry);
     }
+	
+    public function testArrayAccessGet() {
+        $registry = new Registry;
+        $registry->set('test', 'data');
+        $this->assertTrue(isset($registry['test']));
+    }
 
     public function testArrayAccessExists()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test1', array(1, 2, 3));
         $this->assertTrue(isset($registry['test1']));
     }
 
     public function testArrayAccessUnset()
     {
-        $registry = new \Acd\Registry;
+        $registry = new Registry;
         $registry->set('test2', array(1, 2, 3));
         unset($registry['test2']);
         $this->assertFalse(isset($registry['test2']));
+    }
+	
+    public function testIteratorAggregate()
+    {
+        $registry = new Registry;
+        $data = [];
+        $array = ['test' => [1,2,3]];
+        $registry->set('test', $array['test']);
+        foreach ($registry as $key => $value) {
+            $data[$key] = $value;
+        }
+        $this->assertSame($data, $array);
+    }
+	
+    public function testCount()
+    {
+        $data = ['test' => [1,2,3]];
+        $registry = new Registry;
+        $registry->set('test', $data);
+        $this->assertSame(count($data), $registry->count());
     }
 }

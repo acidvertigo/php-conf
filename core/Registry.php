@@ -92,7 +92,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function remove($key)
     {      
-         unset($this->attributes[$key]);
+            unset($this->data[$key]);
     }
 
     /**
