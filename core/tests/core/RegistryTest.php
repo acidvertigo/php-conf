@@ -23,8 +23,7 @@ class RegistryTest extends \PHPUnit_Framework_TestCase
     {
         $array = [1, 2, 3];
 
-        $registry = new Registry;
-        $registry->set('test', $array);
+        $registry = new Registry($array);
 
         $result = $registry->get('test');
         $this->assertInternalType('array', $result);
