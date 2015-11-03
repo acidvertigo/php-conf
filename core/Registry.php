@@ -45,7 +45,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function __construct(array $data = [])
     {
-        if(!empty($data)) {
+        if (!empty($data)) {
 		    foreach ($data as $key => $value) {
                 $this->set($key, $value);
             }
