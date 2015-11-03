@@ -82,7 +82,7 @@ class Database
      */
     public function __call($method, $args)
     {
-        $callable = array($this->connection, $method);
+        $callable = [$this->connection, $method];
         if (is_callable($callable))
         {
             return call_user_func_array($callable, $args);
