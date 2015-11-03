@@ -3,9 +3,9 @@
 namespace Acd;
 
 /** 
-* Response Class
-* @author Acidvertigo MIT Licence 
-*/
+ * Response Class
+ * @author Acidvertigo MIT Licence 
+ */
 
 class Response 
 {

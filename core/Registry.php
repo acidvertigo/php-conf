@@ -31,6 +31,7 @@ namespace Acd;
  *
  * Simple class to store or get elements from configuration registry
  */
+
 class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
 {
 
