@@ -26,6 +26,8 @@
 
 namespace Acd;
 
+use \Acd\Registry;
+
 /**
  * Database connection class
  *
@@ -39,7 +41,7 @@ class Database
     /** @var object PDO connection object */
     public $connection = null;
 
-    public function __construct(\Acd\Registry $registry) {
+    public function __construct(Registry $registry) {
         $this->registry = $registry;
     }
 
