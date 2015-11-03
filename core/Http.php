@@ -3,9 +3,10 @@
 namespace Acd;
 
 /**
-* Http class
-* @author Acidvertigo MIT Licence
-*/
+ * Http class
+ * @author Acidvertigo MIT Licence
+ */
+
 class Http 
 {
 

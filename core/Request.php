@@ -3,9 +3,9 @@
 namespace Acd;
 
 /** 
-* Request Class
-* @author Acidvertigo MIT Licence
-*/
+ * Request Class
+ * @author Acidvertigo MIT Licence
+ */
 
 class Request 
 {
@@ -19,6 +19,7 @@ class Request
      * @return array list of response headers
      * @throws InvalidArgumentException if header is null
      */
+
     public function getRequestHeaders()
     {
         if (function_exists('getallheaders()'))
