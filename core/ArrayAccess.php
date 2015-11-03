@@ -8,6 +8,8 @@ namespace Acd;
 
 trait ArrayAccess
 {
+	/** @var array $data Data Array **/
+	private $data = [];
 
     /**
      * Key to set
