@@ -26,10 +26,6 @@
 
 namespace Acd;
 
-use ArrayIterator;
-use Countable;
-use IteratorAggregate;
-
 /**
  * Registry class
  *
