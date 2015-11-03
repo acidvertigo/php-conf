@@ -45,9 +45,11 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
 	 */
     public function __construct(array $data = [])
     {
-        foreach ($data as $key => $value) {
-            $this->set($key, $value);
-        }
+        if(!empty($data)) {
+		    foreach ($data as $key => $value) {
+                $this->set($key, $value);
+            }
+		}
     }
 
     /**
@@ -92,7 +94,7 @@ class Registry implements \ArrayAccess, \Countable, \IteratorAggregate
      */
     public function remove($key)
     {      
-            unset($this->data[$key]);
+        unset($this->data[$key]);
     }
 
     /**
