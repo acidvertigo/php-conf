@@ -14,7 +14,7 @@ class Response
     private $headers;
 
     /** 
-     * Check HTTP response headers
+     * Function to obtain the HTTP response headers
      * @param string|null $url 
      * @return array a list of response headers
      * @throws \InvalidArgumentException if response headers are null
@@ -33,7 +33,8 @@ class Response
         return $this->headers;
     }
 
-    /** 
+    /**
+     * Gets HTTP status code 
      * @param string|null $url 
      * @return integer HTTP response code
      * @throws \InvalidArgumentException if the status code is outside range
