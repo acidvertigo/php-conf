@@ -33,7 +33,7 @@ trait ArrayAccess
      * Key to retrieve
      *
      * @param mixed $key
-     * @return string
+     * @return string|null
      */
     public function offsetGet($key)
     {
