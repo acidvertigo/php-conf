@@ -34,7 +34,7 @@ class Configloader
 {
 
     /** @var array $content: Main configuration data Array */
-    private $data = array();
+    private $data = [];
     /** @var string $path The path of the configuration file */
     private $path = null;
 
