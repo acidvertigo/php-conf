@@ -8,6 +8,8 @@
 
 namespace Acd;
 
+use \Acd\Http;
+
 /**
  * Description of Uri
  *
@@ -17,7 +19,7 @@ class Uri {
 	
     private $http;
 	
-    public function __construct(\Acd\Http $http) {
+    public function __construct(Http $http) {
         $this->http = $http;
     }
 	
