@@ -59,7 +59,7 @@ class Main {
   
     public function setService($class, array $args = null)
 	{ 
-       return $this->registry->set($class, function() use ($class) { return createService($class, $args = []); });
+       return $this->registry->set($class, function() { return new $class(); });
 	} 
 
 	private function createService($class, array $args = [])
@@ -76,13 +76,13 @@ class Main {
 
 	public function __get($obj)
     {
-        $this->obj = $this->getService($obj);
+        $this->obj = $this->registry[$obj];
 		return $this->obj;
     }
 	
 	public function method($method, array $params = [])
     {
-		return call_user_method_array($method, $this->obj, $params);
+		return call_user_func_array(array($this->obj, $method), $params);
     }
 
 }
