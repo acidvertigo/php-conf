@@ -33,21 +33,26 @@ namespace Acd;
  */
 class Main {
    
-    private $http;
     private $registry;
-    private $request;
-    private $response;
-    private $uri;
-
-    public function __construct(Registry $registry)
-    {
-        $this->http = new Http;
-        $this->request = new Request;
-        $this->response = new Response;
-        $this->registry = $registry;
-        $this->uri = new Uri($this->http);
-    }
 	
+	public function init($class, array $args = [])
+	{	
+		$this->createService($class, $args);
+		return $this->registry->set($class, function($class) use ($args) { return new $class($this->registry); });
+	}
+	
+	public function createService($class, array $args = [])
+    {
+	    $class = __NAMESPACE__ . '\\' . ucwords($class); 
+        if(class_exists($class)) 
+        {
+           return new $class($args); 
+        } 
+        else {
+           throw new \Exception("Invalid class name given: " . $class); 
+        } 
+    }
+
     public function connect()
     {
         return $this->registry->get('db');
