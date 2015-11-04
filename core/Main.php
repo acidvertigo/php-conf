@@ -47,18 +47,19 @@ class Main {
 	
 	public function init($class, array $args = [])
 	{	
-		$this->createService($class, $args);
+		//return $this->createService($class, $args);
 		return $this->setService($class, $args);
 	}
 	
     public function getService($service)
 	{
+		var_dump( $this->registry->get($service));
         return $this->registry->get($service);
     }
   
     public function setService($class, array $args = null)
 	{ 
-       return $this->registry->set($class, function() use ($class) { return new $class(); });
+       return $this->registry->set($class, function() use ($class) { return createService($class, $args = []); });
 	} 
 
 	private function createService($class, array $args = [])

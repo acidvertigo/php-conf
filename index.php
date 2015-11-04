@@ -26,7 +26,7 @@ $app = new Acd\Main();
 $config = new Acd\Configloader('include/config.php');
 
 
-$app->init('request');
-$request = $app->getService('request');
+$app->setService('request');
+
 // var_dump($app->request->getService('request'));
 print_r($app->request->getRequestHeaders());
