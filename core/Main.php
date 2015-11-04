@@ -33,15 +33,35 @@ namespace Acd;
  */
 class Main {
    
-    private $registry;
+    private $registry = null;
+	private $service = null;
+	private $obj = null;
+	
+	public function __construct()
+    {
+		if (!($this->registry instanceof Registry))
+		{
+            $this->registry = new Registry;
+		}	
+    }
 	
 	public function init($class, array $args = [])
 	{	
 		$this->createService($class, $args);
-		return $this->registry->set($class, function($class) use ($args) { return new $class($this->registry); });
+		return $this->setService($class, $args);
 	}
 	
-	public function createService($class, array $args = [])
+    public function getService($service)
+	{
+        return $this->registry->get($service);
+    }
+  
+    public function setService($class, array $args = null)
+	{ 
+       return $this->registry->set($class, function() use ($class) { return new $class(); });
+	} 
+
+	private function createService($class, array $args = [])
     {
 	    $class = __NAMESPACE__ . '\\' . ucwords($class); 
         if(class_exists($class)) 
@@ -53,26 +73,15 @@ class Main {
         } 
     }
 
-    public function connect()
+	public function __get($obj)
     {
-        return $this->registry->get('db');
+        $this->obj = $this->getService($obj);
+		return $this->obj;
+    }
+	
+	public function method($method, array $params = [])
+    {
+		return call_user_method_array($method, $this->obj, $params);
     }
 
-    /**
-     * Return request headers
-     * @return array
-     */
-    public function getHeaders() 
-    {
-        return $this->request->getRequestHeaders();
-    }
-
-    /**
-     * Returns current url
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->uri->getUrl();
-    }
 }

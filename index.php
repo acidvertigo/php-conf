@@ -25,13 +25,8 @@ $app = new Acd\Main();
 // Load configuration file
 $config = new Acd\Configloader('include/config.php');
 
-// Put configuration array into the Registry
-$registry = new Acd\Registry($config);
 
-//Start database connection
-$app->init('database', $registry);
-
-$headers = $app->getHeaders();
-$registry->set('headers', $headers);
-print_r($registry->get('headers'));
-echo $app->getUrl();
+$app->init('request');
+$request = $app->getService('request');
+// var_dump($app->request->getService('request'));
+print_r($app->request->getRequestHeaders());
