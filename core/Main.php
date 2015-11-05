@@ -45,12 +45,6 @@ class Main {
 		}	
     }
 	
-	public function init($class, array $args = [])
-	{	
-		//return $this->createService($class, $args);
-		return $this->setService($class, $args);
-	}
-	
     public function getService($service)
 	{
         return $this->registry->get($service);
@@ -58,30 +52,25 @@ class Main {
   
     public function setService($class, array $args = null)
 	{ 
-       return $this->registry->set($class, function() use ($class) { $class = __NAMESPACE__ . '\\' . $class; return new $class(); });
+       return $this->registry->set($class, function() use ($class, $args) { $class = $this->isValidService($class); return new $class($args); });
 	} 
 
-	private function createService($class, array $args = [])
+	private function isValidService($classname)
     {
-	    $class = __NAMESPACE__ . '\\' . ucwords($class); 
-        if(class_exists($class)) 
+	    $classname = __NAMESPACE__ . '\\' . ucwords($classname); 
+        if(class_exists($classname)) 
         {
-           return new $class($args); 
+           return $classname;
         } 
         else {
-           throw new \Exception("Invalid class name given: " . $class); 
+           throw new \Exception("Invalid class name given: " . $classname); 
         } 
     }
 
 	public function __get($obj)
     {
-        $this->obj = $this->registry[$obj]();
-		return $this->obj;
-    }
-	
-	public function method($method, array $params = [])
-    {
-		return call_user_func_array(array($this->obj, $method), $params);
+        $obj = $this->registry->get($obj);
+		return $obj();
     }
 
 }
