@@ -59,7 +59,7 @@ class Main {
   
     public function setService($class, array $args = null)
 	{ 
-       return $this->registry->set($class, function() { return new $class(); });
+       return $this->registry->set($class, function() use ($class) { $class = __NAMESPACE__ . '\\' . $class; return new $class(); });
 	} 
 
 	private function createService($class, array $args = [])
@@ -76,7 +76,7 @@ class Main {
 
 	public function __get($obj)
     {
-        $this->obj = $this->registry[$obj];
+        $this->obj = $this->registry[$obj]();
 		return $this->obj;
     }
 	
