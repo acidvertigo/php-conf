@@ -27,9 +27,4 @@ $config = new Acd\Configloader('include/config.php');
 
 
 $app->setService('request');
-
-// var_dump($app->request->getService('request'));
 print_r($app->request->getRequestHeaders());
-//$foo = new \Acd\Request;
-//$test = call_user_func_array(array($foo, 'getRequestHeaders'), array());
-//var_dump($test);
