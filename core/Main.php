@@ -53,7 +53,6 @@ class Main {
 	
     public function getService($service)
 	{
-		var_dump( $this->registry->get($service));
         return $this->registry->get($service);
     }
   
