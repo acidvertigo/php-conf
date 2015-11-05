@@ -29,15 +29,6 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
             parent::tearDown();  
         } 
  
-    public function testConstruct()
-    {
-        $reflection_class = new \ReflectionClass('\Acd\Configloader');
-        $property = $reflection_class->getProperty('path');
-        $property->setAccessible(true);
-        $object = new \Acd\Configloader($this->path);
-        $this->assertEquals($this->path, $property->getValue($object));
-    }
-
     /**
      * @expectedException \Exception 
      * @return array Configuration array
