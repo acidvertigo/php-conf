@@ -36,13 +36,13 @@ use \Acd\Registry;
 class Database
 {
 
-    /** @var object Registry configuration array */
-    private $registry = [];
+    /** @var array Configuration array */
+    private $config = [];
     /** @var object PDO connection object */
     public $connection = null;
 
-    public function __construct(Registry $registry) {
-        $this->registry = $registry;
+    public function __construct(array $config) {
+        $this->config = $config;
     }
 
     /**
@@ -56,7 +56,7 @@ class Database
             $options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, 
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];
 
-            $config = $this->registry->get('database');
+            $config = $this->config['database'];
 
                 // Starts connection
                 $this->connection = new \PDO('mysql:host=' . $config['HOST'] . ';dbname=' . $config['NAME'], 

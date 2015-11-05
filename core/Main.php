@@ -67,6 +67,11 @@ class Main {
         } 
     }
 
+	/**
+	 * Magic method to retrieve the Object
+	 * @param string $obj
+	 * @return object Object instance
+	 */
 	public function __get($obj)
     {
         $obj = $this->registry->get($obj);

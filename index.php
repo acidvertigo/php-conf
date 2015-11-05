@@ -22,9 +22,14 @@ require_once 'Autoloader.php';
 // Initialize main class
 $app = new Acd\Main();
 
-// Load configuration file
-$config = new Acd\Configloader('include/config.php');
+// Start configuration loader
+$app->setService('configloader');
+$config = $app->configloader->loadconfig('include/config.php');
 
+// Start Database connection
+$app->setService('database', $config);
+$app->database->connect();
 
+// Start Request Service
 $app->setService('request');
 print_r($app->request->getRequestHeaders());

@@ -35,31 +35,20 @@ class Configloader
 
     /** @var array $content: Main configuration data Array */
     private $data = [];
-    /** @var string $path The path of the configuration file */
-    private $path = null;
-
-    /**
-     * @param string|null $path
-     * @throw \Exception if configuration directory not found 
-     */
-    public function __construct($path)
-    {
-        $this->path = $path;
-    }
 
     /**
      * Loads configuration file
      * @return array Return data configuration as array
      * @throws \Exception If php configuration file not found
      */
-    public function loadconfig()
+    public function loadconfig($path)
     {
-        if (file_exists($this->path))
+        if (file_exists($path))
         {
-            $this->data = include $this->path;
+            $this->data = include $path;
         } else
         {
-            throw new \Exception('Configuration file not found: ' . $this->path);
+            throw new \Exception('Configuration file not found: ' . $path);
         }
 
         return $this->data;
