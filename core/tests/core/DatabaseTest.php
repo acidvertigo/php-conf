@@ -28,13 +28,19 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     private $config = [];
 
     private $options = [];
+	
+	private $container;
+	private $config;
+	private $path = 'include/config.php';
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp() {
-
+        $this->container = new \Acd\Container;
+		$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path]);
+		$this->config = $this->container->resolve('\Acd\Config', [$this->path]);
     }
 
     /**
@@ -57,17 +63,12 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     public function testConstruct() {
 
-        $registry = $this->getMockBuilder('\Acd\Registry')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $registry = $this->config;
 
-        $registry->set('config', $this->config);
+        $config = $registry->loadconfig();
 
-        $reflection_class = new \ReflectionClass('\Acd\Database');
-        $property = $reflection_class->getProperty('registry');
-        $property->setAccessible(true);
-        $this->object = new \Acd\Database($registry);
-        $this->assertInstanceOf('\Acd\Registry', $registry);
+        $this->object = new \Acd\Database($config);
+       
     }
 
     /**
@@ -107,25 +108,21 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     public function testConnection() {
-        $registry = $this->getMockBuilder('\Acd\Registry')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $registry = $this->config;
 
-        $registry->set('config', $this->config);
+        $config = $registry->loadconfig();
 
-        $object = new \Acd\Database($registry);
+        $object = new \Acd\Database($config);
         $this->assertInstanceOf('\Acd\Database', $object);
     }
 
     public function testDisconnect() {
 
-        $registry = $this->getMockBuilder('\Acd\Registry')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $registry = $this->config;
 
-        $registry->set('database', $this->config);
+        $config = $registry->loadconfig();
 
-        $database = new \Acd\Database($registry);
+        $object = new \Acd\Database($config);
         $this->assertNotInstanceOf('PDO', $database->disconnect());
         $this->assertNull($database->disconnect());
     }
@@ -134,14 +131,18 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * @expectedException \PDOException 
      */
     public function testConnectionException() {
-      
-        $registry = $this->getMockBuilder('\Acd\Registry')
-            ->disableOriginalConstructor()
-            ->getMock();
 
-        $registry->set('database', $this->config);
+      $this->config = ['database' => [
+        'HOST' => 'localhost',
+        'NAME' => 'shopshop',
+        'USERNAME' => 'roottoor',
+        'PASSWORD' => '']];
+  
+		$registry = $this->config;
 
-        $database = new \Acd\Database($registry);
+        $config = $registry->loadconfig();
+
+        $object = new \Acd\Database($config);
         return $database->connect();
     }
 }
