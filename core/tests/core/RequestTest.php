@@ -17,11 +17,13 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 {
   
     private $header;
+	private $http;
   
     public function setUp() {
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'it';
         $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate, sdch';
         $_SERVER['REQUEST_METHOD'] = 'GET';
+		$this->http = (new \Acd\Container)->resolve(\Acd\Http);
     }
 
     public function tearDown() { 
@@ -33,7 +35,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
     public function testGetRequestHeaders() 
     {
-        $request = new \Acd\Request;
+        $request = new \Acd\Request($this->http);
         $this->header = $request->getRequestHeaders();
 
         $serverArray = ['Accept-Language' => 'it', 'Accept-Encoding' => 'gzip, deflate, sdch'];  
@@ -46,7 +48,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     
     public function testGetReqestMethod()
         {
-            $request = new \Acd\Request;
+            $request = new \Acd\Request($this->http);
             $method = $request->getReqestMethod();
             $this->assertSame('GET', $method);
         }   
