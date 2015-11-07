@@ -31,7 +31,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
         unset($_SERVER['HTTP_ACCEPT_ENCODING']);
         unset($_SERVER['REQUEST_METHOD']);
-		unset($_SERVER['HTTP_HOST']);
+
         parent::tearDown(); 
     }
 
