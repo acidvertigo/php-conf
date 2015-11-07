@@ -30,3 +30,5 @@ $database = $app->resolve('\Acd\Database', [$config]); //Database
 
 //Start database connection
 $database->connect();
+
+print_r($request->getRequestHeaders());
