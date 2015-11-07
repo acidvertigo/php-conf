@@ -61,7 +61,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     public function testConstruct() {
 
-        $this->object = new \Acd\Database($this->filesystem);
+        $this->object = new \Acd\Database($this->config);
        
     }
 
