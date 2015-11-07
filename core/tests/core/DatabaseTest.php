@@ -121,18 +121,17 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     public function testConnectionException() {
 
-      $this->config = ['database' => [
+      $configure = ['database' => [
         'HOST' => 'localhost',
         'NAME' => 'shopshop',
         'USERNAME' => 'roottoor',
         'PASSWORD' => '']];
-        $config = $this->getMockBuilder('\Acd\Config')
-            ->disableOriginalConstructor()
-            ->getMock();
+	  
+        $config = $reflection = new ReflectionClass($this->config);
 		
 		$property = $config->getProperty('data');
 		$property->setAccessible(true);
-		$property->setValue($this->config);
+		$property->setValue($this->config, $configure);
  
         $object = new \Acd\Database($config);
         return $database->connect();
