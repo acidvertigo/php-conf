@@ -25,7 +25,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     /** @var \PDO * */
     static private $pdo = null;
 
-    private $config = [];
+
 
     private $options = [];
 	
