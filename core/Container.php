@@ -16,7 +16,7 @@ namespace Acd;
 class Container
 {
 
-	public $instances = [];
+	private $instances = [];
 
 	/**
 	 * Build an instance of the given class
