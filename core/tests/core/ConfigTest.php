@@ -19,9 +19,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
 
     private $path = 'include/config.php';
     private $wrongPath = 'include/conffig.php';
+	private $filesystem;
+	private $container;
 	
     public function setUp() { 
-            $_SERVER['HTTP_HOST'] = 'localhost'; 
+            $_SERVER['HTTP_HOST'] = 'localhost';
+			$this->container = new \Acd\Container;
+			$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path], FALSE);
         } 
   
         public function tearDown() {  
@@ -35,15 +39,16 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoadconfigException()
     {
-        $loadconfig = new \Acd\Config($this->wrongPath);
-        return $loadconfig->loadconfig();
+        $file = $this->container->resolve('\Acd\FileSystem', [$this->wrongPath], FALSE);
+		$config = $this->container->resolve('\Acd\Config', [$file]);
+        return $config->loadconfig();
     }
 
     public function testLoadconfig()
     {
-        $loadconfig = new \Acd\Config($this->path);
-        $this->assertAttributeInternalType('array', 'data', $loadconfig);
-        $this->assertArrayHasKey('database', $loadconfig->loadconfig());
-        $this->assertArrayHasKey('test', $loadconfig->loadconfig());
+        $config = $this->container->resolve('\Acd\Config', [$this->filesystem]);
+        $this->assertAttributeInternalType('array', 'data', $config);
+        $this->assertArrayHasKey('database', $config->loadconfig());
+        $this->assertArrayHasKey('test', $config->loadconfig());
     }
 }
