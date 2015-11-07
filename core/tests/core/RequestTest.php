@@ -23,7 +23,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'it';
         $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate, sdch';
         $_SERVER['REQUEST_METHOD'] = 'GET';
-		$this->http = (new \Acd\Container)->resolve(\Acd\Http);
+		$this->http = (new \Acd\Container)->resolve('\Acd\Http');
     }
 
     public function tearDown() { 
