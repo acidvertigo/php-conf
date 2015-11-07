@@ -126,20 +126,17 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'NAME' => 'shopshop',
         'USERNAME' => 'roottoor',
         'PASSWORD' => '']];
-        $registry = $this->getMockBuilder('\Acd\Registry')
+        $config = $this->getMockBuilder('\Acd\Config')
             ->disableOriginalConstructor()
             ->getMock();
 		
 		$property = $reflection_class->getProperty('data');
 		$property->setAccessible(true);
-		$property->setValue($a, 2)
+		$property->setValue($this->config);
  
-        $registry->set('database', $this->config);
-	$registry = $this->config;
+ 
 
-        $this->config = $this->container->resolve('\Acd\Config', [$this->path], FALSE);
-
-        $object = new \Acd\Database($this->config);
+        $object = new \Acd\Database($config);
         return $database->connect();
     }
 }
