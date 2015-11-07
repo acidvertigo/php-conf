@@ -106,7 +106,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
         $config = $registry->loadconfig();
 
-        $object = new \Acd\Database($config);
+        $object = new \Acd\Database($this->config);
         $this->assertInstanceOf('\Acd\Database', $object);
     }
 
@@ -127,13 +127,12 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'USERNAME' => 'roottoor',
         'PASSWORD' => '']];
 	  
-        $config = $reflection = new \ReflectionClass($this->config);
-		
-		$property = $config->getProperty('data');
-		$property->setAccessible(true);
-		$property->setValue($this->config, $configure);
- 
-        $object = new \Acd\Database($config);
+	     $database = $this->getMockBuilder('\Acd\Database')
+        ->setMethods(array('__construct'))
+        ->setConstructorArgs($configure)
+        ->disableOriginalConstructor()
+        ->getMock();
+		 
         return $database->connect();
     }
 }
