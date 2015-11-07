@@ -30,27 +30,32 @@ namespace Acd;
  * Configloader - Configuration file loader class
  * @author Acidvertigo
  */
-class Configloader
+class Config
 {
 
-    /** @var array $content: Main configuration data Array */
+    /** @var array $content Main configuration data Array */
     private $data = [];
+	
+	/** @var \File $file Configuration file **/
+	private $file;
+	
+	public function __construct(FileSystem $file)
+	{
+		$this->file = $file;
+	}
 
     /**
      * Loads configuration file
      * @return array Return data configuration as array
      * @throws \Exception If php configuration file not found
      */
-    public function loadconfig($path)
+    public function loadconfig()
     {
-        if (file_exists($path))
+        if ($this->file)
         {
-            $this->data = include $path;
-        } else
-        {
-            throw new \Exception('Configuration file not found: ' . $path);
+            $this->data = $this->file->load();
         }
 
-        return $this->data;
+			return $this->data;
     }
 }

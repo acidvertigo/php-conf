@@ -19,17 +19,14 @@ if (file_exists('./vendor/autoload.php'))
 // Core class autoload
 require_once 'Autoloader.php';
 
-// Initialize main class
-$app = new Acd\Main();
+// Initialize container class
+$app = new \Acd\Container;
 
-// Start configuration loader
-$app->setService('configloader');
-$config = $app->configloader->loadconfig('include/config.php');
+// Initialize Services
+$request = $app->resolve('\Acd\Request'); //Request
+$file = $app->resolve('\Acd\FileSystem', ['include/config.php']); //FileSystem
+$config = $app->resolve('\Acd\Config', [$file]); //Config
+$database = $app->resolve('\Acd\Database', [$config]); //Database
 
-// Start Database connection
-$app->setService('database', $config);
-$app->database->connect();
-
-// Start Request Service
-$app->setService('request');
-print_r($app->request->getRequestHeaders());
+//Start database connection
+$database->connect();

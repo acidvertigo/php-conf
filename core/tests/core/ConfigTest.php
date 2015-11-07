@@ -14,7 +14,7 @@ namespace Acd\core\tests;
  * @author Luca
  */
 
-class ConfigloaderTest extends \PHPUnit_Framework_TestCase
+class ConfigTest extends \PHPUnit_Framework_TestCase
 {
 
     private $path = 'include/config.php';
@@ -35,13 +35,13 @@ class ConfigloaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoadconfigException()
     {
-        $loadconfig = new \Acd\Configloader($this->wrongPath);
+        $loadconfig = new \Acd\Config($this->wrongPath);
         return $loadconfig->loadconfig();
     }
 
     public function testLoadconfig()
     {
-        $loadconfig = new \Acd\Configloader($this->path);
+        $loadconfig = new \Acd\Config($this->path);
         $this->assertAttributeInternalType('array', 'data', $loadconfig);
         $this->assertArrayHasKey('database', $loadconfig->loadconfig());
         $this->assertArrayHasKey('test', $loadconfig->loadconfig());
