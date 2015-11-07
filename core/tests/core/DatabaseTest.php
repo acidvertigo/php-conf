@@ -127,7 +127,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'USERNAME' => 'roottoor',
         'PASSWORD' => '']];
 	  
-        $config = $reflection = new ReflectionClass($this->config);
+        $config = $reflection = new \ReflectionClass($this->config);
 		
 		$property = $config->getProperty('data');
 		$property->setAccessible(true);
