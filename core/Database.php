@@ -42,7 +42,7 @@ class Database
     public $connection = null;
 
     public function __construct(Config $config) {
-        $this->config = $config;
+        $this->config = $config->loadconfig()['database'];
     }
 
     /**
@@ -56,7 +56,7 @@ class Database
             $options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, 
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];
 
-            $config = $this->config->loadconfig()['database'];
+            $config = $this->config;
 
                 // Starts connection
                 $this->connection = new \PDO('mysql:host=' . $config['HOST'] . ';dbname=' . $config['NAME'], 
