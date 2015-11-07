@@ -130,12 +130,10 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
             ->disableOriginalConstructor()
             ->getMock();
 		
-		$property = $reflection_class->getProperty('data');
+		$property = $config->getProperty('data');
 		$property->setAccessible(true);
 		$property->setValue($this->config);
  
- 
-
         $object = new \Acd\Database($config);
         return $database->connect();
     }
