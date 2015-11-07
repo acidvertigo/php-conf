@@ -70,10 +70,17 @@ class Request
      */
     private function getServerHeaders()
     {
-        foreach (array_keys($_SERVER) as $skey) {
-            if (strpos($skey, 'HTTP_') !== FALSE)
-            {
-                $this->headers[str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($skey, 5)))))] = $_SERVER[$skey];
+
+         foreach ($_SERVER as $key => $value)
+	     {
+		    if (substr($key, 0, 5) == 'HTTP_')
+			{
+			   $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))));
+                $headers[$key] = $value;
+            } elseif ($key == "CONTENT_TYPE") {
+                $headers["Content-Type"] = $value;
+            } elseif ($key == "CONTENT_LENGTH") {
+                $headers["Content-Length"] = $value;
             }
         }
 
