@@ -25,8 +25,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     /** @var \PDO * */
     static private $pdo = null;
 
-
-
     private $options = [];
 	
 	private $container;
@@ -63,11 +61,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     public function testConstruct() {
 
-        $registry = $this->config;
-
-        $config = $registry->loadconfig();
-
-        $this->object = new \Acd\Database($config);
+        $this->object = new \Acd\Database($this->filesystem);
        
     }
 
@@ -117,12 +111,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     public function testDisconnect() {
-
-        $registry = $this->config;
-
-        $config = $registry->loadconfig();
-
-        $object = new \Acd\Database($config);
+        $object = new \Acd\Database($this->filesystem);
         $this->assertNotInstanceOf('PDO', $database->disconnect());
         $this->assertNull($database->disconnect());
     }
@@ -140,9 +129,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
   
 		$registry = $this->config;
 
-        $config = $registry->loadconfig();
+        $this->config = $this->container->resolve('\Acd\Config', [$this->path], FALSE);
 
-        $object = new \Acd\Database($config);
+        $object = new \Acd\Database($this->config);
         return $database->connect();
     }
 }
