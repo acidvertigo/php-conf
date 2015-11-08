@@ -34,9 +34,9 @@ namespace Acd;
 class Database
 {
 
-    /** @var \Acd\Config Configuration array */
+    /** @var array $config Configuration array */
     private $config = null;
-    /** @var \PDO connection object */
+    /** @var \PDO $connection Connection object */
     public $connection = null;
 
     public function __construct(Config $config) {
