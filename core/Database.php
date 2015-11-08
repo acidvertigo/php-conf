@@ -36,9 +36,9 @@ use \Acd\Registry;
 class Database
 {
 
-    /** @var array Configuration array */
+    /** @var \Acd\Config Configuration array */
     private $config = null;
-    /** @var object PDO connection object */
+    /** @var \PDO connection object */
     public $connection = null;
 
     public function __construct(Config $config) {
