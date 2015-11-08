@@ -18,10 +18,11 @@ class Uri {
 	
     private $http;
 	
-    public function __construct(Http $http) {
+    public function __construct(Http $http)
+    {
         $this->http = $http;
     }
-	
+
     /**
      * returns the current url
      * @return bool|string the current url
