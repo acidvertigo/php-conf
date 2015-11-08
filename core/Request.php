@@ -21,7 +21,7 @@ class Request
         $this->http = $http;
     }
 
-	 /**
+    /**
      * Check HTTP request headers
      * @return array list of response headers
      * @throws \InvalidArgumentException if header is null
@@ -69,7 +69,8 @@ class Request
     private function getServerHeaders()
     {
 
-            foreach ($_SERVER as $key => $value) {
+        foreach ($_SERVER as $key => $value)
+        {
             if (substr($key, 0, 5) == 'HTTP_')
             {
                 $this->headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))))] = $value;
