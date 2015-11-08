@@ -9,7 +9,7 @@
 namespace Acd;
 
 /**
- * Description of FileSystem
+ * FileSystem class for file access
  *
  * @author Acidvertigo
  */
@@ -33,6 +33,8 @@ class FileSystem {
     }
 
     /**
+     * Check if the file given in the constructor 
+     * exists then will include it.
      * @return mixed File content
      * @throws \Exception
      */
