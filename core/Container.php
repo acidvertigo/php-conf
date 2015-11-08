@@ -82,7 +82,7 @@ class Container
         foreach ($parameters as $parameter) {
             $dependency = $parameter->getClass();
 
-            if (is_null($dependency))
+            if ($dependency == null)
             {
                 $dependencies[] = $this->resolveNonClass($parameter);
                 continue;
