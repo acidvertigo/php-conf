@@ -26,8 +26,6 @@
 
 namespace Acd;
 
-use \Acd\Registry;
-
 /**
  * Database connection class
  *
