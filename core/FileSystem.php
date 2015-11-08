@@ -45,7 +45,7 @@ class FileSystem {
             throw new \Exception('File not found: ' . $this->path);
         }
 
-       return $this->content = include $this->path;
+        return $this->content = include $this->path;
     }
 
 }
