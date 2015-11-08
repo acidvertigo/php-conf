@@ -14,15 +14,15 @@ namespace Acd;
  * @author Acidvertigo
  */
 class FileSystem {
-	
+
     private $path;
     private $content;
-	
+
     public function __construct($path = null)
     {
         $this->path = $path;
     }
-	
+
     public function find()
     {
         if (file_exists($this->path))
@@ -34,7 +34,7 @@ class FileSystem {
         }
 
     }
-	
+
     public function load()
     {
             if ($this->find())
@@ -42,5 +42,5 @@ class FileSystem {
             return $this->content = include $this->path;
         }
     }
-	
+
 }
