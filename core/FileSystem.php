@@ -37,7 +37,7 @@ class FileSystem {
 	
     public function load()
     {
-            if ($this->find($this->path))
+            if ($this->find())
         {
             return $this->content = include $this->path;
         }
