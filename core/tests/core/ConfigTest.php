@@ -23,13 +23,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
 	private $container;
 	
     public function setUp() { 
-          
+            $_SERVER['HTTP_HOST'] = 'localhost';
 			$this->container = new \Acd\Container;
 			$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path], FALSE);
         } 
   
         public function tearDown() {  
-          
+            unset($_SERVER['HTTP_HOST']);
             parent::tearDown();  
         } 
  

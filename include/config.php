@@ -3,7 +3,7 @@
 //This is a sample configuration file
 return [
     'site' => [
-        'HOST' => 'localhost',
+        'HOST' => $_SERVER['HTTP_HOST'],
         'DOC_ROOT' => __DIR__,
         'NAME' => 'php-conf'
     ],
