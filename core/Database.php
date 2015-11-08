@@ -51,15 +51,13 @@ class Database
     public function connect()
     {
         try {
-            $options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, 
+                $options = [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ, 
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING];
 
-            $config = $this->config;
-
                 // Starts connection
-                $this->connection = new \PDO('mysql:host=' . $config['HOST'] . ';dbname=' . $config['NAME'], 
-                                                $config['USERNAME'], 
-                                                $config['PASSWORD'], 
+                $this->connection = new \PDO('mysql:host=' . $this->config['HOST'] . ';dbname=' . $this->config['NAME'], 
+                                                $this->config['USERNAME'], 
+                                                $this->config['PASSWORD'], 
                                                 $options);
             } catch (\PDOException $e) {
                 throw $e;
