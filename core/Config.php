@@ -61,9 +61,14 @@ class Config
 
     public function get($key)
     {
-       if (!isset($this->data[$key]))
+       if (empty($this->data))
        {
            $this->loadconfig();
+       }
+
+       if (!isset($this->data[$key]))
+       {
+           throw new \Exception ('Configuration key: ' . $key . 'not found');
        }
 
       return $this->data[$key];    
