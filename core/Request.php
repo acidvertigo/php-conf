@@ -16,17 +16,16 @@ class Request
 
     private $http;
 
-    /**
-     * Check HTTP request headers
-     * @return array list of response headers
-     * @throws InvalidArgumentException if header is null
-     */
-
     public function __construct(Http $http)
     {
         $this->http = $http;
     }
 
+	 /**
+     * Check HTTP request headers
+     * @return array list of response headers
+     * @throws \InvalidArgumentException if header is null
+     */
     public function getRequestHeaders()
     {
         if (function_exists('getallheaders()'))
