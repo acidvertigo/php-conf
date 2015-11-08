@@ -36,7 +36,7 @@ class Config
     /** @var array $content Main configuration data Array */
     private $data = [];
 	
-    /** @var \FileSystem $file Configuration file **/
+    /** @var \Acd\FileSystem $file Configuration file **/
     private $file;
 	
     public function __construct(FileSystem $file)
