@@ -44,9 +44,9 @@ class Container
         $constructor = $resolver->getConstructor();
 
         if (!$constructor)
-       {
+        {
             return new $class;
-       }
+        }
 
        $parameters = $constructor->getParameters();
 
