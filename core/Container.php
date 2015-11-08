@@ -86,8 +86,9 @@ class Container
             {
                 $dependencies[] = $this->resolveNonClass($parameter);
             }
-
-            $dependencies[] = $this->resolve($dependency->name);
+            else {
+                $dependencies[] = $this->resolve($dependency->name);
+            }
         }
         return $dependencies;
     }
