@@ -39,7 +39,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $this->container = new \Acd\Container;
 		$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path]);
 		$this->config = $this->container->resolve('\Acd\Config', [$this->filesystem]);
-		
+		$_SERVER['HTTP_HOST'] = 'localhost';
     }
 
     /**
@@ -47,7 +47,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      * This method is called after a test is executed.
      */
     protected function tearDown() {
-
+        unset($_SERVER['HTTP_HOST']);
+		parent::tearDown();
     }
 
     public function __construct() {
@@ -131,8 +132,8 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 	     $database = $this->getMockBuilder('\Acd\Database')
            ->setMethods(array('__construct'))
            ->setConstructorArgs($configure)
-           ->disableOriginalConstructor()
-           ->getMock();
+        ->disableOriginalConstructor()
+        ->getMock();
 		 
         return $database->connect();
     }
