@@ -27,9 +27,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
 
     private $options = [];
 	
-	private $container;
-	private $config;
-	private $path = 'include/config.php';
+    private $container;
+    private $config;
+    private $path = 'include/config.php';
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -37,9 +37,9 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     protected function setUp() {
         $this->container = new \Acd\Container;
-		$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path]);
-		$this->config = $this->container->resolve('\Acd\Config', [$this->filesystem]);
-		$_SERVER['HTTP_HOST'] = 'localhost';
+        $this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path]);
+        $this->config = $this->container->resolve('\Acd\Config', [$this->filesystem]);
+        $_SERVER['HTTP_HOST'] = 'localhost';
     }
 
     /**
@@ -48,7 +48,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     protected function tearDown() {
         unset($_SERVER['HTTP_HOST']);
-		parent::tearDown();
+        parent::tearDown();
     }
 
     public function __construct() {
@@ -119,15 +119,15 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
      */
     public function testConnectionException() {
 
-      $configure = ['database' => [
+        $configure = ['database' => [
         'HOST' => 'localhost',
         'NAME' => 'shopshop',
         'USERNAME' => 'roottoor',
         'PASSWORD' => '']];
       
-         $database = $this->getMockBuilder('\Acd\Database')
-           ->setMethods(array('__construct'))
-           ->setConstructorArgs($configure)
+            $database = $this->getMockBuilder('\Acd\Database')
+            ->setMethods(array('__construct'))
+            ->setConstructorArgs($configure)
         ->disableOriginalConstructor()
         ->getMock();
  

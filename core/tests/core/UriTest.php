@@ -7,42 +7,42 @@ namespace Acd\core\tests;
  */
 class UriTest extends \PHPUnit_Framework_TestCase {
 
-	/**
-	 * @var Uri
-	 */
-	protected $object;
+    /**
+     * @var Uri
+     */
+    protected $object;
 	
-	protected $container;
+    protected $container;
 
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
-	protected function setUp()
-	{
-		$this->container = new \Acd\Container;
-		$this->object = $this->container->resolve('\Acd\Uri');
-	}
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     */
+    protected function setUp()
+    {
+        $this->container = new \Acd\Container;
+        $this->object = $this->container->resolve('\Acd\Uri');
+    }
 
-	/**
-	 * Tears down the fixture, for example, closes a network connection.
-	 * This method is called after a test is executed.
-	 */
-	protected function tearDown()
-	{
+    /**
+     * Tears down the fixture, for example, closes a network connection.
+     * This method is called after a test is executed.
+     */
+    protected function tearDown()
+    {
 		
-	}
+    }
 
-	/**
-	 * @covers Acd\Uri::getUrl
-	 * @todo   Implement testGetUrl().
-	 */
-	public function testGetUrl()
-	{
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
-	}
+    /**
+     * @covers Acd\Uri::getUrl
+     * @todo   Implement testGetUrl().
+     */
+    public function testGetUrl()
+    {
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete(
+                'This test has not been implemented yet.'
+        );
+    }
 
 }

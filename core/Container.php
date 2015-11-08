@@ -16,7 +16,7 @@ namespace Acd;
 class Container
 {
 
-	private $instances = [];
+    private $instances = [];
 
     /**
      * Build an instance of the given class
@@ -48,19 +48,18 @@ class Container
             return new $class;
         }
 
-       $parameters = $constructor->getParameters();
+        $parameters = $constructor->getParameters();
 
         if (empty($parameters))
         {
-          return new $class;
+            return new $class;
         }
 
         $dependencies = $this->getDependencies($parameters);
 
         if (!empty($args))
         {
-            foreach ($args as $key => $value)
-            {
+            foreach ($args as $key => $value) {
                 $dependencies[$key] = $value;
             }
         }
@@ -79,15 +78,14 @@ class Container
     {
         $dependencies = [];
 
-        foreach ($parameters as $parameter)
-        {
+        foreach ($parameters as $parameter) {
             $dependency = $parameter->getClass();
 
             if (is_null($dependency))
             {
                 $dependencies[] = $this->resolveNonClass($parameter);
-            }
-            else {
+            } else
+            {
                 $dependencies[] = $this->resolve($dependency->name);
             }
         }
@@ -109,5 +107,5 @@ class Container
             return $parameter->getDefaultValue();
         }
 
-   }
+    }
 }

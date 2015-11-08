@@ -19,13 +19,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
 
     private $path = 'include/config.php';
     private $wrongPath = 'include/conffig.php';
-	private $filesystem;
-	private $container;
+    private $filesystem;
+    private $container;
 	
     public function setUp() { 
             $_SERVER['HTTP_HOST'] = 'localhost';
-			$this->container = new \Acd\Container;
-			$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path], FALSE);
+            $this->container = new \Acd\Container;
+            $this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path], FALSE);
         } 
   
         public function tearDown() {  
@@ -40,7 +40,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     public function testLoadconfigException()
     {
         $file = $this->container->resolve('\Acd\FileSystem', [$this->wrongPath], FALSE);
-		$config = $this->container->resolve('\Acd\Config', [$file]);
+        $config = $this->container->resolve('\Acd\Config', [$file]);
         return $config->loadconfig();
     }
 
