@@ -49,7 +49,7 @@ class Response
             throw new \InvalidArgumentException('Invalid response status code: ' . $codestatus);
         }
 
-        return $codeStatus;
+        return $codestatus;
     }
 
 }
