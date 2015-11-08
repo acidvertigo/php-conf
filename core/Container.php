@@ -23,7 +23,7 @@ class Container
      * @param string $class
      * @param array $args
      * @param bool $shared
-     * @return \Acd\class
+     * @return object
      * @throws \Exception
      */
     public function resolve($class, array $args = [], $shared = TRUE)
