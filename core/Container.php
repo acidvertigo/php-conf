@@ -28,7 +28,7 @@ class Container
      */
     public function resolve($class, array $args = [], $shared = TRUE)
     {
-        //Is there a shared instance set? Return it.
+        //If $shared is true then return same instance.
         if ($shared !== FALSE && isset($this->instances[$class]))
         {
             return $this->instances[$class];
