@@ -25,13 +25,7 @@ class FileSystem {
 
     public function find()
     {
-        if (file_exists($this->path))
-        {
-            return $this->path;
-        } else
-        {
-            throw new \Exception("File not found: $this->path");
-        }
+        return file_exists($this->path);
 
     }
 
@@ -40,6 +34,9 @@ class FileSystem {
         if ($this->find())
         {
             return $this->content = include $this->path;
+        }
+		else {
+            throw new \Exception("File not found: $this->path");
         }
     }
 
