@@ -40,13 +40,12 @@ class FileSystem {
      */
     public function load()
     {
-        if ($this->find())
-        {
-            return $this->content = include $this->path;
-        } else
+        if (!$this->find())
         {
             throw new \Exception('File not found: ' . $this->path);
         }
+
+       return $this->content = include $this->path;
     }
 
 }
