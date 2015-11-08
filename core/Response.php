@@ -42,11 +42,11 @@ class Response
     public function getStatusCode($url = null)
     {
         $response = ($this->getResponseHeaders($url)[0]);
-        $codeStatus = (int) substr($response, 9, 3);
+        $codestatus = (int) substr($response, 9, 3);
 
-        if ($codeStatus < 100 || $codeStatus > 999)
+        if ($codestatus < 100 || $codestatus > 999)
         {
-            throw new \InvalidArgumentException('Invalid  status code: ' . $statusCode);
+            throw new \InvalidArgumentException('Invalid response status code: ' . $codestatus);
         }
 
         return $codeStatus;
