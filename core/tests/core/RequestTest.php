@@ -41,7 +41,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $serverArray = ['Accept-Language' => 'it', 'Accept-Encoding' => 'gzip, deflate, sdch'];  
 
-        foreach ($this->header as $key => $value) {
+        foreach (array_keys($this->header) as $key) {
             $this->assertEquals($this->header[$key], $serverArray[$key]);
         }
 
