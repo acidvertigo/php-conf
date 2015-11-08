@@ -13,7 +13,7 @@ class Request
     private $headers = [];
     /** @var array $body the request body * */
     private $body;
-
+    /** @var \Acd\Http $http The Http protocol class **/
     private $http;
 
     public function __construct(Http $http)
