@@ -77,10 +77,10 @@ class Request
 			{
 			   $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))));
                 $this->headers[$key] = $value;
-            } elseif ($key == "CONTENT_TYPE") {
-                $this->headers["Content-Type"] = $value;
-            } elseif ($key == "CONTENT_LENGTH") {
-                $this->headers["Content-Length"] = $value;
+            } elseif ($key == 'CONTENT_TYPE') {
+                $this->headers['Content-Type'] = $value;
+            } elseif ($key == 'CONTENT_LENGTH') {
+                $this->headers['Content-Length'] = $value;
             }
         }
 
