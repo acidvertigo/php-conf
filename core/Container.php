@@ -72,7 +72,6 @@ class Container
 	
 	/**
 	 * Build up a list of dependencies for a given methods parameters
-	 *
 	 * @param array $parameters
 	 * @return array
 	 */

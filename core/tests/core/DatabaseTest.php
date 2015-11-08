@@ -39,7 +39,7 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         $this->container = new \Acd\Container;
 		$this->filesystem = $this->container->resolve('\Acd\FileSystem', [$this->path]);
 		$this->config = $this->container->resolve('\Acd\Config', [$this->filesystem]);
-		$_SERVER['HTTP_HOST'] = 'localhost';
+		
     }
 
     /**
@@ -129,10 +129,10 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'PASSWORD' => '']];
 	  
 	     $database = $this->getMockBuilder('\Acd\Database')
-        ->setMethods(array('__construct'))
-        ->setConstructorArgs($configure)
-        ->disableOriginalConstructor()
-        ->getMock();
+           ->setMethods(array('__construct'))
+           ->setConstructorArgs($configure)
+           ->disableOriginalConstructor()
+           ->getMock();
 		 
         return $database->connect();
     }

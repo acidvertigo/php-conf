@@ -56,6 +56,6 @@ class Config
             $this->data = $this->file->load();
         }
 
-			return $this->data;
+		return $this->data;
     }
 }

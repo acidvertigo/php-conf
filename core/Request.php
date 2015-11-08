@@ -70,17 +70,17 @@ class Request
      */
     private function getServerHeaders()
     {
-
+	
          foreach ($_SERVER as $key => $value)
 	     {
 		    if (substr($key, 0, 5) == 'HTTP_')
 			{
 			   $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))));
-                $headers[$key] = $value;
+                $this->headers[$key] = $value;
             } elseif ($key == "CONTENT_TYPE") {
-                $headers["Content-Type"] = $value;
+                $this->headers["Content-Type"] = $value;
             } elseif ($key == "CONTENT_LENGTH") {
-                $headers["Content-Length"] = $value;
+                $this->headers["Content-Length"] = $value;
             }
         }
 

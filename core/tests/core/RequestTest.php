@@ -23,7 +23,6 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'it';
         $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate, sdch';
         $_SERVER['REQUEST_METHOD'] = 'GET';
-		$_SERVER['HTTP_HOST'] = 'localhost';
 		$this->http = (new \Acd\Container)->resolve('\Acd\Http');
     }
 
@@ -31,7 +30,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
         unset($_SERVER['HTTP_ACCEPT_ENCODING']);
         unset($_SERVER['REQUEST_METHOD']);
-
+	
         parent::tearDown(); 
     }
 
