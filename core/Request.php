@@ -35,7 +35,8 @@ class Request
         {
             $this->headers = $this->getServerHeaders();
         }
-        if ($this->headers !== null)
+
+        if (!empty($this->headers))
         {
             return $this->headers;
         } else
