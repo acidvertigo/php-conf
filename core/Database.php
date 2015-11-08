@@ -40,7 +40,7 @@ class Database
     public $connection = null;
 
     public function __construct(Config $config) {
-        $this->config = $config->loadconfig()['database'];
+        $this->config = $config->get('database');
     }
 
     /**
