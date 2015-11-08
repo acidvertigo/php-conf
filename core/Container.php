@@ -85,8 +85,8 @@ class Container
             if (is_null($dependency))
             {
                 $dependencies[] = $this->resolveNonClass($parameter);
-            }
-            else {
+            } else
+            {
                 $dependencies[] = $this->resolve($dependency->name);
             }
         }
