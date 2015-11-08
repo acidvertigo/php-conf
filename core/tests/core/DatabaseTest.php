@@ -124,13 +124,13 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
         'NAME' => 'shopshop',
         'USERNAME' => 'roottoor',
         'PASSWORD' => '']];
-	  
-	     $database = $this->getMockBuilder('\Acd\Database')
+      
+         $database = $this->getMockBuilder('\Acd\Database')
            ->setMethods(array('__construct'))
            ->setConstructorArgs($configure)
         ->disableOriginalConstructor()
         ->getMock();
-		 
+ 
         return $database->connect();
     }
 }
