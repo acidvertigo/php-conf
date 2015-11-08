@@ -36,7 +36,7 @@ class FileSystem {
             return $this->content = include $this->path;
         }
 		else {
-            throw new \Exception("File not found: $this->path");
+            throw new \Exception('File not found: ' . $this->path);
         }
     }
 
