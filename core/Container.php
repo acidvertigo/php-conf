@@ -38,7 +38,7 @@ class Container
 
         if (!$resolver->isInstantiable())
         {
-            throw new \Exception("[$class] is not instantiable");
+            throw new \Exception($class . ' is not instantiable');
         }
  
         $constructor = $resolver->getConstructor();
