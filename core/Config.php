@@ -59,6 +59,13 @@ class Config
         return $this->data;
     }
 
+    /**
+     * Configuration get method
+     * @param string $key The Configuration key to find
+     * @return arra The configuration array values
+     * @throws \Exception if configuration key is not set
+     */ 
+
     public function get($key)
     {
         if (empty($this->data))
