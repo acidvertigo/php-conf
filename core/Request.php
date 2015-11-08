@@ -36,13 +36,12 @@ class Request
             $this->headers = $this->getServerHeaders();
         }
 
-        if (!empty($this->headers))
-        {
-            return $this->headers;
-        } else
+        if (empty($this->headers))
         {
             throw new \InvalidArgumentException('Unable to get Request Headers');
         }
+
+        return $this->headers;
     }
 
     /**

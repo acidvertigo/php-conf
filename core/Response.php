@@ -25,10 +25,8 @@ class Response
         if (!is_array($response) || $response  === FALSE)
         {
             throw new \InvalidArgumentException('Unable to get Response Headers');
-        } else
-        {
-            $this->headers = $response;
         }
+            $this->headers = $response;
 
         return $this->headers;
     }
