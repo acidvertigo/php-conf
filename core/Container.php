@@ -9,7 +9,7 @@
 namespace Acd;
 
 /**
- * Description of Container
+ * IOC Container class
  *
  * @author Acidvertigo
  */
