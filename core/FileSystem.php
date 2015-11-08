@@ -15,17 +15,17 @@ namespace Acd;
  */
 class FileSystem {
 	
-	private $path;
-	private $content;
+    private $path;
+    private $content;
 	
-	public function __construct($path = null)
-	{
-		$this->path = $path;
-	}
+    public function __construct($path = null)
+    {
+        $this->path = $path;
+    }
 	
-	public function find()
-	{
-	    if (file_exists($this->path))
+    public function find()
+    {
+        if (file_exists($this->path))
         {
             return $this->path;
         } else
@@ -33,14 +33,14 @@ class FileSystem {
             throw new \Exception("File not found: $this->path");
         }
 
-	}
+    }
 	
-	public function load()
-	{
-		 if ($this->find($this->path))
+    public function load()
+    {
+            if ($this->find($this->path))
         {
-			return $this->content = include $this->path;
+            return $this->content = include $this->path;
         }
-	}
+    }
 	
 }

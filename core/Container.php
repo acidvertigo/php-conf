@@ -30,20 +30,20 @@ class Container
 	{
 		//Is there a shared instance set? Return it.
 		if ($shared !== FALSE && isset($this->instances[$class]))
-		{	
+		{
 			return $this->instances[$class];
 		}
 
 		$resolver = new \ReflectionClass($class);
 
- 		if( ! $resolver->isInstantiable())
+ 		if (!$resolver->isInstantiable())
  		{
  			throw new \Exception("[$class] is not instantiable");
  		}
  		
  		$constructor = $resolver->getConstructor();
  		
- 		if(!$constructor)
+ 		if (!$constructor)
  		{
  			return new $class;
  		}
@@ -59,8 +59,7 @@ class Container
 
 		if (!empty($args))
 		{
-			foreach ($args as $key => $value)
-			{
+			foreach ($args as $key => $value) {
 			    $dependencies[$key] = $value;
 			}
 		}
@@ -79,11 +78,11 @@ class Container
 	{
 		$dependencies = [];
 		
-		foreach($parameters as $parameter)
+		foreach ($parameters as $parameter)
 		{
 			$dependency = $parameter->getClass();
 			 
-			if(is_null($dependency))
+			if (is_null($dependency))
 			{
 				$dependencies[] = $this->resolveNonClass($parameter);
 			}
@@ -97,14 +96,14 @@ class Container
 	/**
 	 * Determine what to do with a non-class value
 	 *
-	 * @param ReflectionParameter $parameter
+	 * @param \ReflectionParameter $parameter
 	 * @return mixed
 	 *
 	 * @throws Exception
 	 */
 	public function resolveNonClass(\ReflectionParameter $parameter)
 	{
-		if($parameter->isDefaultValueAvailable())
+		if ($parameter->isDefaultValueAvailable())
 		{
 			return $parameter->getDefaultValue();
 		}

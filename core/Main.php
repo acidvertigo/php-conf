@@ -34,48 +34,48 @@ namespace Acd;
 class Main {
    
     private $registry = null;
-	private $service = null;
-	private $obj = null;
+    private $service = null;
+    private $obj = null;
 	
-	public function __construct()
+    public function __construct()
     {
-		if (!($this->registry instanceof Registry))
-		{
+        if (!($this->registry instanceof Registry))
+        {
             $this->registry = new Registry;
-		}	
+        }	
     }
 	
     public function getService($service)
-	{
+    {
         return $this->registry->get($service);
     }
   
     public function setService($class, array $args = null)
-	{ 
-       return $this->registry->set($class, function() use ($class, $args) { $class = $this->isValidService($class); return new $class($args); });
-	} 
+    { 
+        return $this->registry->set($class, function() use ($class, $args) { $class = $this->isValidService($class); return new $class($args); });
+    } 
 
-	private function isValidService($classname)
+    private function isValidService($classname)
     {
-	    $classname = __NAMESPACE__ . '\\' . ucwords($classname); 
+        $classname = __NAMESPACE__ . '\\' . ucwords($classname); 
         if(class_exists($classname)) 
         {
-           return $classname;
+            return $classname;
         } 
         else {
-           throw new \Exception("Invalid class name given: " . $classname); 
+            throw new \Exception("Invalid class name given: " . $classname); 
         } 
     }
 
-	/**
-	 * Magic method to retrieve the Object
-	 * @param string $obj
-	 * @return object Object instance
-	 */
-	public function __get($obj)
+    /**
+     * Magic method to retrieve the Object
+     * @param string $obj
+     * @return object Object instance
+     */
+    public function __get($obj)
     {
         $obj = $this->registry->get($obj);
-		return $obj();
+        return $obj();
     }
 
 }
