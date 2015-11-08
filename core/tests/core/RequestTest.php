@@ -17,20 +17,20 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 {
   
     private $header;
-	private $http;
+    private $http;
   
     public function setUp() {
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'it';
         $_SERVER['HTTP_ACCEPT_ENCODING'] = 'gzip, deflate, sdch';
         $_SERVER['REQUEST_METHOD'] = 'GET';
-		$this->http = (new \Acd\Container)->resolve('\Acd\Http');
+        $this->http = (new \Acd\Container)->resolve('\Acd\Http');
     }
 
     public function tearDown() { 
         unset($_SERVER['HTTP_ACCEPT_LANGUAGE']);
         unset($_SERVER['HTTP_ACCEPT_ENCODING']);
         unset($_SERVER['REQUEST_METHOD']);
-	
+
         parent::tearDown(); 
     }
 
