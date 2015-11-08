@@ -58,4 +58,15 @@ class Config
 
         return $this->data;
     }
+
+    public function get($key)
+    {
+       if (!isset($this->data[$key]))
+       {
+           $this->loadconfig();
+       }
+
+      return $this->data[$key];    
+    }
+    
 }
