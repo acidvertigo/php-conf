@@ -73,9 +73,8 @@ class Request
          foreach ($_SERVER as $key => $value)
          {
             if (substr($key, 0, 5) == 'HTTP_')
-           {
-                $key = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))));
-                $this->headers[$key] = $value;
+            {
+                $this->headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))))] = $value;
             } elseif ($key == 'CONTENT_TYPE') {
                 $this->headers['Content-Type'] = $value;
             } elseif ($key == 'CONTENT_LENGTH') {
