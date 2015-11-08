@@ -104,10 +104,6 @@ class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase {
     }
 
     public function testConnection() {
-        $registry = $this->config;
-
-        $config = $registry->loadconfig();
-
         $object = new \Acd\Database($this->config);
         $this->assertInstanceOf('\Acd\Database', $object);
     }
