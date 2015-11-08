@@ -23,26 +23,26 @@ class FileSystem {
         $this->path = $path;
     }
 
-	/**
-	 * @return bool
-	 */
+    /**
+     * @return bool
+     */
     public function find()
     {
         return file_exists($this->path);
 
     }
 
-	/**
-	 * @return mixed File content
-	 * @throws \Exception
-	 */
+    /**
+     * @return mixed File content
+     * @throws \Exception
+     */
     public function load()
     {
         if ($this->find())
         {
             return $this->content = include $this->path;
         }
-		else {
+        else {
             throw new \Exception('File not found: ' . $this->path);
         }
     }
