@@ -16,6 +16,7 @@ namespace Acd;
 class Container
 {
 
+    /** @var array $instances List of class instances **/
     private $instances = [];
 
     /**
