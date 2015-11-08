@@ -35,7 +35,7 @@ class FileSystem {
     /**
      * Check if the file given in the constructor 
      * exists then will include it.
-     * @return mixed File content
+     * @return array File content
      * @throws \Exception
      */
     public function load()
