@@ -36,13 +36,13 @@ class Config
     /** @var array $content Main configuration data Array */
     private $data = [];
 	
-	/** @var \File $file Configuration file **/
-	private $file;
+    /** @var \File $file Configuration file **/
+    private $file;
 	
-	public function __construct(FileSystem $file)
-	{
-		$this->file = $file;
-	}
+    public function __construct(FileSystem $file)
+    {
+        $this->file = $file;
+    }
 
     /**
      * Loads configuration file
@@ -56,6 +56,6 @@ class Config
             $this->data = $this->file->load();
         }
 
-		return $this->data;
+        return $this->data;
     }
 }
