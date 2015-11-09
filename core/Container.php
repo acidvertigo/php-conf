@@ -114,12 +114,12 @@ class Container
      * @param array $args Arguments Array
      * @return array $dependencies
      */
-     public function addArgs(array $args)
-     {
-         foreach ($args as $key => $value) {
-             $this->dependencies[$key] = $value;
-         }
+        public function addArgs(array $args)
+        {
+            foreach ($args as $key => $value) {
+                $this->dependencies[$key] = $value;
+            }
          
-         return $this->dependencies;
-     }
+            return $this->dependencies;
+        }
 }
