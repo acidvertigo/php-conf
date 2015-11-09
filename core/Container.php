@@ -18,6 +18,8 @@ class Container
 
     /** @var array $instances List of class instances **/
     private $instances = [];
+    /** @var array $dependencies List of dependencies **/
+    private $dependencies = [];
 
     /**
      * Build an instance of the given class
@@ -56,16 +58,14 @@ class Container
             return new $class;
         }
 
-        $dependencies = $this->getDependencies($parameters);
+        $this->dependencies = $this->getDependencies($parameters);
 
         if (!empty($args))
         {
-            foreach ($args as $key => $value) {
-                $dependencies[$key] = $value;
-            }
+            $this->addArgs($args);
         }
 
-        $this->instances[$class] = $resolver->newInstanceArgs($dependencies);
+        $this->instances[$class] = $resolver->newInstanceArgs($this->dependencies);
 
         return $this->instances[$class];
     }
@@ -77,20 +77,19 @@ class Container
      */
     public function getDependencies($parameters)
     {
-        $dependencies = [];
 
         foreach ($parameters as $parameter) {
             $dependency = $parameter->getClass();
 
             if ($dependency == null)
             {
-                $dependencies[] = $this->resolveNonClass($parameter);
+                $this->dependencies[] = $this->resolveNonClass($parameter);
                 continue;
             } 
             
-            $dependencies[] = $this->resolve($dependency->name);
+            $this->dependencies[] = $this->resolve($dependency->name);
         }
-        return $dependencies;
+        return $this->dependencies;
     }
 
     /**
@@ -109,4 +108,18 @@ class Container
         }
 
     }
+    
+    /**
+     * Compute given dependency arguments
+     * @param array $args Arguments Array
+     * @return array $dependencies
+     */
+     public function getArgs(array $args)
+     {
+         foreach ($args as $key => $value) {
+             $this->dependencies[$key] = $value;
+         }
+         
+         return $this->dependencies;
+     }
 }
