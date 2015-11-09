@@ -37,7 +37,7 @@ class Database
     /** @var array $config Configuration array */
     private $config = null;
     /** @var \PDO $connection Connection object */
-    public $connection = null;
+    private $connection = null;
 
     public function __construct(Config $config) {
         $this->config = $config->get('database');
