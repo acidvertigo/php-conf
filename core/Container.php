@@ -87,7 +87,7 @@ class Container
                 continue;
             } 
             
-            $this->dependencies[] = $this->resolve($dependency->name);
+            $this->dependencies[] = $this->resolve($dependency->getName());
         }
         return $this->dependencies;
     }
